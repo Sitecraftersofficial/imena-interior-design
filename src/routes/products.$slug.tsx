@@ -70,14 +70,16 @@ function ProductDetail() {
   const { isWished, toggleWish, addToProject } = useStore();
   const wished = isWished(product.id);
   const category = categoryBySlug(product.category);
-  const related = (product.relatedProducts ?? [])
-    .map((id) => productById(id))
-    .filter(Boolean)
-    .concat(
-      productsByCategory(product.category).filter((p) => p.id !== product.id),
-    )
-    .filter((p, i, a) => p && a.findIndex((x) => x?.id === p.id) === i)
-    .slice(0, 4) as NonNullable<ReturnType<typeof productById>>[];
+  type P = NonNullable<ReturnType<typeof productById>>;
+  const relatedRaw: P[] = [
+    ...((product.relatedProducts ?? [])
+      .map((id: string) => productById(id))
+      .filter((p): p is P => Boolean(p))),
+    ...productsByCategory(product.category).filter((p) => p.id !== product.id),
+  ];
+  const related: P[] = relatedRaw
+    .filter((p, i, a) => a.findIndex((x) => x.id === p.id) === i)
+    .slice(0, 4);
 
   const specs: [string, string][] = [];
   if (product.material) specs.push(["Material", product.material]);
