@@ -71,13 +71,14 @@ function ProductDetail() {
   const wished = isWished(product.id);
   const category = categoryBySlug(product.category);
   type P = NonNullable<ReturnType<typeof productById>>;
-  const relatedRaw: P[] = [
-    ...((product.relatedProducts ?? [])
-      .map((id: string) => productById(id))
-      .filter((p): p is P => Boolean(p))),
-    ...productsByCategory(product.category).filter((p) => p.id !== product.id),
-  ];
-  const related: P[] = relatedRaw
+  const relatedIds = product.relatedProducts ?? [];
+  const relatedFromIds: P[] = relatedIds
+    .map((id: string): P | undefined => productById(id))
+    .filter((p): p is P => Boolean(p));
+  const relatedFromCategory: P[] = productsByCategory(product.category).filter(
+    (p) => p.id !== product.id,
+  );
+  const related: P[] = [...relatedFromIds, ...relatedFromCategory]
     .filter((p, i, a) => a.findIndex((x) => x.id === p.id) === i)
     .slice(0, 4);
 
@@ -88,7 +89,8 @@ function ProductDetail() {
   if (product.finishes?.length) specs.push(["Finishes", product.finishes.join(", ")]);
   if (product.availability) specs.push(["Availability", product.availability.replace("-", " ")]);
   if (product.specifications) {
-    for (const [k, v] of Object.entries(product.specifications)) specs.push([k, v]);
+    for (const [k, v] of Object.entries(product.specifications) as [string, string][])
+      specs.push([k, v]);
   }
 
   return (
