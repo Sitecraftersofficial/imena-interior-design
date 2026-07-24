@@ -83,7 +83,7 @@ function Catalog() {
   const setSearch = (patch: Partial<z.infer<typeof searchSchema>>) => {
     setVisible(PAGE);
     navigate({
-      search: (prev) => ({ ...prev, ...patch }),
+      search: (prev: z.infer<typeof searchSchema>) => ({ ...prev, ...patch }),
       replace: true,
     });
   };
