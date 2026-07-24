@@ -309,7 +309,7 @@ function FiltersPanel({
             <li key={c.slug}>
               <Link
                 to="/products"
-                search={(prev) => ({ ...prev, category: c.slug })}
+                search={(prev: z.infer<typeof searchSchema>) => ({ ...prev, category: c.slug })}
                 className={`text-sm transition-colors ${
                   search.category === c.slug
                     ? "text-gold"
