@@ -71,10 +71,10 @@ function ProductDetail() {
   const wished = isWished(product.id);
   const category = categoryBySlug(product.category);
   type P = NonNullable<ReturnType<typeof productById>>;
-  const relatedIds = product.relatedProducts ?? [];
+  const relatedIds: string[] = product.relatedProducts ?? [];
   const relatedFromIds: P[] = relatedIds
     .map((id: string): P | undefined => productById(id))
-    .filter((p): p is P => Boolean(p));
+    .filter((p: P | undefined): p is P => Boolean(p));
   const relatedFromCategory: P[] = productsByCategory(product.category).filter(
     (p) => p.id !== product.id,
   );
