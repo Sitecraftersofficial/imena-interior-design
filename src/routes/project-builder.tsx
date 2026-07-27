@@ -1,10 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layers, Minus, Plus, Trash2, Send } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { productById } from "@/data/products";
 import { formatPrice } from "@/lib/format";
-import { buildProjectMailto } from "@/lib/send-to-manager";
+import {
+  buildProjectMailto,
+  validateClientInfo,
+  type ClientInfo,
+} from "@/lib/send-to-manager";
+
+const CLIENT_KEY = "dimena.client.v1";
 
 export const Route = createFileRoute("/project-builder")({
   head: () => ({
@@ -36,10 +42,31 @@ function ProjectBuilder() {
     clearProject,
   } = useStore();
 
-  const [meta, setMeta] = useState({ name: "", email: "", projectName: "" });
+  const [meta, setMeta] = useState<ClientInfo>({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    projectName: "",
+  });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
+  const [errorField, setErrorField] = useState<string | null>(null);
+
+  // Reuse saved client info so returning visitors don't re-enter it.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const raw = window.localStorage.getItem(CLIENT_KEY);
+      if (raw) {
+        const saved = JSON.parse(raw) as Partial<ClientInfo>;
+        setMeta((m) => ({ ...m, ...saved }));
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
 
   const rows = project
     .map((p) => ({ item: p, product: productById(p.productId) }))
@@ -50,19 +77,43 @@ function ProjectBuilder() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (sending || rows.length === 0) return;
+    if (sending) return;
+    if (rows.length === 0) {
+      setSendError("Your project is empty.");
+      return;
+    }
+    const error = validateClientInfo(meta);
+    if (error) {
+      setSendError(error.message);
+      setErrorField(error.field);
+      return;
+    }
     setSending(true);
     setSendError(null);
+    setErrorField(null);
     try {
+      // Persist client info for future submissions so the user isn't
+      // asked to re-enter their details.
+      window.localStorage.setItem(
+        CLIENT_KEY,
+        JSON.stringify({
+          name: meta.name.trim(),
+          email: meta.email.trim(),
+          phone: meta.phone?.trim() ?? "",
+          company: meta.company?.trim() ?? "",
+        }),
+      );
       const href = buildProjectMailto(rows, meta);
-      // Open the user's mail client with the existing project pre-composed.
+      // Opens the user's mail client with the existing project pre-composed.
       // No backend, no duplicate storage — the saved project remains the source of truth.
       window.location.href = href;
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       console.error("[Dimena] Failed to open mail client", err);
-      setSendError("Unable to open your mail app. Please try again.");
+      setSendError(
+        "We couldn't send your object right now. Your object is still saved. Please try again.",
+      );
     } finally {
       setSending(false);
     }
@@ -73,11 +124,19 @@ function ProjectBuilder() {
       <section className="container-x py-32 text-center">
         <p className="eyebrow">Received</p>
         <h1 className="mx-auto mt-6 max-w-2xl font-display text-4xl leading-tight text-ivory sm:text-6xl">
-          Thank you. Your project has reached the atelier.
+          Your project has been sent.
         </h1>
         <p className="mx-auto mt-6 max-w-lg text-base text-ivory/60">
-          A senior consultant will respond within one business day with a
-          preliminary specification and pricing for {rows.length} objects.
+          The atelier will review your submission of {rows.length} object
+          {rows.length === 1 ? "" : "s"} and may reach you at{" "}
+          <span className="text-ivory">{meta.email}</span>
+          {meta.phone?.trim() ? (
+            <>
+              {" "}
+              or <span className="text-ivory">{meta.phone.trim()}</span>
+            </>
+          ) : null}
+          .
         </p>
         <Link
           to="/products"
@@ -225,17 +284,16 @@ function ProjectBuilder() {
             </div>
 
             <aside className="h-fit border border-hairline bg-ink/40 p-6 lg:sticky lg:top-28">
-              <p className="eyebrow">Submit for quote</p>
+              <p className="eyebrow">Your details</p>
+              <p className="mt-2 text-xs text-ivory/40">
+                So the atelier knows who you are and how to reply.
+              </p>
               <div className="mt-6 space-y-4">
                 <Field
-                  label="Project name"
-                  value={meta.projectName}
-                  onChange={(v) => setMeta((m) => ({ ...m, projectName: v }))}
-                />
-                <Field
-                  label="Your name"
+                  label="Full name"
                   value={meta.name}
                   required
+                  invalid={errorField === "name"}
                   onChange={(v) => setMeta((m) => ({ ...m, name: v }))}
                 />
                 <Field
@@ -243,7 +301,26 @@ function ProjectBuilder() {
                   type="email"
                   value={meta.email}
                   required
+                  invalid={errorField === "email"}
                   onChange={(v) => setMeta((m) => ({ ...m, email: v }))}
+                />
+                <Field
+                  label="Phone"
+                  type="tel"
+                  value={meta.phone ?? ""}
+                  invalid={errorField === "phone"}
+                  onChange={(v) => setMeta((m) => ({ ...m, phone: v }))}
+                />
+                <Field
+                  label="Company"
+                  value={meta.company ?? ""}
+                  invalid={errorField === "company"}
+                  onChange={(v) => setMeta((m) => ({ ...m, company: v }))}
+                />
+                <Field
+                  label="Project name"
+                  value={meta.projectName ?? ""}
+                  onChange={(v) => setMeta((m) => ({ ...m, projectName: v }))}
                 />
               </div>
               <button
@@ -277,12 +354,14 @@ function Field({
   onChange,
   type = "text",
   required = false,
+  invalid = false,
 }: {
   label: string;
   value: string;
   onChange: (v: string) => void;
   type?: string;
   required?: boolean;
+  invalid?: boolean;
 }) {
   return (
     <label className="block">
@@ -295,7 +374,9 @@ function Field({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 h-11 w-full border border-hairline bg-void px-3 text-sm text-ivory focus:border-gold focus:outline-none"
+        className={`mt-2 h-11 w-full border bg-void px-3 text-sm text-ivory focus:border-gold focus:outline-none ${
+          invalid ? "border-red-400/70" : "border-hairline"
+        }`}
       />
     </label>
   );
