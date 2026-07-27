@@ -20,17 +20,17 @@ export const Route = createFileRoute("/products")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "The Catalog — Aurelian" },
+      { title: "The Catalog — Dimena" },
       {
         name: "description",
         content:
-          "Browse the complete Aurelian catalog of architectural doors, hardware, lighting, kitchens, wardrobes and interior systems.",
+          "Browse the complete Dimena catalog of architectural doors, hardware, lighting, kitchens, wardrobes and interior systems.",
       },
-      { property: "og:title", content: "The Catalog — Aurelian" },
+      { property: "og:title", content: "The Catalog — Dimena" },
       {
         property: "og:description",
         content:
-          "The complete Aurelian catalog. Filter by category, material and finish.",
+          "The complete Dimena catalog. Filter by category, material and finish.",
       },
     ],
   }),

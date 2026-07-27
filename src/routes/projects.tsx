@@ -42,17 +42,17 @@ const projects = [
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Aurelian" },
+      { title: "Projects — Dimena" },
       {
         name: "description",
         content:
-          "Selected residential and commercial projects designed and installed by the Aurelian atelier.",
+          "Selected residential and commercial projects designed and installed by the Dimena atelier.",
       },
-      { property: "og:title", content: "Projects — Aurelian" },
+      { property: "og:title", content: "Projects — Dimena" },
       {
         property: "og:description",
         content:
-          "Selected residential and commercial projects designed and installed by the Aurelian atelier.",
+          "Selected residential and commercial projects designed and installed by the Dimena atelier.",
       },
       { property: "og:image", content: livingForest },
       { name: "twitter:image", content: livingForest },

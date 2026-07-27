@@ -14,7 +14,7 @@ export const Route = createFileRoute("/categories/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Category not found — Aurelian" },
+          { title: "Category not found — Dimena" },
           { name: "robots", content: "noindex" },
         ],
       };
@@ -22,9 +22,9 @@ export const Route = createFileRoute("/categories/$slug")({
     const c = loaderData.category;
     return {
       meta: [
-        { title: `${c.name} — Aurelian` },
+        { title: `${c.name} — Dimena` },
         { name: "description", content: c.description },
-        { property: "og:title", content: `${c.name} — Aurelian` },
+        { property: "og:title", content: `${c.name} — Dimena` },
         { property: "og:description", content: c.description },
         { property: "og:image", content: c.image },
         { name: "twitter:image", content: c.image },

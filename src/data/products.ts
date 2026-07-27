@@ -211,7 +211,7 @@ export const products: Product[] = [
     image: gLockBrass,
     shortDescription: "Full-brass mortise deadbolt with keyed cylinder.",
     description:
-      "A full-brass mortise deadbolt with a keyed cylinder, matched to any Aurelian handle set.",
+      "A full-brass mortise deadbolt with a keyed cylinder, matched to any Dimena handle set.",
     material: "Solid Brass",
     finishes: ["Satin Brass", "Polished Brass", "Gunmetal"],
     dimensions: "165 × 22 mm backset",
@@ -450,7 +450,7 @@ export const products: Product[] = [
     image: uShowroomYellow.url,
     shortDescription: "Curated styling composition from our Milan atelier.",
     description:
-      "A styled composition of doors, panels and furniture from the Aurelian atelier — available to specify as a complete look.",
+      "A styled composition of doors, panels and furniture from the Dimena atelier — available to specify as a complete look.",
     priceType: "request-quote",
     price: null,
     availability: "made-to-order",
@@ -465,7 +465,7 @@ export const products: Product[] = [
     category: "accessories",
     productType: "styling",
     image: uShowroomDoors.url,
-    shortDescription: "A composition of Aurelian doors as showroom art.",
+    shortDescription: "A composition of Dimena doors as showroom art.",
     description:
       "A curated showroom composition of door leaves and framing — commissioned as sculpture, lit as architecture.",
     priceType: "request-quote",

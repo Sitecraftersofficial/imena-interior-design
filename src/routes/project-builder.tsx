@@ -8,13 +8,13 @@ import { formatPrice } from "@/lib/format";
 export const Route = createFileRoute("/project-builder")({
   head: () => ({
     meta: [
-      { title: "Project Builder — Aurelian" },
+      { title: "Project Builder — Dimena" },
       {
         name: "description",
         content:
           "Curate objects, add specification notes and submit as a consolidated quote request.",
       },
-      { property: "og:title", content: "Project Builder — Aurelian" },
+      { property: "og:title", content: "Project Builder — Dimena" },
       {
         property: "og:description",
         content:
@@ -48,7 +48,7 @@ function ProjectBuilder() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a future iteration this posts to Lovable Cloud; for now, we log and confirm.
-    console.log("[Aurelian] Project quote submitted", { meta, project: rows });
+    console.log("[Dimena] Project quote submitted", { meta, project: rows });
     setSubmitted(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

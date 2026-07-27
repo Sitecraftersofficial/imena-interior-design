@@ -20,7 +20,7 @@ export const Route = createFileRoute("/products/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Object not found — Aurelian" },
+          { title: "Object not found — Dimena" },
           { name: "robots", content: "noindex" },
         ],
       };
@@ -28,9 +28,9 @@ export const Route = createFileRoute("/products/$slug")({
     const p = loaderData.product;
     return {
       meta: [
-        { title: `${p.name} — Aurelian` },
+        { title: `${p.name} — Dimena` },
         { name: "description", content: p.shortDescription },
-        { property: "og:title", content: `${p.name} — Aurelian` },
+        { property: "og:title", content: `${p.name} — Dimena` },
         { property: "og:description", content: p.shortDescription },
         { property: "og:image", content: p.image },
         { name: "twitter:image", content: p.image },

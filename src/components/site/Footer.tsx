@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
             <p className="font-display text-2xl tracking-[0.35em] text-ivory">
-              AURELIAN
+              DIMENA
             </p>
             <p className="mt-6 text-sm leading-relaxed text-ivory/50">
               A design, supply and installation atelier for architectural
@@ -16,10 +16,10 @@ export function Footer() {
             </p>
             <p className="eyebrow mt-8">Correspondence</p>
             <a
-              href="mailto:concierge@aurelian.studio"
+              href="mailto:concierge@dimena.studio"
               className="mt-2 inline-block text-sm text-gold hover:underline"
             >
-              concierge@aurelian.studio
+              concierge@dimena.studio
             </a>
           </div>
 
@@ -54,7 +54,7 @@ export function Footer() {
         <div className="mt-20 hairline" />
         <div className="mt-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
-            © {new Date().getFullYear()} Aurelian Architectural. All rights reserved.
+            © {new Date().getFullYear()} Dimena Architectural. All rights reserved.
           </p>
           <div className="flex gap-8 font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
             <a href="#">Privacy</a>

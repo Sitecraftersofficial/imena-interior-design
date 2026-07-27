@@ -12,17 +12,17 @@ export const Route = createFileRoute("/contact")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Consultation — Aurelian" },
+      { title: "Consultation — Dimena" },
       {
         name: "description",
         content:
-          "Book a private consultation with the Aurelian atelier — Milan, London, Dubai.",
+          "Book a private consultation with the Dimena atelier — Milan, London, Dubai.",
       },
-      { property: "og:title", content: "Consultation — Aurelian" },
+      { property: "og:title", content: "Consultation — Dimena" },
       {
         property: "og:description",
         content:
-          "Private design consultations with the Aurelian atelier — Milan, London, Dubai.",
+          "Private design consultations with the Dimena atelier — Milan, London, Dubai.",
       },
     ],
   }),
@@ -44,7 +44,7 @@ function Contact() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("[Aurelian] Consultation request", form);
+    console.log("[Dimena] Consultation request", form);
     setSubmitted(true);
   };
 
@@ -141,7 +141,7 @@ function Contact() {
             +39 02 8080 8080
           </ContactBlock>
           <ContactBlock icon={<Mail className="h-4 w-4" strokeWidth={1.5} />} title="Correspondence">
-            concierge@aurelian.studio
+            concierge@dimena.studio
           </ContactBlock>
           <div className="border-t border-hairline pt-8">
             <p className="eyebrow">Global Showrooms</p>

@@ -50,9 +50,9 @@ export function Header() {
           <Link
             to="/"
             className="font-display text-xl tracking-[0.35em] text-ivory sm:text-2xl"
-            aria-label="Aurelian — home"
+            aria-label="Dimena — home"
           >
-            AURELIAN
+            DIMENA
           </Link>
 
           <nav className="hidden justify-center gap-8 lg:flex" aria-label="Primary">
