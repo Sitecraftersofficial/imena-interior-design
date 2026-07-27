@@ -8,9 +8,11 @@ export function Footer() {
       <div className="container-x py-20">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <p className="font-display text-2xl tracking-[0.35em] text-ivory">
-              DIMENA
-            </p>
+            <img
+              src={dimenaLogo.url}
+              alt="Dimena Interior Design"
+              className="h-16 w-auto"
+            />
             <p className="mt-6 text-sm leading-relaxed text-ivory/50">
               A design, supply and installation atelier for architectural
               hardware, doors, kitchens and complete interior systems. Milan · London · Dubai.
