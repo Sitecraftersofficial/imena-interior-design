@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { categories } from "@/data/categories";
 import dimenaLogo from "@/assets/dimena-logo.png.asset.json";
 
@@ -29,8 +29,7 @@ export function Footer() {
           <FooterColumn
             title="Catalog"
             links={categories.slice(0, 6).map((c) => ({
-              to: "/categories/$slug",
-              params: { slug: c.slug },
+              to: `/categories/${c.slug}`,
               label: c.name,
             }))}
           />
@@ -57,7 +56,7 @@ export function Footer() {
         <div className="mt-20 hairline" />
         <div className="mt-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
-            © {new Date().getFullYear()} Dimena Architectural. All rights reserved.
+            &copy; {new Date().getFullYear()} Dimena Architectural. All rights reserved.
           </p>
           <div className="flex gap-8 font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
             <a href="#">Privacy</a>
@@ -70,14 +69,12 @@ export function Footer() {
   );
 }
 
-// biome-ignore lint: local type
 function FooterColumn({
   title,
   links,
 }: {
   title: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  links: Array<{ to: any; label: string; params?: any }>;
+  links: Array<{ to: string; label: string }>;
 }) {
   return (
     <div>
@@ -87,7 +84,6 @@ function FooterColumn({
           <li key={`${l.to}-${l.label}`}>
             <Link
               to={l.to}
-              params={l.params}
               className="text-sm text-ivory/60 transition-colors hover:text-gold"
             >
               {l.label}
@@ -98,3 +94,4 @@ function FooterColumn({
     </div>
   );
 }
+

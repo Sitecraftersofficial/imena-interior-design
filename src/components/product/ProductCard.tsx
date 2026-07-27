@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Heart, Plus } from "lucide-react";
 import type { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/format";
@@ -16,8 +16,7 @@ export function ProductCard({ product, eager = false }: Props) {
   return (
     <article className="group relative flex flex-col">
       <Link
-        to="/products/$slug"
-        params={{ slug: product.slug }}
+        to={`/products/${product.slug}`}
         className="relative block overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline"
         aria-label={product.name}
       >
@@ -59,8 +58,7 @@ export function ProductCard({ product, eager = false }: Props) {
         </p>
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
           <Link
-            to="/products/$slug"
-            params={{ slug: product.slug }}
+            to={`/products/${product.slug}`}
             className="min-w-0"
           >
             <h3 className="truncate font-display text-lg leading-tight text-ivory transition-colors group-hover:text-gold">
@@ -86,3 +84,4 @@ export function ProductCard({ product, eager = false }: Props) {
     </article>
   );
 }
+

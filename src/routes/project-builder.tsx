@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Layers, Minus, Plus, Trash2, Send } from "lucide-react";
 import { useStore } from "@/lib/store";
@@ -12,27 +13,7 @@ import {
 
 const CLIENT_KEY = "dimena.client.v1";
 
-export const Route = createFileRoute("/project-builder")({
-  head: () => ({
-    meta: [
-      { title: "Project Builder — Dimena" },
-      {
-        name: "description",
-        content:
-          "Curate objects, add specification notes and submit as a consolidated quote request.",
-      },
-      { property: "og:title", content: "Project Builder — Dimena" },
-      {
-        property: "og:description",
-        content:
-          "Curate objects, add notes and submit as a consolidated quote request.",
-      },
-    ],
-  }),
-  component: ProjectBuilder,
-});
-
-function ProjectBuilder() {
+export function ProjectBuilder() {
   const {
     project,
     hydrated,
@@ -71,9 +52,9 @@ function ProjectBuilder() {
   const rows = project
     .map((p) => ({ item: p, product: productById(p.productId) }))
     .filter((r) => r.product) as {
-    item: (typeof project)[number];
-    product: NonNullable<ReturnType<typeof productById>>;
-  }[];
+      item: (typeof project)[number];
+      product: NonNullable<ReturnType<typeof productById>>;
+    }[];
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -92,8 +73,6 @@ function ProjectBuilder() {
     setSendError(null);
     setErrorField(null);
     try {
-      // Persist client info for future submissions so the user isn't
-      // asked to re-enter their details.
       window.localStorage.setItem(
         CLIENT_KEY,
         JSON.stringify({
@@ -104,8 +83,6 @@ function ProjectBuilder() {
         }),
       );
       const href = buildProjectMailto(rows, meta);
-      // Opens the user's mail client with the existing project pre-composed.
-      // No backend, no duplicate storage — the saved project remains the source of truth.
       window.location.href = href;
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -150,6 +127,19 @@ function ProjectBuilder() {
 
   return (
     <>
+      <Helmet>
+        <title>Project Builder — Dimena</title>
+        <meta
+          name="description"
+          content="Curate objects, add specification notes and submit as a consolidated quote request."
+        />
+        <meta property="og:title" content="Project Builder — Dimena" />
+        <meta
+          property="og:description"
+          content="Curate objects, add notes and submit as a consolidated quote request."
+        />
+      </Helmet>
+
       <section className="container-x border-b border-hairline pb-10 pt-16 lg:pt-24">
         <p className="eyebrow">Digital Concierge</p>
         <div className="mt-6 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -195,8 +185,7 @@ function ProjectBuilder() {
                   className="grid grid-cols-[96px_1fr] gap-4 border border-hairline bg-ink/40 p-4 sm:grid-cols-[140px_1fr_auto] sm:gap-6 sm:p-6"
                 >
                   <Link
-                    to="/products/$slug"
-                    params={{ slug: product.slug }}
+                    to={`/products/${product.slug}`}
                     className="block aspect-[4/5] overflow-hidden bg-void"
                   >
                     <img
@@ -211,8 +200,7 @@ function ProjectBuilder() {
                       {product.category.replace(/-/g, " ")}
                     </p>
                     <Link
-                      to="/products/$slug"
-                      params={{ slug: product.slug }}
+                      to={`/products/${product.slug}`}
                       className="mt-1 block truncate font-display text-xl text-ivory hover:text-gold"
                     >
                       {product.name}
@@ -374,10 +362,10 @@ function Field({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`mt-2 h-11 w-full border bg-void px-3 text-sm text-ivory focus:border-gold focus:outline-none ${
-          invalid ? "border-red-400/70" : "border-hairline"
-        }`}
+        className={`mt-2 h-11 w-full border bg-void px-3 text-sm text-ivory focus:border-gold focus:outline-none ${invalid ? "border-red-400/70" : "border-hairline"
+          }`}
       />
     </label>
   );
 }
+

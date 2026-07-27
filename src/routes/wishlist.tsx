@@ -1,28 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { Heart, Trash2 } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { productById } from "@/data/products";
 import { ProductGrid } from "@/components/product/ProductGrid";
 
-export const Route = createFileRoute("/wishlist")({
-  head: () => ({
-    meta: [
-      { title: "Your Wishlist — Dimena" },
-      {
-        name: "description",
-        content: "Saved objects from the Dimena catalog.",
-      },
-      { property: "og:title", content: "Your Wishlist — Dimena" },
-      {
-        property: "og:description",
-        content: "Saved objects from the Dimena catalog.",
-      },
-    ],
-  }),
-  component: WishlistPage,
-});
-
-function WishlistPage() {
+export function WishlistPage() {
   const { wishlist, hydrated, toggleWish } = useStore();
   const items = wishlist
     .map((w) => productById(w.productId))
@@ -30,6 +13,19 @@ function WishlistPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Your Wishlist — Dimena</title>
+        <meta
+          name="description"
+          content="Saved objects from the Dimena catalog."
+        />
+        <meta property="og:title" content="Your Wishlist — Dimena" />
+        <meta
+          property="og:description"
+          content="Saved objects from the Dimena catalog."
+        />
+      </Helmet>
+
       <section className="container-x border-b border-hairline pb-10 pt-16 lg:pt-24">
         <p className="eyebrow">Your archive</p>
         <div className="mt-6 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -77,3 +73,4 @@ function WishlistPage() {
     </>
   );
 }
+

@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { categories } from "@/data/categories";
 import { featuredProducts, products } from "@/data/products";
@@ -8,35 +9,25 @@ import heroDoor from "@/assets/hero-door.jpg";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Dimena — The Architecture of Interiors" },
-      {
-        name: "description",
-        content:
-          "Cinematic architectural doors, hardware, kitchens, lighting and interior systems from the Dimena atelier.",
-      },
-      {
-        property: "og:title",
-        content: "Dimena — The Architecture of Interiors",
-      },
-      {
-        property: "og:description",
-        content:
-          "Cinematic architectural doors, hardware, kitchens and interior systems.",
-      },
-    ],
-  }),
-  component: Home,
-});
-
-function Home() {
+export function Home() {
   const featured = featuredProducts().slice(0, 8);
   const total = products.length;
 
   return (
     <>
+      <Helmet>
+        <title>Dimena — The Architecture of Interiors</title>
+        <meta
+          name="description"
+          content="Cinematic architectural doors, hardware, kitchens, lighting and interior systems from the Dimena atelier."
+        />
+        <meta property="og:title" content="Dimena — The Architecture of Interiors" />
+        <meta
+          property="og:description"
+          content="Cinematic architectural doors, hardware, kitchens and interior systems."
+        />
+      </Helmet>
+
       {/* ─── HERO ─── */}
       <section className="relative h-[92vh] min-h-[640px] w-full overflow-hidden">
         <img
@@ -105,7 +96,6 @@ function Home() {
           </Link>
         </div>
 
-        {/* Horizontal scroll on mobile, grid on desktop — scales with data */}
         <div className="mt-12 -mr-5 flex gap-4 overflow-x-auto pb-4 sm:mr-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
           {categories.map((c) => (
             <CategoryCard key={c.slug} category={c} />
@@ -240,3 +230,4 @@ function Home() {
     </>
   );
 }
+

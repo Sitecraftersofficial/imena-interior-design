@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
 import kitchen from "@/assets/products/kitchen-modern.jpg.asset.json";
@@ -51,31 +52,24 @@ const rooms = [
   },
 ];
 
-export const Route = createFileRoute("/inspiration")({
-  head: () => ({
-    meta: [
-      { title: "Inspiration — Dimena" },
-      {
-        name: "description",
-        content:
-          "Rooms and installations designed and installed by the Dimena atelier. Shop the look.",
-      },
-      { property: "og:title", content: "Inspiration — Dimena" },
-      {
-        property: "og:description",
-        content:
-          "Rooms and installations designed and installed by the Dimena atelier.",
-      },
-      { property: "og:image", content: livingForest },
-      { name: "twitter:image", content: livingForest },
-    ],
-  }),
-  component: Inspiration,
-});
-
-function Inspiration() {
+export function Inspiration() {
   return (
     <>
+      <Helmet>
+        <title>Inspiration — Dimena</title>
+        <meta
+          name="description"
+          content="Rooms and installations designed and installed by the Dimena atelier. Shop the look."
+        />
+        <meta property="og:title" content="Inspiration — Dimena" />
+        <meta
+          property="og:description"
+          content="Rooms and installations designed and installed by the Dimena atelier."
+        />
+        <meta property="og:image" content={livingForest} />
+        <meta name="twitter:image" content={livingForest} />
+      </Helmet>
+
       <section className="container-x pb-16 pt-16 lg:pt-24">
         <p className="eyebrow">Inspiration</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
@@ -92,9 +86,8 @@ function Inspiration() {
           <Link
             key={r.slug}
             to="/products"
-            className={`group relative block overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline ${
-              i === 0 ? "sm:col-span-2 sm:row-span-2 aspect-[4/5]" : "aspect-[4/5]"
-            }`}
+            className={`group relative block overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline ${i === 0 ? "sm:col-span-2 sm:row-span-2 aspect-[4/5]" : "aspect-[4/5]"
+              }`}
           >
             <img
               src={r.image}
@@ -120,3 +113,4 @@ function Inspiration() {
     </>
   );
 }
+

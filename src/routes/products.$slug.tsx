@@ -1,4 +1,5 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { ArrowRight, Heart, Plus, ChevronLeft } from "lucide-react";
 import {
   productBySlug,
@@ -9,65 +10,19 @@ import { categoryBySlug } from "@/data/categories";
 import { formatPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { NotFound } from "./not-found";
 
-export const Route = createFileRoute("/products/$slug")({
-  loader: ({ params }) => {
-    const product = productBySlug(params.slug);
-    if (!product) throw notFound();
-    return { product };
-  },
-  head: ({ loaderData }) => {
-    if (!loaderData) {
-      return {
-        meta: [
-          { title: "Object not found — Dimena" },
-          { name: "robots", content: "noindex" },
-        ],
-      };
-    }
-    const p = loaderData.product;
-    return {
-      meta: [
-        { title: `${p.name} — Dimena` },
-        { name: "description", content: p.shortDescription },
-        { property: "og:title", content: `${p.name} — Dimena` },
-        { property: "og:description", content: p.shortDescription },
-        { property: "og:image", content: p.image },
-        { name: "twitter:image", content: p.image },
-      ],
-    };
-  },
-  notFoundComponent: () => (
-    <div className="container-x py-32 text-center">
-      <p className="eyebrow">Not found</p>
-      <h1 className="mt-6 font-display text-4xl text-ivory">
-        This object is not in the catalog.
-      </h1>
-      <Link
-        to="/products"
-        className="mt-8 inline-block border border-gold px-6 py-3 font-mono text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-void"
-      >
-        Back to catalog
-      </Link>
-    </div>
-  ),
-  errorComponent: ({ error, reset }) => (
-    <div className="container-x py-32 text-center">
-      <h1 className="font-display text-3xl text-ivory">{error.message}</h1>
-      <button
-        onClick={reset}
-        className="mt-6 border border-gold px-6 py-3 font-mono text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-void"
-      >
-        Retry
-      </button>
-    </div>
-  ),
-  component: ProductDetail,
-});
+export function ProductDetail() {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  const product = slug ? productBySlug(slug) : undefined;
 
-function ProductDetail() {
-  const { product } = Route.useLoaderData();
   const { isWished, toggleWish, addToProject } = useStore();
+
+  if (!product) {
+    return <NotFound />;
+  }
+
   const wished = isWished(product.id);
   const category = categoryBySlug(product.category);
   type P = NonNullable<ReturnType<typeof productById>>;
@@ -95,6 +50,15 @@ function ProductDetail() {
 
   return (
     <>
+      <Helmet>
+        <title>{product.name} — Dimena</title>
+        <meta name="description" content={product.shortDescription} />
+        <meta property="og:title" content={`${product.name} — Dimena`} />
+        <meta property="og:description" content={product.shortDescription} />
+        <meta property="og:image" content={product.image} />
+        <meta name="twitter:image" content={product.image} />
+      </Helmet>
+
       <section className="container-x pt-10">
         <Link
           to="/products"
@@ -118,8 +82,7 @@ function ProductDetail() {
         <div className="flex flex-col">
           {category && (
             <Link
-              to="/categories/$slug"
-              params={{ slug: category.slug }}
+              to={`/categories/${category.slug}`}
               className="eyebrow"
             >
               {category.name}
@@ -146,16 +109,14 @@ function ProductDetail() {
               type="button"
               onClick={() => toggleWish(product.id)}
               aria-pressed={wished}
-              className={`grid h-12 w-12 place-items-center border transition-colors ${
-                wished ? "border-gold text-gold" : "border-hairline text-ivory hover:border-gold hover:text-gold"
-              }`}
+              className={`grid h-12 w-12 place-items-center border transition-colors ${wished ? "border-gold text-gold" : "border-hairline text-ivory hover:border-gold hover:text-gold"
+                }`}
               aria-label={wished ? "Remove from wishlist" : "Save to wishlist"}
             >
               <Heart className={`h-4 w-4 ${wished ? "fill-gold" : ""}`} strokeWidth={1.5} />
             </button>
             <Link
-              to="/contact"
-              search={{ product: product.slug }}
+              to={`/contact?product=${product.slug}`}
               className="inline-flex h-12 items-center border border-hairline px-6 font-mono text-[10px] uppercase tracking-[0.28em] text-ivory hover:border-gold hover:text-gold"
             >
               Request Quote
@@ -199,8 +160,7 @@ function ProductDetail() {
               </div>
               {category && (
                 <Link
-                  to="/categories/$slug"
-                  params={{ slug: category.slug }}
+                  to={`/categories/${category.slug}`}
                   className="gold-underline inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
                 >
                   All {category.name}
@@ -215,3 +175,4 @@ function ProductDetail() {
     </>
   );
 }
+

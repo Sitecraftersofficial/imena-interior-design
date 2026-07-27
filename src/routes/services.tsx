@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -33,29 +34,22 @@ const services = [
   },
 ];
 
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services — Dimena" },
-      {
-        name: "description",
-        content:
-          "Design, supply and installation services for architectural interiors — consultation, bespoke doors, hardware, kitchens and lighting.",
-      },
-      { property: "og:title", content: "Services — Dimena" },
-      {
-        property: "og:description",
-        content:
-          "Design, supply and installation services for architectural interiors.",
-      },
-    ],
-  }),
-  component: Services,
-});
-
-function Services() {
+export function Services() {
   return (
     <>
+      <Helmet>
+        <title>Services — Dimena</title>
+        <meta
+          name="description"
+          content="Design, supply and installation services for architectural interiors — consultation, bespoke doors, hardware, kitchens and lighting."
+        />
+        <meta property="og:title" content="Services — Dimena" />
+        <meta
+          property="og:description"
+          content="Design, supply and installation services for architectural interiors."
+        />
+      </Helmet>
+
       <section className="container-x pb-16 pt-16 lg:pt-24">
         <p className="eyebrow">Services</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
@@ -112,3 +106,4 @@ function Services() {
     </>
   );
 }
+

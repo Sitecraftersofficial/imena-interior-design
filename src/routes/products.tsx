@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link, useSearchParams } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { z } from "zod";
 import { Search, X, SlidersHorizontal } from "lucide-react";
@@ -16,32 +17,21 @@ const searchSchema = z.object({
   sort: z.enum(["featured", "az", "za", "price-asc", "price-desc"]).optional().default("featured"),
 });
 
-export const Route = createFileRoute("/products")({
-  validateSearch: searchSchema,
-  head: () => ({
-    meta: [
-      { title: "The Catalog — Dimena" },
-      {
-        name: "description",
-        content:
-          "Browse the complete Dimena catalog of architectural doors, hardware, lighting, kitchens, wardrobes and interior systems.",
-      },
-      { property: "og:title", content: "The Catalog — Dimena" },
-      {
-        property: "og:description",
-        content:
-          "The complete Dimena catalog. Filter by category, material and finish.",
-      },
-    ],
-  }),
-  component: Catalog,
-});
+function parseSearchParams(params: URLSearchParams) {
+  const q = params.get("q") ?? "";
+  const category = params.get("category") ?? undefined;
+  const material = params.get("material") ?? undefined;
+  const finish = params.get("finish") ?? undefined;
+  const sort = (params.get("sort") ?? "featured") as z.infer<typeof searchSchema>["sort"];
+  return { q, category, material, finish, sort };
+}
 
-function Catalog() {
-  const search = Route.useSearch();
-  const navigate = Route.useNavigate();
+export function Catalog() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [visible, setVisible] = useState(PAGE);
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const search = parseSearchParams(searchParams);
 
   const filtered = useMemo(() => {
     const q = (search.q ?? "").trim().toLowerCase();
@@ -80,12 +70,19 @@ function Catalog() {
   const visibleProducts = filtered.slice(0, visible);
   const activeCategory = search.category ? categoryBySlug(search.category) : null;
 
-  const setSearch = (patch: Partial<z.infer<typeof searchSchema>>) => {
+  const setSearch = (patch: Record<string, string | undefined>) => {
     setVisible(PAGE);
-    navigate({
-      search: (prev: z.infer<typeof searchSchema>) => ({ ...prev, ...patch }),
-      replace: true,
-    });
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      for (const [key, value] of Object.entries(patch)) {
+        if (value === undefined || value === "") {
+          next.delete(key);
+        } else {
+          next.set(key, value);
+        }
+      }
+      return next;
+    }, { replace: true });
   };
 
   const materials = allMaterials();
@@ -99,6 +96,19 @@ function Catalog() {
 
   return (
     <>
+      <Helmet>
+        <title>The Catalog — Dimena</title>
+        <meta
+          name="description"
+          content="Browse the complete Dimena catalog of architectural doors, hardware, lighting, kitchens, wardrobes and interior systems."
+        />
+        <meta property="og:title" content="The Catalog — Dimena" />
+        <meta
+          property="og:description"
+          content="The complete Dimena catalog. Filter by category, material and finish."
+        />
+      </Helmet>
+
       {/* Page head */}
       <section className="container-x border-b border-hairline pb-10 pt-16 lg:pt-24">
         <p className="eyebrow">The Catalog</p>
@@ -144,7 +154,7 @@ function Catalog() {
           <div className="hidden lg:block">
             <select
               value={search.sort}
-              onChange={(e) => setSearch({ sort: e.target.value as z.infer<typeof searchSchema>["sort"] })}
+              onChange={(e) => setSearch({ sort: e.target.value })}
               className="h-10 border border-hairline bg-void px-4 font-mono text-[10px] uppercase tracking-[0.25em] text-ivory focus:border-gold focus:outline-none"
             >
               <option value="featured">Sort · Featured</option>
@@ -161,7 +171,7 @@ function Catalog() {
               <button
                 key={f.key + f.label}
                 type="button"
-                onClick={() => setSearch({ [f.key]: undefined } as never)}
+                onClick={() => setSearch({ [f.key]: undefined })}
                 className="inline-flex items-center gap-2 border border-gold/40 bg-gold/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold hover:bg-gold/20"
               >
                 {f.label}
@@ -170,9 +180,10 @@ function Catalog() {
             ))}
             <button
               type="button"
-              onClick={() =>
-                navigate({ search: { q: "", sort: "featured" }, replace: true })
-              }
+              onClick={() => {
+                setSearchParams(new URLSearchParams(), { replace: true });
+                setVisible(PAGE);
+              }}
               className="font-mono text-[10px] uppercase tracking-[0.25em] text-ivory/50 hover:text-ivory"
             >
               Reset all
@@ -250,9 +261,7 @@ function Catalog() {
                 <select
                   value={search.sort}
                   onChange={(e) =>
-                    setSearch({
-                      sort: e.target.value as z.infer<typeof searchSchema>["sort"],
-                    })
+                    setSearch({ sort: e.target.value })
                   }
                   className="h-10 w-full border border-hairline bg-void px-3 font-mono text-[10px] uppercase tracking-[0.25em] text-ivory"
                 >
@@ -285,8 +294,8 @@ function FiltersPanel({
   materials,
   finishes,
 }: {
-  search: z.infer<typeof searchSchema>;
-  setSearch: (p: Partial<z.infer<typeof searchSchema>>) => void;
+  search: ReturnType<typeof parseSearchParams>;
+  setSearch: (p: Record<string, string | undefined>) => void;
   materials: string[];
   finishes: string[];
 }) {
@@ -298,26 +307,27 @@ function FiltersPanel({
           <li>
             <button
               onClick={() => setSearch({ category: undefined })}
-              className={`text-left text-sm transition-colors ${
-                !search.category ? "text-gold" : "text-ivory/60 hover:text-ivory"
-              }`}
+              className={`text-left text-sm transition-colors ${!search.category ? "text-gold" : "text-ivory/60 hover:text-ivory"
+                }`}
             >
               All departments
             </button>
           </li>
           {categories.map((c) => (
             <li key={c.slug}>
-              <Link
-                to="/products"
-                search={(prev: z.infer<typeof searchSchema>) => ({ ...prev, category: c.slug })}
-                className={`text-sm transition-colors ${
-                  search.category === c.slug
+              <button
+                onClick={() =>
+                  setSearch({
+                    category: search.category === c.slug ? undefined : c.slug,
+                  })
+                }
+                className={`text-sm transition-colors ${search.category === c.slug
                     ? "text-gold"
                     : "text-ivory/60 hover:text-ivory"
-                }`}
+                  }`}
               >
                 {c.name}
-              </Link>
+              </button>
             </li>
           ))}
         </ul>
@@ -330,9 +340,8 @@ function FiltersPanel({
             <li>
               <button
                 onClick={() => setSearch({ material: undefined })}
-                className={`text-left text-sm ${
-                  !search.material ? "text-gold" : "text-ivory/60 hover:text-ivory"
-                }`}
+                className={`text-left text-sm ${!search.material ? "text-gold" : "text-ivory/60 hover:text-ivory"
+                  }`}
               >
                 Any
               </button>
@@ -343,11 +352,10 @@ function FiltersPanel({
                   onClick={() =>
                     setSearch({ material: search.material === m ? undefined : m })
                   }
-                  className={`text-left text-sm ${
-                    search.material === m
+                  className={`text-left text-sm ${search.material === m
                       ? "text-gold"
                       : "text-ivory/60 hover:text-ivory"
-                  }`}
+                    }`}
                 >
                   {m}
                 </button>
@@ -367,11 +375,10 @@ function FiltersPanel({
                   onClick={() =>
                     setSearch({ finish: search.finish === f ? undefined : f })
                   }
-                  className={`border px-2.5 py-1 text-xs transition-colors ${
-                    search.finish === f
+                  className={`border px-2.5 py-1 text-xs transition-colors ${search.finish === f
                       ? "border-gold text-gold"
                       : "border-hairline text-ivory/60 hover:border-ivory hover:text-ivory"
-                  }`}
+                    }`}
                 >
                   {f}
                 </button>
@@ -383,3 +390,4 @@ function FiltersPanel({
     </div>
   );
 }
+

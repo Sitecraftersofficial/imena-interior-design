@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import type { Category } from "@/lib/types";
 import { categoryCount } from "@/data/products";
 
@@ -6,8 +6,7 @@ export function CategoryCard({ category }: { category: Category }) {
   const count = categoryCount(category.slug);
   return (
     <Link
-      to="/categories/$slug"
-      params={{ slug: category.slug }}
+      to={`/categories/${category.slug}`}
       className="group relative block min-w-[260px] shrink-0 sm:min-w-0"
     >
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline">
@@ -31,3 +30,4 @@ export function CategoryCard({ category }: { category: Category }) {
     </Link>
   );
 }
+

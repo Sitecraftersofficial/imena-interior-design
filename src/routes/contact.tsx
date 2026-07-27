@@ -1,36 +1,12 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link, useSearchParams } from "react-router-dom";
 import { useState } from "react";
-import { z } from "zod";
 import { Send, Phone, MapPin, Mail } from "lucide-react";
 import { productBySlug } from "@/data/products";
 
-const searchSchema = z.object({
-  product: z.string().optional(),
-});
-
-export const Route = createFileRoute("/contact")({
-  validateSearch: searchSchema,
-  head: () => ({
-    meta: [
-      { title: "Consultation — Dimena" },
-      {
-        name: "description",
-        content:
-          "Book a private consultation with the Dimena atelier — Milan, London, Dubai.",
-      },
-      { property: "og:title", content: "Consultation — Dimena" },
-      {
-        property: "og:description",
-        content:
-          "Private design consultations with the Dimena atelier — Milan, London, Dubai.",
-      },
-    ],
-  }),
-  component: Contact,
-});
-
-function Contact() {
-  const { product: productSlug } = Route.useSearch();
+export function Contact() {
+  const [searchParams] = useSearchParams();
+  const productSlug = searchParams.get("product");
   const product = productSlug ? productBySlug(productSlug) : undefined;
   const [submitted, setSubmitted] = useState(false);
 
@@ -50,6 +26,19 @@ function Contact() {
 
   return (
     <>
+      <Helmet>
+        <title>Consultation — Dimena</title>
+        <meta
+          name="description"
+          content="Book a private consultation with the Dimena atelier — Milan, London, Dubai."
+        />
+        <meta property="og:title" content="Consultation — Dimena" />
+        <meta
+          property="og:description"
+          content="Private design consultations with the Dimena atelier — Milan, London, Dubai."
+        />
+      </Helmet>
+
       <section className="container-x pb-10 pt-16 lg:pt-24">
         <p className="eyebrow">Collaborate</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
@@ -209,3 +198,4 @@ function ContactBlock({
     </div>
   );
 }
+

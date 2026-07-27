@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import { Heart, Menu, Search, X, Layers } from "lucide-react";
 import { useEffect, useState } from "react";
 import { categories } from "@/data/categories";
@@ -17,9 +17,9 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { wishlist, project, hydrated } = useStore();
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const location = useLocation();
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => setOpen(false), [location.pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -41,11 +41,10 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${
-          scrolled || open
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${scrolled || open
             ? "border-hairline bg-void/85 backdrop-blur-md"
             : "border-transparent bg-transparent"
-        }`}
+          }`}
       >
         <div className="container-x grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 lg:h-20">
           <Link
@@ -65,8 +64,10 @@ export function Header() {
               <Link
                 key={l.to}
                 to={l.to}
-                className="gold-underline font-mono text-[10px] uppercase tracking-[0.28em] text-ivory/70 transition-colors hover:text-ivory"
-                activeProps={{ className: "text-gold" }}
+                className={`gold-underline font-mono text-[10px] uppercase tracking-[0.28em] transition-colors ${location.pathname === l.to
+                    ? "text-gold"
+                    : "text-ivory/70 hover:text-ivory"
+                  }`}
               >
                 {l.label}
               </Link>
@@ -76,7 +77,6 @@ export function Header() {
           <div className="flex items-center gap-1 sm:gap-3 justify-self-end">
             <Link
               to="/products"
-              search={{ q: "" }}
               aria-label="Search catalog"
               className="hidden h-9 w-9 place-items-center text-ivory/70 transition-colors hover:text-gold sm:grid"
             >
@@ -123,9 +123,8 @@ export function Header() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-40 bg-void transition-opacity duration-500 lg:hidden ${
-          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-        }`}
+        className={`fixed inset-0 z-40 bg-void transition-opacity duration-500 lg:hidden ${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+          }`}
       >
         <div className="container-x flex h-full flex-col overflow-y-auto pb-16 pt-24">
           <nav className="flex flex-col divide-y divide-hairline" aria-label="Mobile">
@@ -158,8 +157,7 @@ export function Header() {
               {categories.map((c) => (
                 <li key={c.slug}>
                   <Link
-                    to="/categories/$slug"
-                    params={{ slug: c.slug }}
+                    to={`/categories/${c.slug}`}
                     className="text-sm text-ivory/70 transition-colors hover:text-gold"
                   >
                     {c.name}
@@ -173,3 +171,4 @@ export function Header() {
     </>
   );
 }
+

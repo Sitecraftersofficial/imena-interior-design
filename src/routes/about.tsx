@@ -1,29 +1,23 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "The Atelier — Dimena" },
-      {
-        name: "description",
-        content:
-          "Founded in Milan in 1984, Dimena is a design, supply and installation atelier for architectural interiors.",
-      },
-      { property: "og:title", content: "The Atelier — Dimena" },
-      {
-        property: "og:description",
-        content:
-          "Founded in Milan in 1984, Dimena is a design, supply and installation atelier for architectural interiors.",
-      },
-    ],
-  }),
-  component: About,
-});
-
-function About() {
+export function About() {
   return (
     <>
+      <Helmet>
+        <title>The Atelier — Dimena</title>
+        <meta
+          name="description"
+          content="Founded in Milan in 1984, Dimena is a design, supply and installation atelier for architectural interiors."
+        />
+        <meta property="og:title" content="The Atelier — Dimena" />
+        <meta
+          property="og:description"
+          content="Founded in Milan in 1984, Dimena is a design, supply and installation atelier for architectural interiors."
+        />
+      </Helmet>
+
       <section className="container-x pb-16 pt-16 lg:pt-24">
         <p className="eyebrow">The Atelier</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-[1.02] text-ivory sm:text-7xl">
@@ -83,3 +77,4 @@ function Stat({ n, l }: { n: string; l: string }) {
     </div>
   );
 }
+

@@ -1,68 +1,33 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link, useParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { categoryBySlug, categories } from "@/data/categories";
 import { productsByCategory } from "@/data/products";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { NotFound } from "./not-found";
 
-export const Route = createFileRoute("/categories/$slug")({
-  loader: ({ params }) => {
-    const category = categoryBySlug(params.slug);
-    if (!category) throw notFound();
-    return { category };
-  },
-  head: ({ loaderData }) => {
-    if (!loaderData) {
-      return {
-        meta: [
-          { title: "Category not found — Dimena" },
-          { name: "robots", content: "noindex" },
-        ],
-      };
-    }
-    const c = loaderData.category;
-    return {
-      meta: [
-        { title: `${c.name} — Dimena` },
-        { name: "description", content: c.description },
-        { property: "og:title", content: `${c.name} — Dimena` },
-        { property: "og:description", content: c.description },
-        { property: "og:image", content: c.image },
-        { name: "twitter:image", content: c.image },
-      ],
-    };
-  },
-  notFoundComponent: () => (
-    <div className="container-x py-32 text-center">
-      <h1 className="font-display text-4xl text-ivory">Category not found.</h1>
-      <Link
-        to="/products"
-        className="mt-6 inline-block border border-gold px-6 py-3 font-mono text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-void"
-      >
-        View catalog
-      </Link>
-    </div>
-  ),
-  errorComponent: ({ error, reset }) => (
-    <div className="container-x py-32 text-center">
-      <h1 className="font-display text-3xl text-ivory">{error.message}</h1>
-      <button
-        onClick={reset}
-        className="mt-6 border border-gold px-6 py-3 font-mono text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-void"
-      >
-        Retry
-      </button>
-    </div>
-  ),
-  component: CategoryPage,
-});
+export function CategoryPage() {
+  const { slug } = useParams<{ slug: string }>();
+  const category = slug ? categoryBySlug(slug) : undefined;
 
-function CategoryPage() {
-  const { category } = Route.useLoaderData();
+  if (!category) {
+    return <NotFound />;
+  }
+
   const items = productsByCategory(category.slug);
   const otherCats = categories.filter((c) => c.slug !== category.slug).slice(0, 4);
 
   return (
     <>
+      <Helmet>
+        <title>{category.name} — Dimena</title>
+        <meta name="description" content={category.description} />
+        <meta property="og:title" content={`${category.name} — Dimena`} />
+        <meta property="og:description" content={category.description} />
+        <meta property="og:image" content={category.image} />
+        <meta name="twitter:image" content={category.image} />
+      </Helmet>
+
       {/* Category hero */}
       <section className="relative h-[60vh] min-h-[420px] w-full overflow-hidden border-b border-hairline">
         <img
@@ -117,8 +82,7 @@ function CategoryPage() {
             {otherCats.map((c) => (
               <Link
                 key={c.slug}
-                to="/categories/$slug"
-                params={{ slug: c.slug }}
+                to={`/categories/${c.slug}`}
                 className="group block"
               >
                 <div className="aspect-[4/5] overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline">
@@ -140,3 +104,4 @@ function CategoryPage() {
     </>
   );
 }
+

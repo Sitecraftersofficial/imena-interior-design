@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
 import kitchen from "@/assets/products/kitchen-modern.jpg.asset.json";
@@ -39,31 +40,24 @@ const projects = [
   },
 ];
 
-export const Route = createFileRoute("/projects")({
-  head: () => ({
-    meta: [
-      { title: "Projects — Dimena" },
-      {
-        name: "description",
-        content:
-          "Selected residential and commercial projects designed and installed by the Dimena atelier.",
-      },
-      { property: "og:title", content: "Projects — Dimena" },
-      {
-        property: "og:description",
-        content:
-          "Selected residential and commercial projects designed and installed by the Dimena atelier.",
-      },
-      { property: "og:image", content: livingForest },
-      { name: "twitter:image", content: livingForest },
-    ],
-  }),
-  component: Projects,
-});
-
-function Projects() {
+export function Projects() {
   return (
     <>
+      <Helmet>
+        <title>Projects — Dimena</title>
+        <meta
+          name="description"
+          content="Selected residential and commercial projects designed and installed by the Dimena atelier."
+        />
+        <meta property="og:title" content="Projects — Dimena" />
+        <meta
+          property="og:description"
+          content="Selected residential and commercial projects designed and installed by the Dimena atelier."
+        />
+        <meta property="og:image" content={livingForest} />
+        <meta name="twitter:image" content={livingForest} />
+      </Helmet>
+
       <section className="container-x pb-16 pt-16 lg:pt-24">
         <p className="eyebrow">Projects</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
@@ -79,9 +73,8 @@ function Projects() {
             className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
           >
             <div
-              className={`relative aspect-[4/5] overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline ${
-                i % 2 ? "lg:order-2" : ""
-              }`}
+              className={`relative aspect-[4/5] overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline ${i % 2 ? "lg:order-2" : ""
+                }`}
             >
               <img
                 src={p.image}
@@ -114,3 +107,4 @@ function Projects() {
     </>
   );
 }
+
