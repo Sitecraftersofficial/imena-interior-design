@@ -3,6 +3,7 @@ import { Heart, Menu, Search, X, Layers } from "lucide-react";
 import { useEffect, useState } from "react";
 import { categories } from "@/data/categories";
 import { useStore } from "@/lib/store";
+import dimenaLogo from "@/assets/dimena-logo.png.asset.json";
 
 const primaryLinks = [
   { to: "/products", label: "Collections" },
