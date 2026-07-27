@@ -248,14 +248,20 @@ function ProjectBuilder() {
               </div>
               <button
                 type="submit"
-                className="mt-8 inline-flex h-12 w-full items-center justify-center gap-2 bg-gold font-mono text-[10px] uppercase tracking-[0.3em] text-void hover:brightness-110"
+                disabled={sending}
+                className="mt-8 inline-flex h-12 w-full items-center justify-center gap-2 bg-gold font-mono text-[10px] uppercase tracking-[0.3em] text-void hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Send className="h-3.5 w-3.5" strokeWidth={1.5} />
-                Send Project ({rows.length})
+                {sending ? "Sending…" : `Send to Manager (${rows.length})`}
               </button>
+              {sendError && (
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.25em] text-red-400">
+                  {sendError}
+                </p>
+              )}
               <p className="mt-4 text-xs text-ivory/40">
-                A senior consultant will respond within one business day with a
-                preliminary specification and pricing.
+                Opens your mail app with the project pre-composed for the atelier.
+                Your saved objects remain untouched.
               </p>
             </aside>
           </div>
