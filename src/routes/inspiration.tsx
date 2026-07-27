@@ -54,17 +54,17 @@ const rooms = [
 export const Route = createFileRoute("/inspiration")({
   head: () => ({
     meta: [
-      { title: "Inspiration — Aurelian" },
+      { title: "Inspiration — Dimena" },
       {
         name: "description",
         content:
-          "Rooms and installations designed and installed by the Aurelian atelier. Shop the look.",
+          "Rooms and installations designed and installed by the Dimena atelier. Shop the look.",
       },
-      { property: "og:title", content: "Inspiration — Aurelian" },
+      { property: "og:title", content: "Inspiration — Dimena" },
       {
         property: "og:description",
         content:
-          "Rooms and installations designed and installed by the Aurelian atelier.",
+          "Rooms and installations designed and installed by the Dimena atelier.",
       },
       { property: "og:image", content: livingForest },
       { name: "twitter:image", content: livingForest },

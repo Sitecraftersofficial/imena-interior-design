@@ -4,17 +4,17 @@ import livingForest from "@/assets/interiors/living-forest.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "The Atelier — Aurelian" },
+      { title: "The Atelier — Dimena" },
       {
         name: "description",
         content:
-          "Founded in Milan in 1984, Aurelian is a design, supply and installation atelier for architectural interiors.",
+          "Founded in Milan in 1984, Dimena is a design, supply and installation atelier for architectural interiors.",
       },
-      { property: "og:title", content: "The Atelier — Aurelian" },
+      { property: "og:title", content: "The Atelier — Dimena" },
       {
         property: "og:description",
         content:
-          "Founded in Milan in 1984, Aurelian is a design, supply and installation atelier for architectural interiors.",
+          "Founded in Milan in 1984, Dimena is a design, supply and installation atelier for architectural interiors.",
       },
     ],
   }),
@@ -41,7 +41,7 @@ function About() {
         />
         <div className="space-y-6 text-base leading-relaxed text-ivory/70">
           <p>
-            Aurelian was founded in Milan in 1984 by a small collective of
+            Dimena was founded in Milan in 1984 by a small collective of
             architects and cabinetmakers who believed the door, the handle and
             the panel deserved the same care as the building around them.
           </p>

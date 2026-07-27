@@ -3,6 +3,7 @@ import { Heart, Menu, Search, X, Layers } from "lucide-react";
 import { useEffect, useState } from "react";
 import { categories } from "@/data/categories";
 import { useStore } from "@/lib/store";
+import dimenaLogo from "@/assets/dimena-logo.png.asset.json";
 
 const primaryLinks = [
   { to: "/products", label: "Collections" },
@@ -49,10 +50,14 @@ export function Header() {
         <div className="container-x grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 lg:h-20">
           <Link
             to="/"
-            className="font-display text-xl tracking-[0.35em] text-ivory sm:text-2xl"
-            aria-label="Aurelian — home"
+            className="flex items-center"
+            aria-label="Dimena — home"
           >
-            AURELIAN
+            <img
+              src={dimenaLogo.url}
+              alt="Dimena Interior Design"
+              className="h-10 w-auto sm:h-12 lg:h-14"
+            />
           </Link>
 
           <nav className="hidden justify-center gap-8 lg:flex" aria-label="Primary">

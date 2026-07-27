@@ -14,8 +14,8 @@ import {
 } from "react";
 import type { ProjectItem, WishlistItem } from "./types";
 
-const WISH_KEY = "aurelian.wishlist.v1";
-const PROJ_KEY = "aurelian.project.v1";
+const WISH_KEY = "dimena.wishlist.v1";
+const PROJ_KEY = "dimena.project.v1";
 
 interface StoreCtx {
   wishlist: WishlistItem[];

@@ -11,15 +11,15 @@ import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aurelian — The Architecture of Interiors" },
+      { title: "Dimena — The Architecture of Interiors" },
       {
         name: "description",
         content:
-          "Cinematic architectural doors, hardware, kitchens, lighting and interior systems from the Aurelian atelier.",
+          "Cinematic architectural doors, hardware, kitchens, lighting and interior systems from the Dimena atelier.",
       },
       {
         property: "og:title",
-        content: "Aurelian — The Architecture of Interiors",
+        content: "Dimena — The Architecture of Interiors",
       },
       {
         property: "og:description",
@@ -124,7 +124,7 @@ function Home() {
               </h2>
               <p className="mt-4 max-w-xl text-sm text-ivory/50">
                 A rotating selection curated by our design team. Every object in the
-                Aurelian catalog is available to specify, sample or commission.
+                Dimena catalog is available to specify, sample or commission.
               </p>
             </div>
             <Link
@@ -218,7 +218,7 @@ function Home() {
           <div>
             <p className="text-sm leading-relaxed text-void/70">
               Book a private consultation with our design team, or visit the
-              atelier in Milan to experience the quality of Aurelian in person.
+              atelier in Milan to experience the quality of Dimena in person.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link

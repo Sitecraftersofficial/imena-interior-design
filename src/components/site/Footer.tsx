@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { categories } from "@/data/categories";
+import dimenaLogo from "@/assets/dimena-logo.png.asset.json";
 
 export function Footer() {
   return (
@@ -7,19 +8,21 @@ export function Footer() {
       <div className="container-x py-20">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <p className="font-display text-2xl tracking-[0.35em] text-ivory">
-              AURELIAN
-            </p>
+            <img
+              src={dimenaLogo.url}
+              alt="Dimena Interior Design"
+              className="h-16 w-auto"
+            />
             <p className="mt-6 text-sm leading-relaxed text-ivory/50">
               A design, supply and installation atelier for architectural
               hardware, doors, kitchens and complete interior systems. Milan · London · Dubai.
             </p>
             <p className="eyebrow mt-8">Correspondence</p>
             <a
-              href="mailto:concierge@aurelian.studio"
+              href="mailto:concierge@dimena.studio"
               className="mt-2 inline-block text-sm text-gold hover:underline"
             >
-              concierge@aurelian.studio
+              concierge@dimena.studio
             </a>
           </div>
 
@@ -54,7 +57,7 @@ export function Footer() {
         <div className="mt-20 hairline" />
         <div className="mt-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
-            © {new Date().getFullYear()} Aurelian Architectural. All rights reserved.
+            © {new Date().getFullYear()} Dimena Architectural. All rights reserved.
           </p>
           <div className="flex gap-8 font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
             <a href="#">Privacy</a>

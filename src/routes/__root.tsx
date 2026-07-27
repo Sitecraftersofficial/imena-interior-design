@@ -76,17 +76,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0a0a0a" },
       {
-        title: "Aurelian — Architectural Interiors, Doors & Hardware",
+        title: "Dimena — Architectural Interiors, Doors & Hardware",
       },
       {
         name: "description",
         content:
-          "Aurelian is a design, supply and installation atelier for architectural doors, hardware, kitchens, lighting, wardrobes and complete interior systems.",
+          "Dimena is a design, supply and installation atelier for architectural doors, hardware, kitchens, lighting, wardrobes and complete interior systems.",
       },
-      { name: "author", content: "Aurelian Studio" },
+      { name: "author", content: "Dimena Studio" },
       {
         property: "og:title",
-        content: "Aurelian — Architectural Interiors, Doors & Hardware",
+        content: "Dimena — Architectural Interiors, Doors & Hardware",
       },
       {
         property: "og:description",

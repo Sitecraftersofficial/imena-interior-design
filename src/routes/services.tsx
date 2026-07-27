@@ -36,13 +36,13 @@ const services = [
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Aurelian" },
+      { title: "Services — Dimena" },
       {
         name: "description",
         content:
           "Design, supply and installation services for architectural interiors — consultation, bespoke doors, hardware, kitchens and lighting.",
       },
-      { property: "og:title", content: "Services — Aurelian" },
+      { property: "og:title", content: "Services — Dimena" },
       {
         property: "og:description",
         content:
