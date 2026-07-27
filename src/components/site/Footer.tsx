@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { categories } from "@/data/categories";
+import dimenaLogo from "@/assets/dimena-logo.png.asset.json";
 
 export function Footer() {
   return (
