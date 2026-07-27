@@ -4,6 +4,7 @@ import { Layers, Minus, Plus, Trash2, Send } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { productById } from "@/data/products";
 import { formatPrice } from "@/lib/format";
+import { buildProjectMailto } from "@/lib/send-to-manager";
 
 export const Route = createFileRoute("/project-builder")({
   head: () => ({
@@ -37,6 +38,8 @@ function ProjectBuilder() {
 
   const [meta, setMeta] = useState({ name: "", email: "", projectName: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
   const rows = project
     .map((p) => ({ item: p, product: productById(p.productId) }))
@@ -47,10 +50,22 @@ function ProjectBuilder() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a future iteration this posts to Lovable Cloud; for now, we log and confirm.
-    console.log("[Dimena] Project quote submitted", { meta, project: rows });
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (sending || rows.length === 0) return;
+    setSending(true);
+    setSendError(null);
+    try {
+      const href = buildProjectMailto(rows, meta);
+      // Open the user's mail client with the existing project pre-composed.
+      // No backend, no duplicate storage — the saved project remains the source of truth.
+      window.location.href = href;
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      console.error("[Dimena] Failed to open mail client", err);
+      setSendError("Unable to open your mail app. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) {
@@ -233,14 +248,20 @@ function ProjectBuilder() {
               </div>
               <button
                 type="submit"
-                className="mt-8 inline-flex h-12 w-full items-center justify-center gap-2 bg-gold font-mono text-[10px] uppercase tracking-[0.3em] text-void hover:brightness-110"
+                disabled={sending}
+                className="mt-8 inline-flex h-12 w-full items-center justify-center gap-2 bg-gold font-mono text-[10px] uppercase tracking-[0.3em] text-void hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Send className="h-3.5 w-3.5" strokeWidth={1.5} />
-                Send Project ({rows.length})
+                {sending ? "Sending…" : `Send to Manager (${rows.length})`}
               </button>
+              {sendError && (
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.25em] text-red-400">
+                  {sendError}
+                </p>
+              )}
               <p className="mt-4 text-xs text-ivory/40">
-                A senior consultant will respond within one business day with a
-                preliminary specification and pricing.
+                Opens your mail app with the project pre-composed for the atelier.
+                Your saved objects remain untouched.
               </p>
             </aside>
           </div>
