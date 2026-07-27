@@ -284,17 +284,16 @@ function ProjectBuilder() {
             </div>
 
             <aside className="h-fit border border-hairline bg-ink/40 p-6 lg:sticky lg:top-28">
-              <p className="eyebrow">Submit for quote</p>
+              <p className="eyebrow">Your details</p>
+              <p className="mt-2 text-xs text-ivory/40">
+                So the atelier knows who you are and how to reply.
+              </p>
               <div className="mt-6 space-y-4">
                 <Field
-                  label="Project name"
-                  value={meta.projectName}
-                  onChange={(v) => setMeta((m) => ({ ...m, projectName: v }))}
-                />
-                <Field
-                  label="Your name"
+                  label="Full name"
                   value={meta.name}
                   required
+                  invalid={errorField === "name"}
                   onChange={(v) => setMeta((m) => ({ ...m, name: v }))}
                 />
                 <Field
@@ -302,7 +301,26 @@ function ProjectBuilder() {
                   type="email"
                   value={meta.email}
                   required
+                  invalid={errorField === "email"}
                   onChange={(v) => setMeta((m) => ({ ...m, email: v }))}
+                />
+                <Field
+                  label="Phone"
+                  type="tel"
+                  value={meta.phone ?? ""}
+                  invalid={errorField === "phone"}
+                  onChange={(v) => setMeta((m) => ({ ...m, phone: v }))}
+                />
+                <Field
+                  label="Company"
+                  value={meta.company ?? ""}
+                  invalid={errorField === "company"}
+                  onChange={(v) => setMeta((m) => ({ ...m, company: v }))}
+                />
+                <Field
+                  label="Project name"
+                  value={meta.projectName ?? ""}
+                  onChange={(v) => setMeta((m) => ({ ...m, projectName: v }))}
                 />
               </div>
               <button
@@ -336,12 +354,14 @@ function Field({
   onChange,
   type = "text",
   required = false,
+  invalid = false,
 }: {
   label: string;
   value: string;
   onChange: (v: string) => void;
   type?: string;
   required?: boolean;
+  invalid?: boolean;
 }) {
   return (
     <label className="block">
@@ -354,7 +374,9 @@ function Field({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 h-11 w-full border border-hairline bg-void px-3 text-sm text-ivory focus:border-gold focus:outline-none"
+        className={`mt-2 h-11 w-full border bg-void px-3 text-sm text-ivory focus:border-gold focus:outline-none ${
+          invalid ? "border-red-400/70" : "border-hairline"
+        }`}
       />
     </label>
   );
