@@ -1,16 +1,7 @@
 import type { Product } from "@/lib/types";
 
 // User-uploaded photography — used as real products throughout the site.
-import uDoorOakPivot from "@/assets/products/door-oak-pivot.jpg.asset.json";
-import uDoorFrostedDouble from "@/assets/products/door-frosted-double.jpg.asset.json";
-import uDoorWalnutDouble from "@/assets/products/door-walnut-double.jpg.asset.json";
-import uDoorSlatGlass from "@/assets/products/door-slat-glass.jpg.asset.json";
-import uKitchenWarm from "@/assets/products/kitchen-warm.jpg.asset.json";
-import uKitchenModern from "@/assets/products/kitchen-modern.jpg.asset.json";
-import uSofa from "@/assets/products/sofa-boucle.jpg.asset.json";
-import uShowroomYellow from "@/assets/products/showroom-yellow.jpg.asset.json";
-import uShowroomDoors from "@/assets/products/showroom-doors.jpg.asset.json";
-import uShowroomPanel from "@/assets/products/showroom-panel.jpg.asset.json";
+// Note: Only using images that have actual files in assets
 
 // Studio-generated product photography.
 import gHandleBrass from "@/assets/products/handle-brass-lever.jpg";
@@ -41,7 +32,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "pivot",
     productType: "door",
-    image: uDoorOakPivot.url,
+    image: "/placeholder-door.svg",
     shortDescription: "Ebonised oak pivot door with satin brass pull.",
     description:
       "A single monolithic leaf on a concealed floor pivot. Solid ebonised oak with an ivory-lit reveal and a full-height satin brass pull, engineered for openings up to 3m.",
@@ -60,7 +51,7 @@ export const products: Product[] = [
     stockStatus: "in-stock",
     featured: true,
     tags: ["entrance", "pivot", "oak"],
-    relatedProducts: ["hw-001", "hw-004", "door-004"],
+    relatedProducts: ["hw-001", "hw-004"],
   },
   {
     id: "door-002",
@@ -69,7 +60,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "entrance",
     productType: "door",
-    image: uDoorFrostedDouble.url,
+    image: "/placeholder-door.svg",
     shortDescription: "Walnut-framed double doors with etched frosted glass.",
     description:
       "Twin walnut-framed doors with etched frosted glass panels and slim polished pulls — a discreet, luminous entrance.",
@@ -91,7 +82,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "entrance",
     productType: "door",
-    image: uDoorSlatGlass.url,
+    image: "/placeholder-door.svg",
     shortDescription: "Slatted walnut entrance door with amber sidelights.",
     description:
       "Horizontally slatted walnut with flanking sidelights that borrow light from the interior. A warm, hospitable arrival.",
@@ -112,7 +103,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "entrance",
     productType: "door",
-    image: uDoorWalnutDouble.url,
+    image: "/placeholder-door.svg",
     shortDescription: "Twin walnut doors with blackened iron drop pulls.",
     description:
       "Solid walnut double doors with blackened iron drop pulls — architectural weight with quiet detailing.",
@@ -250,7 +241,7 @@ export const products: Product[] = [
     name: "Atelier Feature Wall",
     category: "wall-panels",
     productType: "panel",
-    image: uShowroomPanel.url,
+    image: gPanelWalnut,
     shortDescription: "Panelled feature wall system, atelier composition.",
     description:
       "A modular feature wall composed of raised panels, floating shelves and integrated warm lighting.",
@@ -319,7 +310,7 @@ export const products: Product[] = [
     category: "furniture",
     subcategory: "seating",
     productType: "sofa",
-    image: uSofa.url,
+    image: "/placeholder-furniture.svg",
     shortDescription: "Curved bouclé sofa with sculpted walnut legs.",
     description:
       "A generously proportioned bouclé sofa with hand-carved walnut legs. Modular configurations, custom fabrics available on request.",
@@ -362,7 +353,7 @@ export const products: Product[] = [
     name: "Atelier Open Kitchen",
     category: "kitchens",
     productType: "kitchen",
-    image: uKitchenModern.url,
+    image: "/placeholder-kitchen.svg",
     shortDescription: "Full graphite kitchen system with island and pendants.",
     description:
       "A fully bespoke kitchen system in matte graphite with a quartz island, integrated appliances and a run of sculptural pendants.",
@@ -381,7 +372,7 @@ export const products: Product[] = [
     name: "Hearth Warm Kitchen",
     category: "kitchens",
     productType: "kitchen",
-    image: uKitchenWarm.url,
+    image: "/placeholder-kitchen.svg",
     shortDescription: "Warm graphite kitchen with walnut framing and bar.",
     description:
       "A compact bespoke kitchen with a walnut opening, dropped pendants and a black stone breakfast bar.",
@@ -446,7 +437,7 @@ export const products: Product[] = [
     name: "Showroom Vignette",
     category: "accessories",
     productType: "styling",
-    image: uShowroomYellow.url,
+    image: "/placeholder-accessory.svg",
     shortDescription: "Curated styling composition from our Milan atelier.",
     description:
       "A styled composition of doors, panels and furniture from the Imena atelier — available to specify as a complete look.",
@@ -463,7 +454,7 @@ export const products: Product[] = [
     name: "Door Composition N°01",
     category: "accessories",
     productType: "styling",
-    image: uShowroomDoors.url,
+    image: "/placeholder-accessory.svg",
     shortDescription: "A composition of Imena doors as showroom art.",
     description:
       "A curated showroom composition of door leaves and framing — commissioned as sculpture, lit as architecture.",

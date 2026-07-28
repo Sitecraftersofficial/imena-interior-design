@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { categories } from "@/data/categories";
-import dimenaLogo from "@/assets/dimena-logo.png.asset.json";
+import imenaLogo from "@/assets/Imena-Logo.png";
 
 export function Footer() {
   return (
@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
             <img
-              src={dimenaLogo.url}
+              src={imenaLogo}
               alt="Imena Interior Design"
               className="h-16 w-auto"
             />

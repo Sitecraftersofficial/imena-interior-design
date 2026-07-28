@@ -2,8 +2,8 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
-import kitchen from "@/assets/products/kitchen-modern.jpg.asset.json";
-import kitchen2 from "@/assets/products/kitchen-warm.jpg.asset.json";
+import heroDoor from "@/assets/hero-door.jpg";
+import floorMarble from "@/assets/products/floor-marble-ivory.jpg";
 
 const projects = [
   {
@@ -28,7 +28,7 @@ const projects = [
     year: "2024",
     scope: "Doors & hardware · 42 openings",
     location: "London, UK",
-    image: kitchen.url,
+    image: heroDoor,
   },
   {
     slug: "hearth-house",
@@ -36,7 +36,7 @@ const projects = [
     year: "2023",
     scope: "Kitchen & wardrobe systems",
     location: "Kandy, Sri Lanka",
-    image: kitchen2.url,
+    image: floorMarble,
   },
 ];
 

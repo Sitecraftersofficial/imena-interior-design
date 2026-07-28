@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" fill="none">
+  <rect width="400" height="600" fill="#1a1a1a"/>
+  <rect x="50" y="50" width="300" height="500" fill="#2a2a2a" stroke="#3a3a3a" stroke-width="2"/>
+  <rect x="80" y="80" width="240" height="440" fill="#1f1f1f"/>
+  <circle cx="320" cy="300" r="8" fill="#c9a961"/>
+  <text x="200" y="580" font-family="sans-serif" font-size="12" fill="#666" text-anchor="middle">DOOR</text>
+</svg>

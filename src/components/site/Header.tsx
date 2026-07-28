@@ -3,7 +3,7 @@ import { Heart, Menu, Search, X, Layers } from "lucide-react";
 import { useEffect, useState } from "react";
 import { categories } from "@/data/categories";
 import { useStore } from "@/lib/store";
-import dimenaLogo from "@/assets/dimena-logo.png.asset.json";
+import imenaLogo from "@/assets/Imena-Logo.png";
 
 const primaryLinks = [
   { to: "/products", label: "Collections" },
@@ -53,7 +53,7 @@ export function Header() {
             aria-label="Imena — home"
           >
             <img
-              src={dimenaLogo.url}
+              src={imenaLogo}
               alt="Imena Interior Design"
               className="h-10 w-auto sm:h-12 lg:h-14"
             />

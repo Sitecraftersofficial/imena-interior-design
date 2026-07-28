@@ -96,7 +96,7 @@ export function Home() {
           </Link>
         </div>
 
-        <div className="mt-12 -mr-5 flex gap-4 overflow-x-auto pb-4 sm:mr-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
+        <div className="mt-12 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:snap-none lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
           {categories.map((c) => (
             <CategoryCard key={c.slug} category={c} />
           ))}

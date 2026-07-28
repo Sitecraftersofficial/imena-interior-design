@@ -7,7 +7,7 @@ export function CategoryCard({ category }: { category: Category }) {
   return (
     <Link
       to={`/categories/${category.slug}`}
-      className="group relative block min-w-65 shrink-0 sm:min-w-0"
+      className="group relative block w-70 shrink-0 sm:w-auto sm:min-w-0"
     >
       <div className="relative aspect-3/4 w-full overflow-hidden bg-ink outline -outline-offset-1 outline-hairline">
         <img

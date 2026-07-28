@@ -1,18 +1,16 @@
 import type { Category } from "@/lib/types";
 
 // Generated + uploaded imagery
-import doorOakPivot from "@/assets/products/door-oak-pivot.jpg.asset.json";
 import handleBrass from "@/assets/products/handle-brass-lever.jpg";
 import lockBrass from "@/assets/products/lock-brass-mortise.jpg";
 import panelWalnut from "@/assets/products/panel-walnut-fluted.jpg";
 import floorMarble from "@/assets/products/floor-marble-ivory.jpg";
 import pendant from "@/assets/products/pendant-apex.jpg";
-import sofa from "@/assets/products/sofa-boucle.jpg.asset.json";
-import kitchen from "@/assets/products/kitchen-modern.jpg.asset.json";
 import wardrobe from "@/assets/products/wardrobe-walnut-glass.jpg";
 import bath from "@/assets/products/bath-stone-tub.jpg";
 import knob from "@/assets/products/knob-brass-round.jpg";
 import table from "@/assets/products/table-stone-coffee.jpg";
+import heroDoor from "@/assets/hero-door.jpg";
 
 // Categories are data. Add a new entry to introduce a new department; product
 // pages/grids read the same source of truth. Order below is display order.
@@ -23,7 +21,7 @@ export const categories: Category[] = [
     tagline: "The threshold, considered.",
     description:
       "Pivot, entrance and interior doors engineered from ebonized oak, walnut and architectural glass.",
-    image: doorOakPivot.url,
+    image: heroDoor,
   },
   {
     slug: "handles",
@@ -79,7 +77,7 @@ export const categories: Category[] = [
     tagline: "Furnishing the silence.",
     description:
       "Sofas, tables and lounge chairs from independent European ateliers.",
-    image: sofa.url,
+    image: "/placeholder-furniture.svg",
   },
   {
     slug: "kitchens",
@@ -87,7 +85,7 @@ export const categories: Category[] = [
     tagline: "The heart, precisely built.",
     description:
       "Bespoke kitchen systems in lacquered stone, brushed metal and warm timber.",
-    image: kitchen.url,
+    image: "/placeholder-kitchen.svg",
   },
   {
     slug: "wardrobes",

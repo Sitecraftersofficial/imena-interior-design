@@ -2,10 +2,9 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
-import kitchen from "@/assets/products/kitchen-modern.jpg.asset.json";
-import kitchen2 from "@/assets/products/kitchen-warm.jpg.asset.json";
-import showroom from "@/assets/products/showroom-yellow.jpg.asset.json";
-import showroomDoors from "@/assets/products/showroom-doors.jpg.asset.json";
+import heroDoor from "@/assets/hero-door.jpg";
+import floorMarble from "@/assets/products/floor-marble-ivory.jpg";
+import pendantApex from "@/assets/products/pendant-apex.jpg";
 
 const rooms = [
   {
@@ -27,28 +26,28 @@ const rooms = [
     title: "The Graphite Kitchen",
     location: "London, UK",
     tag: "Kitchen",
-    image: kitchen.url,
+    image: heroDoor,
   },
   {
     slug: "kitchen-warm",
     title: "The Hearth Kitchen",
     location: "Kandy, Sri Lanka",
     tag: "Kitchen",
-    image: kitchen2.url,
+    image: floorMarble,
   },
   {
     slug: "atelier-composition",
     title: "Atelier Composition N°01",
     location: "Milan Showroom",
     tag: "Styling",
-    image: showroom.url,
+    image: pendantApex,
   },
   {
     slug: "door-composition",
     title: "Door Composition N°01",
     location: "Milan Showroom",
     tag: "Doors",
-    image: showroomDoors.url,
+    image: heroDoor,
   },
 ];
 
