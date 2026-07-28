@@ -16,12 +16,12 @@ export function Home() {
   return (
     <>
       <Helmet>
-        <title>Dimena — The Architecture of Interiors</title>
+        <title>Imena — The Architecture of Interiors</title>
         <meta
           name="description"
-          content="Cinematic architectural doors, hardware, kitchens, lighting and interior systems from the Dimena atelier."
+          content="Cinematic architectural doors, hardware, kitchens, lighting and interior systems from the Imena atelier."
         />
-        <meta property="og:title" content="Dimena — The Architecture of Interiors" />
+        <meta property="og:title" content="Imena — The Architecture of Interiors" />
         <meta
           property="og:description"
           content="Cinematic architectural doors, hardware, kitchens and interior systems."
@@ -29,7 +29,7 @@ export function Home() {
       </Helmet>
 
       {/* ─── HERO ─── */}
-      <section className="relative h-[92vh] min-h-[640px] w-full overflow-hidden">
+      <section className="relative h-[92vh] min-h-160 w-full overflow-hidden">
         <img
           src={heroDoor}
           alt="An ebonised oak pivot door slightly ajar, warm light spilling from an ivory interior."
@@ -38,8 +38,8 @@ export function Home() {
           width={1920}
           height={1200}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-void via-void/70 to-void/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-void/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-void via-void/70 to-void/10" />
+        <div className="absolute inset-0 bg-linear-to-t from-void via-transparent to-void/40" />
 
         <div className="container-x relative z-10 flex h-full items-end pb-20 lg:items-center lg:pb-0">
           <div className="max-w-2xl reveal">
@@ -74,7 +74,7 @@ export function Home() {
         </div>
 
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 lg:bottom-10">
-          <div className="h-16 w-px bg-gradient-to-b from-gold to-transparent" />
+          <div className="h-16 w-px bg-linear-to-b from-gold to-transparent" />
         </div>
       </section>
 
@@ -114,7 +114,7 @@ export function Home() {
               </h2>
               <p className="mt-4 max-w-xl text-sm text-ivory/50">
                 A rotating selection curated by our design team. Every object in the
-                Dimena catalog is available to specify, sample or commission.
+                Imena catalog is available to specify, sample or commission.
               </p>
             </div>
             <Link
@@ -138,7 +138,7 @@ export function Home() {
               src={livingForest}
               alt="Cinematic living room with dark walnut wall paneling and floor-to-ceiling windows overlooking a pine forest."
               loading="lazy"
-              className="aspect-[4/5] w-full object-cover outline outline-1 -outline-offset-1 outline-hairline"
+              className="aspect-4/5 w-full object-cover outline -outline-offset-1 outline-hairline"
               width={1600}
               height={1200}
             />
@@ -146,7 +146,7 @@ export function Home() {
               src={bedroomSuite}
               alt="Master bedroom with dark oak wall paneling, ivory linen headboard and brushed brass sconces."
               loading="lazy"
-              className="absolute -bottom-12 -right-6 hidden aspect-[4/5] w-2/5 object-cover outline outline-1 -outline-offset-1 outline-hairline sm:block"
+              className="absolute -bottom-12 -right-6 hidden aspect-4/5 w-2/5 object-cover outline -outline-offset-1 outline-hairline sm:block"
               width={1600}
               height={1200}
             />
@@ -208,7 +208,7 @@ export function Home() {
           <div>
             <p className="text-sm leading-relaxed text-void/70">
               Book a private consultation with our design team, or visit the
-              atelier in Milan to experience the quality of Dimena in person.
+              atelier in Milan to experience the quality of Imena in person.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link

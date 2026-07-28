@@ -97,15 +97,15 @@ export function Catalog() {
   return (
     <>
       <Helmet>
-        <title>The Catalog — Dimena</title>
+        <title>The Catalog — Imena</title>
         <meta
           name="description"
-          content="Browse the complete Dimena catalog of architectural doors, hardware, lighting, kitchens, wardrobes and interior systems."
+          content="Browse the complete Imena catalog of architectural doors, hardware, lighting, kitchens, wardrobes and interior systems."
         />
-        <meta property="og:title" content="The Catalog — Dimena" />
+        <meta property="og:title" content="The Catalog — Imena" />
         <meta
           property="og:description"
-          content="The complete Dimena catalog. Filter by category, material and finish."
+          content="The complete Imena catalog. Filter by category, material and finish."
         />
       </Helmet>
 
@@ -322,8 +322,8 @@ function FiltersPanel({
                   })
                 }
                 className={`text-sm transition-colors ${search.category === c.slug
-                    ? "text-gold"
-                    : "text-ivory/60 hover:text-ivory"
+                  ? "text-gold"
+                  : "text-ivory/60 hover:text-ivory"
                   }`}
               >
                 {c.name}
@@ -353,8 +353,8 @@ function FiltersPanel({
                     setSearch({ material: search.material === m ? undefined : m })
                   }
                   className={`text-left text-sm ${search.material === m
-                      ? "text-gold"
-                      : "text-ivory/60 hover:text-ivory"
+                    ? "text-gold"
+                    : "text-ivory/60 hover:text-ivory"
                     }`}
                 >
                   {m}
@@ -376,8 +376,8 @@ function FiltersPanel({
                     setSearch({ finish: search.finish === f ? undefined : f })
                   }
                   className={`border px-2.5 py-1 text-xs transition-colors ${search.finish === f
-                      ? "border-gold text-gold"
-                      : "border-hairline text-ivory/60 hover:border-ivory hover:text-ivory"
+                    ? "border-gold text-gold"
+                    : "border-hairline text-ivory/60 hover:border-ivory hover:text-ivory"
                     }`}
                 >
                   {f}

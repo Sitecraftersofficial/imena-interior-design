@@ -4,5 +4,5 @@
  */
 export const BUSINESS_CONFIG = {
   managerEmail: "concierge@dimena.studio",
-  brandName: "Dimena",
+  brandName: "Imena",
 } as const;

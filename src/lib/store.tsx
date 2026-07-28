@@ -1,6 +1,6 @@
 /**
  * Client-side wishlist + project builder state, persisted to localStorage.
- * Moves cleanly onto Lovable Cloud later by swapping the persistence layer;
+ * Can be moved to a backend later by swapping the persistence layer;
  * component contracts don't change.
  */
 import {

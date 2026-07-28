@@ -14,15 +14,15 @@ export function WishlistPage() {
   return (
     <>
       <Helmet>
-        <title>Your Wishlist — Dimena</title>
+        <title>Your Wishlist — Imena</title>
         <meta
           name="description"
-          content="Saved objects from the Dimena catalog."
+          content="Saved objects from the Imena catalog."
         />
-        <meta property="og:title" content="Your Wishlist — Dimena" />
+        <meta property="og:title" content="Your Wishlist — Imena" />
         <meta
           property="og:description"
-          content="Saved objects from the Dimena catalog."
+          content="Saved objects from the Imena catalog."
         />
       </Helmet>
 

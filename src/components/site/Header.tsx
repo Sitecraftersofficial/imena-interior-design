@@ -42,19 +42,19 @@ export function Header() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${scrolled || open
-            ? "border-hairline bg-void/85 backdrop-blur-md"
-            : "border-transparent bg-transparent"
+          ? "border-hairline bg-void/85 backdrop-blur-md"
+          : "border-transparent bg-transparent"
           }`}
       >
         <div className="container-x grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 lg:h-20">
           <Link
             to="/"
             className="flex items-center"
-            aria-label="Dimena — home"
+            aria-label="Imena — home"
           >
             <img
               src={dimenaLogo.url}
-              alt="Dimena Interior Design"
+              alt="Imena Interior Design"
               className="h-10 w-auto sm:h-12 lg:h-14"
             />
           </Link>
@@ -65,8 +65,8 @@ export function Header() {
                 key={l.to}
                 to={l.to}
                 className={`gold-underline font-mono text-[10px] uppercase tracking-[0.28em] transition-colors ${location.pathname === l.to
-                    ? "text-gold"
-                    : "text-ivory/70 hover:text-ivory"
+                  ? "text-gold"
+                  : "text-ivory/70 hover:text-ivory"
                   }`}
               >
                 {l.label}

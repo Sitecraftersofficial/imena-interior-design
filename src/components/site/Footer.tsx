@@ -10,7 +10,7 @@ export function Footer() {
           <div className="max-w-sm">
             <img
               src={dimenaLogo.url}
-              alt="Dimena Interior Design"
+              alt="Imena Interior Design"
               className="h-16 w-auto"
             />
             <p className="mt-6 text-sm leading-relaxed text-ivory/50">
@@ -56,7 +56,7 @@ export function Footer() {
         <div className="mt-20 hairline" />
         <div className="mt-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
-            &copy; {new Date().getFullYear()} Dimena Architectural. All rights reserved.
+            &copy; {new Date().getFullYear()} Imena Architectural. All rights reserved.
           </p>
           <div className="flex gap-8 font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
             <a href="#">Privacy</a>

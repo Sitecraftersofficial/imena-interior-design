@@ -17,16 +17,16 @@ export function ProductCard({ product, eager = false }: Props) {
     <article className="group relative flex flex-col">
       <Link
         to={`/products/${product.slug}`}
-        className="relative block overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline"
+        className="relative block overflow-hidden bg-ink outline-1 -outline-offset-1 outline-hairline"
         aria-label={product.name}
       >
-        <div className="aspect-[4/5] w-full overflow-hidden">
+        <div className="aspect-4/5 w-full overflow-hidden">
           <img
             src={product.image}
             alt={product.name}
             loading={eager ? "eager" : "lazy"}
             decoding="async"
-            className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.04]"
+            className="h-full w-full object-cover transition-transform duration-1200 ease-expo group-hover:scale-[1.04]"
           />
         </div>
         {product.featured && (

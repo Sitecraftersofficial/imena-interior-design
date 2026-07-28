@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ArrowRight, Heart, Plus, ChevronLeft } from "lucide-react";
 import {
   productBySlug,
@@ -14,7 +14,6 @@ import { NotFound } from "./not-found";
 
 export function ProductDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
   const product = slug ? productBySlug(slug) : undefined;
 
   const { isWished, toggleWish, addToProject } = useStore();
@@ -51,9 +50,9 @@ export function ProductDetail() {
   return (
     <>
       <Helmet>
-        <title>{product.name} — Dimena</title>
+        <title>{product.name} — Imena</title>
         <meta name="description" content={product.shortDescription} />
-        <meta property="og:title" content={`${product.name} — Dimena`} />
+        <meta property="og:title" content={`${product.name} — Imena`} />
         <meta property="og:description" content={product.shortDescription} />
         <meta property="og:image" content={product.image} />
         <meta name="twitter:image" content={product.image} />
@@ -70,11 +69,11 @@ export function ProductDetail() {
       </section>
 
       <section className="container-x mt-8 grid gap-12 pb-24 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
-        <div className="relative bg-ink outline outline-1 -outline-offset-1 outline-hairline">
+        <div className="relative bg-ink outline-1 -outline-offset-1 outline-hairline">
           <img
             src={product.image}
             alt={product.name}
-            className="aspect-[4/5] w-full object-cover"
+            className="aspect-4/5 w-full object-cover"
             fetchPriority="high"
           />
         </div>

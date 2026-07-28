@@ -20,22 +20,22 @@ export function Contact() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("[Dimena] Consultation request", form);
+    console.log("[Imena] Consultation request", form);
     setSubmitted(true);
   };
 
   return (
     <>
       <Helmet>
-        <title>Consultation — Dimena</title>
+        <title>Consultation — Imena</title>
         <meta
           name="description"
-          content="Book a private consultation with the Dimena atelier — Milan, London, Dubai."
+          content="Book a private consultation with the Imena atelier — Milan, London, Dubai."
         />
-        <meta property="og:title" content="Consultation — Dimena" />
+        <meta property="og:title" content="Consultation — Imena" />
         <meta
           property="og:description"
-          content="Private design consultations with the Dimena atelier — Milan, London, Dubai."
+          content="Private design consultations with the Imena atelier — Milan, London, Dubai."
         />
       </Helmet>
 

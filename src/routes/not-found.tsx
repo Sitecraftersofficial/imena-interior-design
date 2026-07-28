@@ -5,7 +5,7 @@ export function NotFound() {
     return (
         <>
             <Helmet>
-                <title>Page not found — Dimena</title>
+                <title>Page not found — Imena</title>
                 <meta name="robots" content="noindex" />
             </Helmet>
             <div className="flex min-h-screen items-center justify-center bg-void px-6">
@@ -13,7 +13,7 @@ export function NotFound() {
                     <p className="eyebrow">Error 404</p>
                     <h1 className="mt-6 font-display text-6xl text-ivory">Not Found</h1>
                     <p className="mt-4 text-sm text-ivory/50">
-                        The page you're looking for has been moved, renamed, or never existed.
+                        The page you're looking for has been moved, renamed, or does not exist.
                     </p>
                     <Link
                         to="/"

@@ -56,7 +56,7 @@ export function ProjectBuilder() {
       product: NonNullable<ReturnType<typeof productById>>;
     }[];
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (sending) return;
     if (rows.length === 0) {
@@ -87,7 +87,7 @@ export function ProjectBuilder() {
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
-      console.error("[Dimena] Failed to open mail client", err);
+      console.error("[Imena] Failed to open mail client", err);
       setSendError(
         "We couldn't send your object right now. Your object is still saved. Please try again.",
       );
@@ -128,12 +128,12 @@ export function ProjectBuilder() {
   return (
     <>
       <Helmet>
-        <title>Project Builder — Dimena</title>
+        <title>Project Builder — Imena</title>
         <meta
           name="description"
           content="Curate objects, add specification notes and submit as a consolidated quote request."
         />
-        <meta property="og:title" content="Project Builder — Dimena" />
+        <meta property="og:title" content="Project Builder — Imena" />
         <meta
           property="og:description"
           content="Curate objects, add notes and submit as a consolidated quote request."
@@ -186,7 +186,7 @@ export function ProjectBuilder() {
                 >
                   <Link
                     to={`/products/${product.slug}`}
-                    className="block aspect-[4/5] overflow-hidden bg-void"
+                    className="block aspect-4/5 overflow-hidden bg-void"
                   >
                     <img
                       src={product.image}

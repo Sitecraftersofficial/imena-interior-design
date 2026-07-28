@@ -56,15 +56,15 @@ export function Inspiration() {
   return (
     <>
       <Helmet>
-        <title>Inspiration — Dimena</title>
+        <title>Inspiration — Imena</title>
         <meta
           name="description"
-          content="Rooms and installations designed and installed by the Dimena atelier. Shop the look."
+          content="Rooms and installations designed and installed by the Imena atelier. Shop the look."
         />
-        <meta property="og:title" content="Inspiration — Dimena" />
+        <meta property="og:title" content="Inspiration — Imena" />
         <meta
           property="og:description"
-          content="Rooms and installations designed and installed by the Dimena atelier."
+          content="Rooms and installations designed and installed by the Imena atelier."
         />
         <meta property="og:image" content={livingForest} />
         <meta name="twitter:image" content={livingForest} />
@@ -86,16 +86,16 @@ export function Inspiration() {
           <Link
             key={r.slug}
             to="/products"
-            className={`group relative block overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline ${i === 0 ? "sm:col-span-2 sm:row-span-2 aspect-[4/5]" : "aspect-[4/5]"
+            className={`group relative block overflow-hidden bg-ink outline -outline-offset-1 outline-hairline ${i === 0 ? "sm:col-span-2 sm:row-span-2 aspect-4/5" : "aspect-4/5"
               }`}
           >
             <img
               src={r.image}
               alt={r.title}
               loading={i < 2 ? "eager" : "lazy"}
-              className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.05]"
+              className="h-full w-full object-cover transition-transform duration-1400 group-hover:scale-[1.05]"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-void/90 via-void/20 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-void/90 via-void/20 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6">
               <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">
                 {r.tag} · {r.location}

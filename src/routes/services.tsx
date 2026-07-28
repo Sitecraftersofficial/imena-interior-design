@@ -38,12 +38,12 @@ export function Services() {
   return (
     <>
       <Helmet>
-        <title>Services — Dimena</title>
+        <title>Services — Imena</title>
         <meta
           name="description"
           content="Design, supply and installation services for architectural interiors — consultation, bespoke doors, hardware, kitchens and lighting."
         />
-        <meta property="og:title" content="Services — Dimena" />
+        <meta property="og:title" content="Services — Imena" />
         <meta
           property="og:description"
           content="Design, supply and installation services for architectural interiors."
@@ -67,7 +67,7 @@ export function Services() {
           {services.map((s) => (
             <article
               key={s.n}
-              className="group flex min-h-[280px] flex-col justify-between bg-void p-8 transition-colors hover:bg-ink"
+              className="group flex min-h-70 flex-col justify-between bg-void p-8 transition-colors hover:bg-ink"
             >
               <div className="flex items-start justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">

@@ -20,23 +20,23 @@ export function CategoryPage() {
   return (
     <>
       <Helmet>
-        <title>{category.name} — Dimena</title>
+        <title>{category.name} — Imena</title>
         <meta name="description" content={category.description} />
-        <meta property="og:title" content={`${category.name} — Dimena`} />
+        <meta property="og:title" content={`${category.name} — Imena`} />
         <meta property="og:description" content={category.description} />
         <meta property="og:image" content={category.image} />
         <meta name="twitter:image" content={category.image} />
       </Helmet>
 
       {/* Category hero */}
-      <section className="relative h-[60vh] min-h-[420px] w-full overflow-hidden border-b border-hairline">
+      <section className="relative h-[60vh] min-h-105 w-full overflow-hidden border-b border-hairline">
         <img
           src={category.image}
           alt={category.name}
           className="absolute inset-0 h-full w-full object-cover ken-burns"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/60 to-void/20" />
+        <div className="absolute inset-0 bg-linear-to-t from-void via-void/60 to-void/20" />
         <div className="container-x relative z-10 flex h-full flex-col justify-end pb-12">
           <p className="eyebrow">
             Department · {String(items.length).padStart(2, "0")} objects
@@ -85,12 +85,12 @@ export function CategoryPage() {
                 to={`/categories/${c.slug}`}
                 className="group block"
               >
-                <div className="aspect-[4/5] overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline">
+                <div className="aspect-4/5 overflow-hidden bg-ink outline-1 -outline-offset-1 outline-hairline">
                   <img
                     src={c.image}
                     alt={c.name}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.05]"
+                    className="h-full w-full object-cover transition-transform duration-1200 group-hover:scale-[1.05]"
                   />
                 </div>
                 <p className="mt-3 font-display text-lg text-ivory group-hover:text-gold">

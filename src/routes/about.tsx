@@ -6,15 +6,15 @@ export function About() {
   return (
     <>
       <Helmet>
-        <title>The Atelier — Dimena</title>
+        <title>The Atelier — Imena</title>
         <meta
           name="description"
-          content="Founded in Milan in 1984, Dimena is a design, supply and installation atelier for architectural interiors."
+          content="Founded in Milan in 1984, Imena is a design, supply and installation atelier for architectural interiors."
         />
-        <meta property="og:title" content="The Atelier — Dimena" />
+        <meta property="og:title" content="The Atelier — Imena" />
         <meta
           property="og:description"
-          content="Founded in Milan in 1984, Dimena is a design, supply and installation atelier for architectural interiors."
+          content="Founded in Milan in 1984, Imena is a design, supply and installation atelier for architectural interiors."
         />
       </Helmet>
 
@@ -31,11 +31,11 @@ export function About() {
           src={livingForest}
           alt="A cinematic interior with dark walnut wall paneling and a warm ivory sofa."
           loading="lazy"
-          className="aspect-[4/5] w-full object-cover outline outline-1 -outline-offset-1 outline-hairline"
+          className="aspect-4/5 w-full object-cover outline-1 -outline-offset-1 outline-hairline"
         />
         <div className="space-y-6 text-base leading-relaxed text-ivory/70">
           <p>
-            Dimena was founded in Milan in 1984 by a small collective of
+            Imena was founded in Milan in 1984 by a small collective of
             architects and cabinetmakers who believed the door, the handle and
             the panel deserved the same care as the building around them.
           </p>

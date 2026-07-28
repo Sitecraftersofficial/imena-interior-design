@@ -44,15 +44,15 @@ export function Projects() {
   return (
     <>
       <Helmet>
-        <title>Projects — Dimena</title>
+        <title>Projects — Imena</title>
         <meta
           name="description"
-          content="Selected residential and commercial projects designed and installed by the Dimena atelier."
+          content="Selected residential and commercial projects designed and installed by the Imena atelier."
         />
-        <meta property="og:title" content="Projects — Dimena" />
+        <meta property="og:title" content="Projects — Imena" />
         <meta
           property="og:description"
-          content="Selected residential and commercial projects designed and installed by the Dimena atelier."
+          content="Selected residential and commercial projects designed and installed by the Imena atelier."
         />
         <meta property="og:image" content={livingForest} />
         <meta name="twitter:image" content={livingForest} />
@@ -73,7 +73,7 @@ export function Projects() {
             className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
           >
             <div
-              className={`relative aspect-[4/5] overflow-hidden bg-ink outline outline-1 -outline-offset-1 outline-hairline ${i % 2 ? "lg:order-2" : ""
+              className={`relative aspect-4/5 overflow-hidden bg-ink outline-1 -outline-offset-1 outline-hairline ${i % 2 ? "lg:order-2" : ""}
                 }`}
             >
               <img

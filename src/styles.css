@@ -1,13 +1,17 @@
-@import "tailwindcss" source(none);
+/* stylelint-disable at-rule-no-unknown */
+@import "tailwindcss";
 @source "../src";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Dimena — luxury architectural design system.
+ * Imena — luxury architectural design system.
  * Palette: matte black + ivory + champagne gold. Typography: Playfair Display + Inter + JetBrains Mono.
  * All colors defined here. NEVER hardcode colors in components.
+ *
+ * Note: Uses Tailwind CSS v4 directives (@source, @custom-variant, @theme, @utility)
+ * which are valid but may trigger linter warnings.
  */
 
 @theme inline {
@@ -125,11 +129,17 @@
   }
 
   ::selection {
+    /* Fallback for browsers that don't support color-mix() (Chrome < 111, Safari iOS < 16.2) */
+    background-color: var(--color-gold);
+    /* Enhanced version for modern browsers - 40% opacity gold */
     background-color: color-mix(in oklab, var(--color-gold) 40%, transparent);
     color: var(--color-ivory);
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -173,14 +183,26 @@
 
 @utility container-x {
   padding-inline: 1.25rem;
-  @media (min-width: 640px) { padding-inline: 2rem; }
-  @media (min-width: 1024px) { padding-inline: 3rem; }
-  @media (min-width: 1440px) { padding-inline: 5rem; }
+  @media (min-width: 640px) {
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 3rem;
+  }
+  @media (min-width: 1440px) {
+    padding-inline: 5rem;
+  }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @utility reveal {
@@ -188,8 +210,12 @@
 }
 
 @keyframes kenBurns {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
 }
 
 @utility ken-burns {

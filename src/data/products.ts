@@ -29,9 +29,8 @@ import gTable from "@/assets/products/table-stone-coffee.jpg";
  * category counts, search, filters, wishlist and Project Builder will pick
  * it up automatically. No component code needs to change.
  *
- * When the catalog moves to a database (Lovable Cloud), replace this export
- * with a query — component contracts stay the same because everything reads
- * `Product`.
+ * When the catalog moves to a database, replace this export with a query —
+ * component contracts stay the same because everything reads `Product`.
  */
 export const products: Product[] = [
   // ── Doors ──────────────────────────────────────────────────────────
@@ -211,7 +210,7 @@ export const products: Product[] = [
     image: gLockBrass,
     shortDescription: "Full-brass mortise deadbolt with keyed cylinder.",
     description:
-      "A full-brass mortise deadbolt with a keyed cylinder, matched to any Dimena handle set.",
+      "A full-brass mortise deadbolt with a keyed cylinder, matched to any Imena handle set.",
     material: "Solid Brass",
     finishes: ["Satin Brass", "Polished Brass", "Gunmetal"],
     dimensions: "165 × 22 mm backset",
@@ -450,7 +449,7 @@ export const products: Product[] = [
     image: uShowroomYellow.url,
     shortDescription: "Curated styling composition from our Milan atelier.",
     description:
-      "A styled composition of doors, panels and furniture from the Dimena atelier — available to specify as a complete look.",
+      "A styled composition of doors, panels and furniture from the Imena atelier — available to specify as a complete look.",
     priceType: "request-quote",
     price: null,
     availability: "made-to-order",
@@ -465,7 +464,7 @@ export const products: Product[] = [
     category: "accessories",
     productType: "styling",
     image: uShowroomDoors.url,
-    shortDescription: "A composition of Dimena doors as showroom art.",
+    shortDescription: "A composition of Imena doors as showroom art.",
     description:
       "A curated showroom composition of door leaves and framing — commissioned as sculpture, lit as architecture.",
     priceType: "request-quote",
