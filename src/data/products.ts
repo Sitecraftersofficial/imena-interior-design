@@ -14,7 +14,7 @@ import gWardrobe from "@/assets/products/wardrobe-walnut-glass.jpg";
 import gBath from "@/assets/products/bath-stone-tub.jpg";
 import gTable from "@/assets/products/table-stone-coffee.jpg";
 import dgof from "@/assets/products/src/assets/products/vp.jpg";
-import door2 from "@/assets/products/src/assets/products/doorv.jpg";
+import door2 from "@/assets/products/doorv.jpg";
 /**\
  * SINGLE SOURCE OF TRUTH for the product catalog.
  * To add a product: append a new object to this array. All pages, grids,
