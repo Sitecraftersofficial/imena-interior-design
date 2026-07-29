@@ -33,7 +33,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "pivot",
     productType: "door",
-    image: dgof,
+    image: gBath,
     shortDescription: "Ebonised oak pivot door with satin brass pull.",
     description:
       "A single monolithic leaf on a concealed floor pivot. Solid ebonised oak with an ivory-lit reveal and a full-height satin brass pull, engineered for openings up to 3m.",
