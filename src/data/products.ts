@@ -13,8 +13,8 @@ import gPendant from "@/assets/products/pendant-apex.jpg";
 import gWardrobe from "@/assets/products/wardrobe-walnut-glass.jpg";
 import gBath from "@/assets/products/bath-stone-tub.jpg";
 import gTable from "@/assets/products/table-stone-coffee.jpg";
-import dgof from "@/assets/products/table-stone-coffee.jpg";
-/**
+import dgof from "@/assets/products/src/assets/products/vp.jpg";
+/**\
  * SINGLE SOURCE OF TRUTH for the product catalog.
  * To add a product: append a new object to this array. All pages, grids,
  * category counts, search, filters, wishlist and Project Builder will pick
