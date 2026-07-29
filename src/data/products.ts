@@ -15,6 +15,7 @@ import gBath from "@/assets/products/bath-stone-tub.jpg";
 import gTable from "@/assets/products/table-stone-coffee.jpg";
 import dgof from "@/assets/products/src/assets/products/vp.jpg";
 import door2 from "@/assets/products/doorv.jpg";
+import door3  from "@/assets/products/you.jpg";
 /**\
  * SINGLE SOURCE OF TRUTH for the product catalog.
  * To add a product: append a new object to this array. All pages, grids,
@@ -33,7 +34,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "pivot",
     productType: "door",
-    image: gBath,
+    image: dgof,
     shortDescription: "Ebonised oak pivot door with satin brass pull.",
     description:
       "A single monolithic leaf on a concealed floor pivot. Solid ebonised oak with an ivory-lit reveal and a full-height satin brass pull, engineered for openings up to 3m.",
@@ -104,7 +105,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "entrance",
     productType: "door",
-    image: "/placeholder-door.svg",
+    image: door3,
     shortDescription: "Twin walnut doors with blackened iron drop pulls.",
     description:
       "Solid walnut double doors with blackened iron drop pulls — architectural weight with quiet detailing.",
