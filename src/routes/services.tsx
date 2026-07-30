@@ -41,12 +41,12 @@ export function Services() {
         <title>Services — Imena</title>
         <meta
           name="description"
-          content="Design, supply and installation services for architectural interiors — consultation, bespoke doors, hardware, kitchens and lighting."
+          content="Design, supply and installation services for architectural interiors — consultation, bespoke doors, hardware, kitchens and lighting — based in Kigali, Rwanda."
         />
         <meta property="og:title" content="Services — Imena" />
         <meta
           property="og:description"
-          content="Design, supply and installation services for architectural interiors."
+          content="Design, supply and installation services for architectural interiors — based in Kigali, Rwanda."
         />
       </Helmet>
 

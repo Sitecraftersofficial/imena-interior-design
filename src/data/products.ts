@@ -18,6 +18,9 @@ import door2 from "@/assets/products/doorv.jpg";
 import door3  from "@/assets/products/you.jpg";
 import door4  from "@/assets/products/op.jpeg";
 import room1  from "@/assets/products/room.jpg";
+import k1  from "@/assets/products/ki.jpg";
+import k2  from "@/assets/products/k2.jpg";
+import room2 from "@/assets/products/room2.jpg";
 /**\
  * SINGLE SOURCE OF TRUTH for the product catalog.
  * To add a product: append a new object to this array. All pages, grids,
@@ -143,7 +146,7 @@ export const products: Product[] = [
     },
     price: 340,
     priceType: "from",
-    currency: "EUR",
+    currency: "RWF",
     availability: "available",
     stockStatus: "in-stock",
     featured: true,
@@ -165,7 +168,7 @@ export const products: Product[] = [
     dimensions: "128–640 mm",
     price: 88,
     priceType: "from",
-    currency: "EUR",
+    currency: "RWF",
     availability: "available",
     stockStatus: "in-stock",
     featured: false,
@@ -188,7 +191,7 @@ export const products: Product[] = [
     dimensions: "Ø 52 mm",
     price: 210,
     priceType: "from",
-    currency: "EUR",
+    currency: "RWF",
     availability: "available",
     stockStatus: "in-stock",
     featured: true,
@@ -211,7 +214,7 @@ export const products: Product[] = [
     dimensions: "165 × 22 mm backset",
     price: 420,
     priceType: "from",
-    currency: "EUR",
+    currency: "RWF",
     availability: "available",
     stockStatus: "in-stock",
     featured: false,
@@ -275,7 +278,7 @@ export const products: Product[] = [
     dimensions: "1200 × 600 × 20 mm",
     price: 240,
     priceType: "from",
-    currency: "EUR",
+    currency: "RWF",
     availability: "available",
     stockStatus: "in-stock",
     featured: true,
@@ -299,7 +302,7 @@ export const products: Product[] = [
     dimensions: "Ø 380 × H 520 mm",
     price: 890,
     priceType: "from",
-    currency: "EUR",
+    currency: "RWF",
     availability: "available",
     stockStatus: "in-stock",
     featured: true,
@@ -335,7 +338,7 @@ export const products: Product[] = [
     category: "furniture",
     subcategory: "tables",
     productType: "table",
-    image: gTable,
+    image: room2,
     shortDescription: "Sculpted black marble coffee table with cast base.",
     description:
       "A single slab of black marble on a hand-cast sculptural base. Each piece is unique to the vein of the stone.",
@@ -357,7 +360,7 @@ export const products: Product[] = [
     name: "Atelier Open Kitchen",
     category: "kitchens",
     productType: "kitchen",
-    image: "/placeholder-kitchen.svg",
+    image: k1,
     shortDescription: "Full graphite kitchen system with island and pendants.",
     description:
       "A fully bespoke kitchen system in matte graphite with a quartz island, integrated appliances and a run of sculptural pendants.",
@@ -376,7 +379,7 @@ export const products: Product[] = [
     name: "Hearth Warm Kitchen",
     category: "kitchens",
     productType: "kitchen",
-    image: "/placeholder-kitchen.svg",
+    image: k2,
     shortDescription: "Warm graphite kitchen with walnut framing and bar.",
     description:
       "A compact bespoke kitchen with a walnut opening, dropped pendants and a black stone breakfast bar.",
@@ -442,7 +445,7 @@ export const products: Product[] = [
     category: "accessories",
     productType: "styling",
     image: "/placeholder-accessory.svg",
-    shortDescription: "Curated styling composition from our Milan atelier.",
+    shortDescription: "Curated styling composition from our Kigali atelier.",
     description:
       "A styled composition of doors, panels and furniture from the Imena atelier — available to specify as a complete look.",
     priceType: "request-quote",

@@ -15,7 +15,7 @@ export function Footer() {
             />
             <p className="mt-6 text-sm leading-relaxed text-ivory/50">
               A design, supply and installation atelier for architectural
-              hardware, doors, kitchens and complete interior systems. Milan · London · Dubai.
+              hardware, doors, kitchens and complete interior systems. Kigali, Rwanda.
             </p>
             <p className="eyebrow mt-8">Correspondence</p>
             <a

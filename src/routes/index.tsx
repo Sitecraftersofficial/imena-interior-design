@@ -43,7 +43,7 @@ export function Home() {
 
         <div className="container-x relative z-10 flex h-full items-end pb-20 lg:items-center lg:pb-0">
           <div className="max-w-2xl reveal">
-            <p className="eyebrow">Est. Milan · An architectural atelier</p>
+            <p className="eyebrow">Est. Kigali · An architectural atelier</p>
             <h1 className="mt-8 font-display text-5xl leading-[0.95] text-ivory sm:text-6xl lg:text-8xl">
               The silent{" "}
               <span className="italic text-gold">language</span> of&nbsp;form.
@@ -208,7 +208,7 @@ export function Home() {
           <div>
             <p className="text-sm leading-relaxed text-void/70">
               Book a private consultation with our design team, or visit the
-              atelier in Milan to experience the quality of Imena in person.
+              atelier in Kigali to experience the quality of Imena in person.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link

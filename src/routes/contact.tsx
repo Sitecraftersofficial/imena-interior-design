@@ -30,12 +30,12 @@ export function Contact() {
         <title>Consultation — Imena</title>
         <meta
           name="description"
-          content="Book a private consultation with the Imena atelier — Milan, London, Dubai."
+          content="Book a private consultation with the Imena atelier — Kigali, Rwanda."
         />
         <meta property="og:title" content="Consultation — Imena" />
         <meta
           property="og:description"
-          content="Private design consultations with the Imena atelier — Milan, London, Dubai."
+          content="Private design consultations with the Imena atelier — Kigali, Rwanda."
         />
       </Helmet>
 
@@ -122,22 +122,21 @@ export function Contact() {
         )}
 
         <aside className="space-y-10">
-          <ContactBlock icon={<MapPin className="h-4 w-4" strokeWidth={1.5} />} title="Milan Atelier">
-            Via Pontaccio 21<br />
-            20121 Milano, Italy
+          <ContactBlock icon={<MapPin className="h-4 w-4" strokeWidth={1.5} />} title="Kigali Atelier">
+            KG 7 Ave, Kacyiru<br />
+            Kigali, Rwanda
           </ContactBlock>
           <ContactBlock icon={<Phone className="h-4 w-4" strokeWidth={1.5} />} title="Direct">
-            +39 02 8080 8080
+            +250 788 000 000
           </ContactBlock>
           <ContactBlock icon={<Mail className="h-4 w-4" strokeWidth={1.5} />} title="Correspondence">
             concierge@dimena.studio
           </ContactBlock>
           <div className="border-t border-hairline pt-8">
-            <p className="eyebrow">Global Showrooms</p>
+            <p className="eyebrow">Showroom</p>
             <ul className="mt-4 space-y-2 text-sm text-ivory/60">
-              <li>London · Marylebone</li>
-              <li>Dubai · Alserkal Avenue</li>
-              <li>New York · Tribeca (by appointment)</li>
+              <li>Kigali · Kacyiru</li>
+              <li>By appointment only</li>
             </ul>
           </div>
         </aside>
