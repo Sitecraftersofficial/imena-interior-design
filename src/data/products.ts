@@ -13,9 +13,11 @@ import gPendant from "@/assets/products/pendant-apex.jpg";
 import gWardrobe from "@/assets/products/wardrobe-walnut-glass.jpg";
 import gBath from "@/assets/products/bath-stone-tub.jpg";
 import gTable from "@/assets/products/table-stone-coffee.jpg";
-import dgof from "@/assets/products/src/assets/products/vp.jpg";
+import dgof from "@/assets/products/vp.jpg";
 import door2 from "@/assets/products/doorv.jpg";
 import door3  from "@/assets/products/you.jpg";
+import door4  from "@/assets/products/op.jpeg";
+import room1  from "@/assets/products/room.jpg";
 /**\
  * SINGLE SOURCE OF TRUTH for the product catalog.
  * To add a product: append a new object to this array. All pages, grids,
@@ -84,7 +86,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "entrance",
     productType: "door",
-    image: "/placeholder-door.svg",
+    image: door3,
     shortDescription: "Slatted walnut entrance door with amber sidelights.",
     description:
       "Horizontally slatted walnut with flanking sidelights that borrow light from the interior. A warm, hospitable arrival.",
@@ -105,7 +107,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "entrance",
     productType: "door",
-    image: door3,
+    image: door4,
     shortDescription: "Twin walnut doors with blackened iron drop pulls.",
     description:
       "Solid walnut double doors with blackened iron drop pulls — architectural weight with quiet detailing.",
@@ -312,7 +314,7 @@ export const products: Product[] = [
     category: "furniture",
     subcategory: "seating",
     productType: "sofa",
-    image: "/placeholder-furniture.svg",
+    image: room1 ,
     shortDescription: "Curved bouclé sofa with sculpted walnut legs.",
     description:
       "A generously proportioned bouclé sofa with hand-carved walnut legs. Modular configurations, custom fabrics available on request.",
