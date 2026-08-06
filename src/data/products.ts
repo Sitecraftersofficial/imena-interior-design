@@ -21,6 +21,10 @@ import room1  from "@/assets/products/room.jpg";
 import k1  from "@/assets/products/ki.jpg";
 import k2  from "@/assets/products/k2.jpg";
 import room2 from "@/assets/products/room2.jpg";
+import door5 from "@/assets/products/door3.jpg";
+import door6 from "@/assets/products/door4.jpg";
+import door7 from "@/assets/products/door5.jpg";
+import do9 from "@/assets/products/door6.jpg";
 /**\
  * SINGLE SOURCE OF TRUTH for the product catalog.
  * To add a product: append a new object to this array. All pages, grids,
@@ -39,14 +43,14 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "pivot",
     productType: "door",
-    image: dgof,
+    image: door5,
     shortDescription: "Ebonised oak pivot door with satin brass pull.",
     description:
       "A single monolithic leaf on a concealed floor pivot. Solid ebonised oak with an ivory-lit reveal and a full-height satin brass pull, engineered for openings up to 3m.",
     material: "Ebonised Oak",
     color: "Charcoal",
     finishes: ["Ebonised", "Smoked Walnut", "Natural Oak"],
-    dimensions: "1200 × 2700 × 60 mm",
+    dimensions: "2M length height 260 mm",
     specifications: {
       "Core": "Engineered timber, honeycomb",
       "Hinge": "Concealed floor pivot",
@@ -67,20 +71,20 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "entrance",
     productType: "door",
-    image: door2,
-    shortDescription: "Walnut-framed double doors with etched frosted glass.",
+    image: door6,
+    shortDescription: "Walnut-framed double doors with etched frosted woodgrain.",
     description:
       "Twin walnut-framed doors with etched frosted glass panels and slim polished pulls — a discreet, luminous entrance.",
     material: "American Walnut · Etched Glass",
     color: "Walnut",
     finishes: ["Natural Walnut", "Fumed Oak"],
-    dimensions: "1600 × 2400 mm",
+    dimensions: "3m × 140cm",
     priceType: "request-quote",
     price: null,
     availability: "made-to-order",
     stockStatus: "in-stock",
     featured: true,
-    tags: ["entrance", "glass", "double"],
+    tags: ["entrance", "wood", "double"],
   },
   {
     id: "door-003",
@@ -110,7 +114,7 @@ export const products: Product[] = [
     category: "doors",
     subcategory: "entrance",
     productType: "door",
-    image: door4,
+    image: door7,
     shortDescription: "Twin walnut doors with blackened iron drop pulls.",
     description:
       "Solid walnut double doors with blackened iron drop pulls — architectural weight with quiet detailing.",
@@ -124,6 +128,28 @@ export const products: Product[] = [
     featured: true,
     tags: ["entrance", "double", "walnut"],
   },
+
+   {
+  id: "door-05",
+  slug: "nova-charcoal-pivot",
+  name: "Nova Charcoal Pivot",
+  category: "doors",
+  subcategory: "entrance",
+  productType: "door",
+  image: do9,
+  shortDescription: "Modern charcoal pivot door with refined vertical detailing.",
+  description:
+    "A statement entrance door crafted with a sleek charcoal finish and precise vertical grooves, combining contemporary architecture with timeless craftsmanship.",
+  material: "Engineered Timber",
+  finishes: ["Charcoal Black", "Natural Oak", "Dark Walnut"],
+  dimensions: "1400 × 2400 mm",
+  priceType: "request-quote",
+  price: null,
+  availability: "made-to-order",
+  stockStatus: "in-stock",
+  featured: true,
+  tags: ["entrance", "pivot", "modern"],
+},
 
   // ── Handles ────────────────────────────────────────────────────────
   {
