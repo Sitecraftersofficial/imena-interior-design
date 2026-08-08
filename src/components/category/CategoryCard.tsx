@@ -21,10 +21,15 @@ export function CategoryCard({ category }: { category: Category }) {
           <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">
             {String(count).padStart(2, "0")} Objects
           </p>
-          <h3 className="mt-2 font-display text-2xl text-ivory">{category.name}</h3>
+          <h3 className="mt-2 font-display text-2xl text-ivory transition-colors group-hover:text-gold">
+            {category.name}
+          </h3>
           <p className="mt-1 line-clamp-2 text-xs text-ivory/55 italic">
             {category.tagline}
           </p>
+          <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.3em] text-gold opacity-0 transition-all duration-300 group-hover:opacity-100">
+            View collection
+          </span>
         </div>
       </div>
     </Link>

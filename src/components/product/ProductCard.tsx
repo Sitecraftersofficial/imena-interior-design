@@ -77,7 +77,7 @@ export function ProductCard({ product, eager = false }: Props) {
         <p className="mt-1 line-clamp-1 text-xs text-ivory/45 italic">
           {product.material ?? product.shortDescription}
         </p>
-        <p className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-ivory/60">
+        <p className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-gold/80">
           {formatPrice(product)}
         </p>
       </div>

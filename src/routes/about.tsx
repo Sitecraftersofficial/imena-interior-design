@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 
 export function About() {
@@ -19,7 +20,8 @@ export function About() {
       </Helmet>
 
       <section className="container-x pb-16 pt-16 lg:pt-24">
-        <p className="eyebrow">The Atelier</p>
+        <Breadcrumbs items={[{ label: "Atelier" }]} />
+        <p className="eyebrow mt-6">The Atelier</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-[1.02] text-ivory sm:text-7xl">
           Drawing the
           <span className="italic text-gold"> line</span> between architecture and object.
@@ -35,20 +37,18 @@ export function About() {
         />
         <div className="space-y-6 text-base leading-relaxed text-ivory/70">
           <p>
-            Imena was founded in Kigali by a small collective of
-            architects and cabinetmakers who believed the door, the handle and
-            the panel deserved the same care as the building around them.
+            Imena was founded in Kigali by a small team of architects and
+            furniture makers who believed doors, handles and panels should be
+            made with the same care as the buildings around them.
           </p>
           <p>
-            Our atelier
-            designs, supplies and installs architectural doors, hardware,
-            kitchens, wardrobes and complete interior systems for private
-            residences, hotels and cultural institutions across Rwanda
-            and East Africa.
+            We design, supply and install doors, hardware, kitchens, wardrobes
+            and complete interiors for homes, hotels and public spaces across
+            Rwanda and East Africa.
           </p>
           <p>
-            Every object in our catalog is engineered to be lived with — quietly,
-            for a very long time.
+            Every item in our catalog is built to be used and enjoyed for a
+            very long time.
           </p>
           <div className="grid grid-cols-3 gap-6 border-t border-hairline pt-10">
             <Stat n="2016" l="Founded, Kigali" />

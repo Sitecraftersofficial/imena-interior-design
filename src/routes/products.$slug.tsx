@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, Heart, Plus, ChevronLeft } from "lucide-react";
+import { ArrowRight, Heart, Plus } from "lucide-react";
 import {
   productBySlug,
   productsByCategory,
@@ -10,6 +10,7 @@ import { categoryBySlug } from "@/data/categories";
 import { formatPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { NotFound } from "./not-found";
 
 export function ProductDetail() {
@@ -59,13 +60,15 @@ export function ProductDetail() {
       </Helmet>
 
       <section className="container-x pt-10">
-        <Link
-          to="/products"
-          className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/50 hover:text-gold"
-        >
-          <ChevronLeft className="h-3.5 w-3.5" strokeWidth={1.5} />
-          Catalog
-        </Link>
+        <Breadcrumbs
+          items={[
+            { label: "Collections", to: "/products" },
+            ...(category
+              ? [{ label: category.name, to: `/categories/${category.slug}` }]
+              : []),
+            { label: product.name },
+          ]}
+        />
       </section>
 
       <section className="container-x mt-8 grid gap-12 pb-24 lg:grid-cols-[1.15fr_1fr] lg:gap-20">

@@ -1,36 +1,37 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
 const services = [
   {
     n: "01",
     title: "Design Consultation",
-    body: "Private one-to-one sessions with a senior designer to shape material, finish and hardware direction for your interior.",
+    body: "Private one-to-one sessions with a senior designer to help you choose materials, finishes and hardware for your interior.",
   },
   {
     n: "02",
     title: "Bespoke Doors",
-    body: "Custom door systems — pivot, sliding, entrance — in oak, walnut, glass and metal, fabricated to your opening.",
+    body: "Custom doors — pivot, sliding and entrance — in oak, walnut, glass and metal, made to fit your opening.",
   },
   {
     n: "03",
     title: "Kitchen & Wardrobe Systems",
-    body: "Full architectural kitchens and dressing rooms designed and installed by our workshop.",
+    body: "Complete kitchens and dressing rooms designed and installed by our workshop.",
   },
   {
     n: "04",
     title: "Hardware Specification",
-    body: "Handle, knob and lock schedules coordinated across every door in the project, matched to a shared finish palette.",
+    body: "Handles, knobs and locks chosen to match across every door in your project, with a shared finish.",
   },
   {
     n: "05",
     title: "Lighting Design",
-    body: "Architectural and decorative lighting layouts, dimming schedules and integrated warm-dim programming.",
+    body: "Lighting layouts for your rooms, including dimming and warm light settings.",
   },
   {
     n: "06",
     title: "Project Concierge",
-    body: "Dedicated project manager, on-site installation crews and post-installation care for large developments.",
+    body: "A dedicated project manager, on-site installation teams and aftercare for larger projects.",
   },
 ];
 
@@ -51,14 +52,15 @@ export function Services() {
       </Helmet>
 
       <section className="container-x pb-16 pt-16 lg:pt-24">
-        <p className="eyebrow">Services</p>
+        <Breadcrumbs items={[{ label: "Services" }]} />
+        <p className="eyebrow mt-6">Services</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
           A single studio, from
           <span className="italic text-gold"> sketch to installation</span>.
         </h1>
         <p className="mt-6 max-w-xl text-base text-ivory/60">
-          Our services are structured to carry a project from earliest
-          conception through fabrication, delivery and installation on site.
+          We guide your project from the first idea, through production and
+          delivery, to installation on site.
         </p>
       </section>
 

@@ -12,14 +12,11 @@ import gFloorMarble from "@/assets/products/floor-marble-ivory.jpg";
 import gPendant from "@/assets/products/pendant-apex.jpg";
 import gWardrobe from "@/assets/products/wardrobe-walnut-glass.jpg";
 import gBath from "@/assets/products/bath-stone-tub.jpg";
-import gTable from "@/assets/products/table-stone-coffee.jpg";
-import dgof from "@/assets/products/vp.jpg";
-import door2 from "@/assets/products/doorv.jpg";
-import door3  from "@/assets/products/you.jpg";
-import door4  from "@/assets/products/op.jpeg";
-import room1  from "@/assets/products/room.jpg";
-import k1  from "@/assets/products/ki.jpg";
-import k2  from "@/assets/products/k2.jpg";
+import door3 from "@/assets/products/you.jpg";
+import k1 from "@/assets/products/k1.jpg";
+import k2 from "@/assets/products/k2.jpg";
+import sofa1 from "@/assets/products/sofa.jpg";
+import room1 from "@/assets/products/room.jpg";
 import room2 from "@/assets/products/room2.jpg";
 import door5 from "@/assets/products/door3.jpg";
 import door6 from "@/assets/products/door4.jpg";
@@ -129,27 +126,27 @@ export const products: Product[] = [
     tags: ["entrance", "double", "walnut"],
   },
 
-   {
-  id: "door-05",
-  slug: "nova-charcoal-pivot",
-  name: "Nova Charcoal Pivot",
-  category: "doors",
-  subcategory: "entrance",
-  productType: "door",
-  image: do9,
-  shortDescription: "Modern charcoal pivot door with refined vertical detailing.",
-  description:
-    "A statement entrance door crafted with a sleek charcoal finish and precise vertical grooves, combining contemporary architecture with timeless craftsmanship.",
-  material: "Engineered Timber",
-  finishes: ["Charcoal Black", "Natural Oak", "Dark Walnut"],
-  dimensions: "1400 × 2400 mm",
-  priceType: "request-quote",
-  price: null,
-  availability: "made-to-order",
-  stockStatus: "in-stock",
-  featured: true,
-  tags: ["entrance", "pivot", "modern"],
-},
+  {
+    id: "door-05",
+    slug: "nova-charcoal-pivot",
+    name: "Nova Charcoal Pivot",
+    category: "doors",
+    subcategory: "entrance",
+    productType: "door",
+    image: do9,
+    shortDescription: "Modern charcoal pivot door with refined vertical detailing.",
+    description:
+      "A statement entrance door crafted with a sleek charcoal finish and precise vertical grooves, combining contemporary architecture with timeless craftsmanship.",
+    material: "Engineered Timber",
+    finishes: ["Charcoal Black", "Natural Oak", "Dark Walnut"],
+    dimensions: "1400 × 2400 mm",
+    priceType: "request-quote",
+    price: null,
+    availability: "made-to-order",
+    stockStatus: "in-stock",
+    featured: true,
+    tags: ["entrance", "pivot", "modern"],
+  },
 
   // ── Handles ────────────────────────────────────────────────────────
   {
@@ -343,7 +340,7 @@ export const products: Product[] = [
     category: "furniture",
     subcategory: "seating",
     productType: "sofa",
-    image: room1 ,
+    image: sofa1,
     shortDescription: "Curved bouclé sofa with sculpted walnut legs.",
     description:
       "A generously proportioned bouclé sofa with hand-carved walnut legs. Modular configurations, custom fabrics available on request.",

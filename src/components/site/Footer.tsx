@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { categories } from "@/data/categories";
+import { BUSINESS_CONFIG } from "@/config/business";
 import imenaLogo from "@/assets/Imena-Logo.png";
 
 export function Footer() {
@@ -14,15 +15,21 @@ export function Footer() {
               className="h-16 w-auto"
             />
             <p className="mt-6 text-sm leading-relaxed text-ivory/50">
-              A design, supply and installation atelier for architectural
-              hardware, doors, kitchens and complete interior systems. Kigali, Rwanda.
+              We design, supply and install doors, hardware, kitchens and
+              complete interiors. Based in Kigali, Rwanda.
             </p>
             <p className="eyebrow mt-8">Correspondence</p>
             <a
-              href="mailto:concierge@dimena.studio"
+              href={`mailto:${BUSINESS_CONFIG.managerEmail}`}
               className="mt-2 inline-block text-sm text-gold hover:underline"
             >
-              concierge@dimena.studio
+              {BUSINESS_CONFIG.managerEmail}
+            </a>
+            <a
+              href={`tel:${BUSINESS_CONFIG.managerPhone}`}
+              className="mt-2 block text-sm text-gold hover:underline"
+            >
+              +250 780 700 640
             </a>
           </div>
 
@@ -94,4 +101,3 @@ function FooterColumn({
     </div>
   );
 }
-

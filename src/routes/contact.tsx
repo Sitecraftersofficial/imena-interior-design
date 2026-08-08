@@ -3,6 +3,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import { Send, Phone, MapPin, Mail } from "lucide-react";
 import { productBySlug } from "@/data/products";
+import { BUSINESS_CONFIG } from "@/config/business";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
 export function Contact() {
   const [searchParams] = useSearchParams();
@@ -40,15 +42,16 @@ export function Contact() {
       </Helmet>
 
       <section className="container-x pb-10 pt-16 lg:pt-24">
-        <p className="eyebrow">Collaborate</p>
+        <Breadcrumbs items={[{ label: "Consultation" }]} />
+        <p className="eyebrow mt-6">Collaborate</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
           Bring your project
           <br />
           <span className="italic text-gold">to the atelier</span>.
         </h1>
         <p className="mt-6 max-w-xl text-base text-ivory/60">
-          Every project begins with a conversation. Share a few details and a
-          senior consultant will respond within one business day.
+          Every project starts with a conversation. Share a few details and a
+          senior consultant will reply within one working day.
         </p>
       </section>
 
@@ -127,10 +130,14 @@ export function Contact() {
             Kigali, Rwanda
           </ContactBlock>
           <ContactBlock icon={<Phone className="h-4 w-4" strokeWidth={1.5} />} title="Direct">
-            +250 788 000 000
+            <a href={`tel:${BUSINESS_CONFIG.managerPhone}`} className="hover:underline">
+              +250 780 700 640
+            </a>
           </ContactBlock>
           <ContactBlock icon={<Mail className="h-4 w-4" strokeWidth={1.5} />} title="Correspondence">
-            concierge@dimena.studio
+            <a href={`mailto:${BUSINESS_CONFIG.managerEmail}`} className="hover:underline">
+              {BUSINESS_CONFIG.managerEmail}
+            </a>
           </ContactBlock>
           <div className="border-t border-hairline pt-8">
             <p className="eyebrow">Showroom</p>

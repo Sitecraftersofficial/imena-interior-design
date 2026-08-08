@@ -11,6 +11,8 @@ import bath from "@/assets/products/bath-stone-tub.jpg";
 import knob from "@/assets/products/knob-brass-round.jpg";
 import table from "@/assets/products/table-stone-coffee.jpg";
 import heroDoor from "@/assets/hero-door.jpg";
+import kitchen from "@/assets/products/k1.jpg";
+import furniture from "@/assets/products/furniture.jpg";
 
 // Categories are data. Add a new entry to introduce a new department; product
 // pages/grids read the same source of truth. Order below is display order.
@@ -77,7 +79,7 @@ export const categories: Category[] = [
     tagline: "Furnishing the silence.",
     description:
       "Sofas, tables and lounge chairs from independent European ateliers.",
-    image: "/placeholder-furniture.svg",
+    image: furniture,
   },
   {
     slug: "kitchens",
@@ -85,7 +87,7 @@ export const categories: Category[] = [
     tagline: "The heart, precisely built.",
     description:
       "Bespoke kitchen systems in lacquered stone, brushed metal and warm timber.",
-    image: "/placeholder-kitchen.svg",
+    image: kitchen,
   },
   {
     slug: "wardrobes",

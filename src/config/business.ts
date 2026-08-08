@@ -3,6 +3,7 @@
  * Change `managerEmail` here to redirect all project submissions.
  */
 export const BUSINESS_CONFIG = {
-  managerEmail: "concierge@dimena.studio",
+  managerEmail: "imenainteriordesign@gmail.com",
+  managerPhone: "+250780700640",
   brandName: "Imena",
 } as const;

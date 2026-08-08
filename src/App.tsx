@@ -5,6 +5,7 @@ import { StoreProvider } from "@/lib/store";
 
 // Layout
 import { RootLayout } from "@/components/site/RootLayout";
+import { ScrollToTop } from "@/components/site/ScrollToTop";
 
 // Route pages
 import { Home } from "@/routes/index";
@@ -28,6 +29,7 @@ export function App() {
             <QueryClientProvider client={queryClient}>
                 <StoreProvider>
                     <BrowserRouter>
+                        <ScrollToTop />
                         <Routes>
                             <Route element={<RootLayout />}>
                                 <Route index element={<Home />} />

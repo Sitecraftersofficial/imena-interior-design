@@ -6,6 +6,7 @@ import { useStore } from "@/lib/store";
 import imenaLogo from "@/assets/Imena-Logo.png";
 
 const primaryLinks = [
+  { to: "/", label: "Home" },
   { to: "/products", label: "Collections" },
   { to: "/inspiration", label: "Inspiration" },
   { to: "/services", label: "Services" },

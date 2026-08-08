@@ -6,6 +6,7 @@ import { Search, X, SlidersHorizontal } from "lucide-react";
 import { products, allMaterials, allFinishes } from "@/data/products";
 import { categories, categoryBySlug } from "@/data/categories";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
 const PAGE = 12;
 
@@ -111,7 +112,8 @@ export function Catalog() {
 
       {/* Page head */}
       <section className="container-x border-b border-hairline pb-10 pt-16 lg:pt-24">
-        <p className="eyebrow">The Catalog</p>
+        <Breadcrumbs items={[{ label: "Collections" }]} />
+        <p className="eyebrow mt-6">The Catalog</p>
         <div className="mt-6 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <h1 className="font-display text-4xl leading-tight text-ivory sm:text-6xl">
             {activeCategory ? activeCategory.name : "Every object, one archive."}

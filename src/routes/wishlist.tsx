@@ -4,6 +4,7 @@ import { Heart, Trash2 } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { productById } from "@/data/products";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
 export function WishlistPage() {
   const { wishlist, hydrated, toggleWish } = useStore();
@@ -27,7 +28,8 @@ export function WishlistPage() {
       </Helmet>
 
       <section className="container-x border-b border-hairline pb-10 pt-16 lg:pt-24">
-        <p className="eyebrow">Your archive</p>
+        <Breadcrumbs items={[{ label: "Wishlist" }]} />
+        <p className="eyebrow mt-6">Your archive</p>
         <div className="mt-6 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <h1 className="font-display text-4xl leading-tight text-ivory sm:text-6xl">
             Wishlist

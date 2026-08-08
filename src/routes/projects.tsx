@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
 import heroDoor from "@/assets/hero-door.jpg";
@@ -59,7 +60,8 @@ export function Projects() {
       </Helmet>
 
       <section className="container-x pb-16 pt-16 lg:pt-24">
-        <p className="eyebrow">Projects</p>
+        <Breadcrumbs items={[{ label: "Projects" }]} />
+        <p className="eyebrow mt-6">Projects</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
           Selected work,
           <span className="italic text-gold"> quietly delivered</span>.
@@ -73,8 +75,7 @@ export function Projects() {
             className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
           >
             <div
-              className={`relative aspect-4/5 overflow-hidden bg-ink outline-1 -outline-offset-1 outline-hairline ${i % 2 ? "lg:order-2" : ""}
-                }`}
+              className={`relative aspect-4/5 overflow-hidden bg-ink outline-1 -outline-offset-1 outline-hairline ${i % 2 ? "lg:order-2" : ""}`}
             >
               <img
                 src={p.image}

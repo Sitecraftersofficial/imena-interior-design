@@ -98,7 +98,7 @@ A powerful **digital concierge tool** for architects and designers:
   - Full client contact information
   - Complete product list with IDs, categories, quantities, pricing, and notes
   - CC'd to the client for easy reply-all communication
-  - Sent directly to the atelier manager (`concierge@dimena.studio`)
+  - Sent directly to the atelier manager (`imenainteriordesign@gmail.com`)
 - **Returning visitor support**: Saved client info auto-fills on subsequent visits
 - **Loading states**: Visual disabled state during submission
 - **Error handling**: Empty project validation, email client failure recovery
@@ -154,10 +154,10 @@ A powerful **digital concierge tool** for architects and designers:
 - **Pre-filled context**: When arriving from a product page, the message auto-populates with quote request context
 - **Form submission** with success state and personalized greeting
 - **Atelier contact information**:
-  - Milan address
-  - Phone: +39 02 8080 8080
-  - Email: concierge@dimena.studio
-- **Global showroom locations**: Milan, London, Dubai, New York
+  - KG 7 Ave, Kacyiru, Kigali, Rwanda
+  - Phone: +250 780 700 640
+  - Email: imenainteriordesign@gmail.com
+- **Global showroom locations**: Kigali, Rwanda
 
 ### 11. Home Page (`/`)
 
@@ -496,12 +496,13 @@ All business-level configuration is centralized in `src/config/business.ts`:
 
 ```typescript
 export const BUSINESS_CONFIG = {
-  managerEmail: "concierge@dimena.studio", // Project submission recipient
+  managerEmail: "imenainteriordesign@gmail.com", // Project submission recipient
+  managerPhone: "+250780700640", // Direct contact phone
   brandName: "Imena", // Brand name used across the site
 };
 ```
 
-Changing the `managerEmail` redirects all Project Builder submissions to a new recipient.
+Changing the `managerEmail` redirects all Project Builder submissions to a new recipient. The `managerPhone` is used for the direct tel: contact across the site.
 
 ---
 
@@ -555,9 +556,9 @@ A custom React Context-based store manages two pieces of persistent client state
 
 **Persistence:**
 
-- Both wishlist and project state are persisted to `localStorage` under keys `dimena.wishlist.v1` and `dimena.project.v1`
+- Both wishlist and project state are persisted to `localStorage` under keys `imena.wishlist.v1` and `imena.project.v1`
 - A `hydrated` flag ensures UI doesn't render stale empty states before localStorage is read
-- Client info (name, email, phone, company) is separately persisted under `dimena.client.v1`
+- Client info (name, email, phone, company) is separately persisted under `imena.client.v1`
 
 ---
 

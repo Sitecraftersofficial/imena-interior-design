@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
 import heroDoor from "@/assets/hero-door.jpg";
@@ -70,13 +71,14 @@ export function Inspiration() {
       </Helmet>
 
       <section className="container-x pb-16 pt-16 lg:pt-24">
-        <p className="eyebrow">Inspiration</p>
+        <Breadcrumbs items={[{ label: "Inspiration" }]} />
+        <p className="eyebrow mt-6">Inspiration</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
           Rooms, quietly composed.
         </h1>
         <p className="mt-6 max-w-xl text-base text-ivory/60">
-          A rotating archive of interiors designed and installed by the atelier.
-          Each room can be shopped as a composition.
+          A collection of interiors designed and installed by our team.
+          You can shop the pieces in each room.
         </p>
       </section>
 

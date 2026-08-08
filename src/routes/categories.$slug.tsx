@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { categoryBySlug, categories } from "@/data/categories";
 import { productsByCategory } from "@/data/products";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { NotFound } from "./not-found";
 
 export function CategoryPage() {
@@ -38,7 +39,13 @@ export function CategoryPage() {
         />
         <div className="absolute inset-0 bg-linear-to-t from-void via-void/60 to-void/20" />
         <div className="container-x relative z-10 flex h-full flex-col justify-end pb-12">
-          <p className="eyebrow">
+          <Breadcrumbs
+            items={[
+              { label: "Collections", to: "/products" },
+              { label: category.name },
+            ]}
+          />
+          <p className="eyebrow mt-4">
             Department · {String(items.length).padStart(2, "0")} objects
           </p>
           <h1 className="mt-4 font-display text-5xl leading-[0.95] text-ivory sm:text-7xl">

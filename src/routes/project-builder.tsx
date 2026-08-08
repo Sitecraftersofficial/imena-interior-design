@@ -10,8 +10,9 @@ import {
   validateClientInfo,
   type ClientInfo,
 } from "@/lib/send-to-manager";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
-const CLIENT_KEY = "dimena.client.v1";
+const CLIENT_KEY = "imena.client.v1";
 
 export function ProjectBuilder() {
   const {
@@ -141,7 +142,8 @@ export function ProjectBuilder() {
       </Helmet>
 
       <section className="container-x border-b border-hairline pb-10 pt-16 lg:pt-24">
-        <p className="eyebrow">Digital Concierge</p>
+        <Breadcrumbs items={[{ label: "Project Builder" }]} />
+        <p className="eyebrow mt-6">Digital Concierge</p>
         <div className="mt-6 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <h1 className="font-display text-4xl leading-tight text-ivory sm:text-6xl">
             Project Builder
@@ -151,9 +153,9 @@ export function ProjectBuilder() {
           </p>
         </div>
         <p className="mt-4 max-w-2xl text-sm text-ivory/50">
-          Curate a specification across categories, annotate each line with
-          rooms, quantities and finish preferences, then submit for a
-          consolidated quote from the atelier.
+          Choose items from different categories, add notes about rooms,
+          quantities and finish preferences, then submit for one combined
+          quote from our team.
         </p>
       </section>
 

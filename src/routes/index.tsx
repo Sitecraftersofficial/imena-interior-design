@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { categories } from "@/data/categories";
 import { featuredProducts, products } from "@/data/products";
@@ -12,6 +13,22 @@ import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
 export function Home() {
   const featured = featuredProducts().slice(0, 8);
   const total = products.length;
+  const location = useLocation();
+
+  // Scroll to a named home section when arriving with a hash (e.g. from a nav link).
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        // Wait briefly for images/layout to settle before scrolling.
+        setTimeout(() => {
+          const top = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top, behavior: "smooth" });
+        }, 60);
+      }
+    }
+  }, [location.hash]);
 
   return (
     <>
@@ -49,8 +66,8 @@ export function Home() {
               <span className="italic text-gold">language</span> of&nbsp;form.
             </h1>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-ivory/60 sm:text-lg">
-              Precision-engineered doors, architectural hardware and interior
-              systems for the world's most considered residences.
+              Quality doors, hardware and complete interiors for modern
+              homes and businesses.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
@@ -79,7 +96,7 @@ export function Home() {
       </section>
 
       {/* ─── DISCIPLINES / CATEGORIES ─── */}
-      <section className="container-x py-24 lg:py-32">
+      <section id="departments" className="container-x py-24 lg:py-32">
         <div className="grid gap-8 border-b border-hairline pb-10 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="eyebrow">Disciplines</p>
@@ -104,7 +121,7 @@ export function Home() {
       </section>
 
       {/* ─── FEATURED PRODUCTS ─── */}
-      <section className="border-y border-hairline bg-ink/40 py-24 lg:py-32">
+      <section id="selection" className="border-y border-hairline bg-ink/40 py-24 lg:py-32">
         <div className="container-x">
           <div className="mb-14 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
             <div>
@@ -113,8 +130,8 @@ export function Home() {
                 Objects, currently featured.
               </h2>
               <p className="mt-4 max-w-xl text-sm text-ivory/50">
-                A rotating selection curated by our design team. Every object in the
-                Imena catalog is available to specify, sample or commission.
+                A selection chosen by our design team. Every item in the Imena
+                catalog is available to order, sample or request a quote.
               </p>
             </div>
             <Link
@@ -131,7 +148,7 @@ export function Home() {
       </section>
 
       {/* ─── EDITORIAL ─── */}
-      <section className="container-x py-24 lg:py-32">
+      <section id="inspiration" className="container-x py-24 lg:py-32">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div className="relative order-2 lg:order-1">
             <img
@@ -158,10 +175,9 @@ export function Home() {
               <span className="italic text-gold">atmosphere</span>.
             </h2>
             <p className="mt-8 max-w-lg text-base leading-relaxed text-ivory/60">
-              Design is not merely how a room looks. It is how the door meets
-              the hand; how the light falls across the floor at dusk; how the
-              cabinet closes on a whispered detent. We supply the essential
-              elements that define these moments.
+              Design is about how a room feels and works every day. We supply
+              the doors, handles, cabinets and lighting that make an interior
+              beautiful, comfortable and long-lasting.
             </p>
             <div className="mt-12 grid gap-8 border-t border-hairline pt-10 sm:grid-cols-2">
               <div>
@@ -193,7 +209,7 @@ export function Home() {
       </section>
 
       {/* ─── CONSULTATION CTA ─── */}
-      <section className="container-x pb-24 lg:pb-32">
+      <section id="consultation" className="container-x pb-24 lg:pb-32">
         <div className="grid gap-10 border border-hairline bg-ivory px-8 py-20 text-void md:grid-cols-[1.4fr_1fr] md:items-end md:px-16 lg:px-24">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-void/70">
@@ -207,8 +223,8 @@ export function Home() {
           </div>
           <div>
             <p className="text-sm leading-relaxed text-void/70">
-              Book a private consultation with our design team, or visit the
-              atelier in Kigali to experience the quality of Imena in person.
+              Book a consultation with our design team, or visit us in Kigali
+              to see the quality of Imena for yourself.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
