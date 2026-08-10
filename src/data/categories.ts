@@ -1,7 +1,12 @@
 import type { Category } from "@/lib/types";
 
 // Generated + uploaded imagery
-import heroDoor from "@/assets/hero-door.jpg";
+import doorsImg from "@/assets/category/doors.jpeg";
+import furnitureImg from "@/assets/category/furniture.jpeg";
+import kitchenImg from "@/assets/category/kitchen.jpeg";
+import outdoorImg from "@/assets/category/outdoor.jpeg";
+import wallPanelsImg from "@/assets/category/wall-panelspartitions.jpeg";
+import wardrobeImg from "@/assets/category/wardrobe.jpeg";
 
 // Categories are data. Add a new entry to introduce a new department; product
 // pages/grids read the same source of truth. Order below is display order.
@@ -12,42 +17,42 @@ export const categories: Category[] = [
     tagline: "The main entrance.",
     description:
       "Pivot, entrance and interior doors engineered from ebonized oak, walnut and architectural glass.",
-    image: heroDoor,
+    image: doorsImg,
   },
   {
     slug: "outdoor",
     name: "Outdoor",
     tagline: "Outdoor spaces and features.",
     description: "Garden features, outdoor structures and landscape elements for your property.",
-    image: heroDoor,
+    image: outdoorImg,
   },
   {
     slug: "wall-panels",
     name: "Wall Panels/Partition",
     tagline: "Wall design.",
     description: "Fluted walnut, oak and acoustic panels for entrance halls, bedrooms and lounges.",
-    image: heroDoor,
+    image: wallPanelsImg,
   },
   {
     slug: "furniture",
     name: "Furniture",
     tagline: "Quality furniture.",
     description: "Sofas, tables and lounge chairs from independent European workshops.",
-    image: heroDoor,
+    image: furnitureImg,
   },
   {
     slug: "kitchens",
     name: "Kitchens",
     tagline: "Custom kitchens.",
     description: "Bespoke kitchen systems in lacquered stone, brushed metal and warm timber.",
-    image: heroDoor,
+    image: kitchenImg,
   },
   {
     slug: "wardrobes",
     name: "Wardrobes",
     tagline: "Smart storage.",
     description: "Full-height wardrobes and dressing rooms in walnut, smoked glass and brass.",
-    image: heroDoor,
+    image: wardrobeImg,
   },
 ];
 
