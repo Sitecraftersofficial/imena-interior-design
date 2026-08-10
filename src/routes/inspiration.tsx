@@ -4,8 +4,6 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
 import heroDoor from "@/assets/hero-door.jpg";
-import floorMarble from "@/assets/products/floor-marble-ivory.jpg";
-import pendantApex from "@/assets/products/pendant-apex.jpg";
 
 const rooms = [
   {
@@ -34,14 +32,14 @@ const rooms = [
     title: "The Hearth Kitchen",
     location: "Kigali, Rwanda",
     tag: "Kitchen",
-    image: floorMarble,
+    image: heroDoor,
   },
   {
-    slug: "atelier-composition",
-    title: "Atelier Composition N°01",
+    slug: "showroom-composition",
+    title: "Showroom Composition N°01",
     location: "Kigali Showroom",
     tag: "Styling",
-    image: pendantApex,
+    image: heroDoor,
   },
   {
     slug: "door-composition",
@@ -59,12 +57,12 @@ export function Inspiration() {
         <title>Inspiration — Imena</title>
         <meta
           name="description"
-          content="Rooms and installations designed and installed by the Imena atelier. Shop the look."
+          content="Rooms and installations designed and installed by Imena. Shop the look."
         />
         <meta property="og:title" content="Inspiration — Imena" />
         <meta
           property="og:description"
-          content="Rooms and installations designed and installed by the Imena atelier."
+          content="Rooms and installations designed and installed by Imena."
         />
         <meta property="og:image" content={livingForest} />
         <meta name="twitter:image" content={livingForest} />
@@ -74,7 +72,7 @@ export function Inspiration() {
         <Breadcrumbs items={[{ label: "Inspiration" }]} />
         <p className="eyebrow mt-6">Inspiration</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
-          Rooms, quietly composed.
+          Room ideas.
         </h1>
         <p className="mt-6 max-w-xl text-base text-ivory/60">
           A collection of interiors designed and installed by our team.

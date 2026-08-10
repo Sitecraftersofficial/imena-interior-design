@@ -47,7 +47,7 @@ export function Header() {
           : "border-transparent bg-transparent"
           }`}
       >
-        <div className="container-x grid h-16 grid-cols-[auto_1fr_auto] items-center gap-4 lg:h-20">
+        <div className="container-x grid h-20 grid-cols-[auto_1fr_auto] items-center gap-4 lg:h-24">
           <Link
             to="/"
             className="flex items-center"
@@ -56,7 +56,7 @@ export function Header() {
             <img
               src={imenaLogo}
               alt="Imena Interior Design"
-              className="h-10 w-auto sm:h-12 lg:h-14"
+              className="lg:h-17 lg:w-34 md:h-17 md:w-34 h-16 w-34"
             />
           </Link>
 

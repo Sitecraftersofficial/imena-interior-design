@@ -10,7 +10,7 @@ const services = [
   },
   {
     n: "02",
-    title: "Bespoke Doors",
+    title: "Custom Doors",
     body: "Custom doors — pivot, sliding and entrance — in oak, walnut, glass and metal, made to fit your opening.",
   },
   {
@@ -30,7 +30,7 @@ const services = [
   },
   {
     n: "06",
-    title: "Project Concierge",
+    title: "Project Manager",
     body: "A dedicated project manager, on-site installation teams and aftercare for larger projects.",
   },
 ];
@@ -42,7 +42,7 @@ export function Services() {
         <title>Services — Imena</title>
         <meta
           name="description"
-          content="Design, supply and installation services for architectural interiors — consultation, bespoke doors, hardware, kitchens and lighting — based in Kigali, Rwanda."
+          content="Design, supply and installation services for architectural interiors — consultation, custom doors, hardware, kitchens and lighting — based in Kigali, Rwanda."
         />
         <meta property="og:title" content="Services — Imena" />
         <meta

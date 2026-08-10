@@ -105,7 +105,7 @@ export function ProjectBuilder() {
           Your project has been sent.
         </h1>
         <p className="mx-auto mt-6 max-w-lg text-base text-ivory/60">
-          The atelier will review your submission of {rows.length} object
+          Our team will review your submission of {rows.length} object
           {rows.length === 1 ? "" : "s"} and may reach you at{" "}
           <span className="text-ivory">{meta.email}</span>
           {meta.phone?.trim() ? (
@@ -276,7 +276,7 @@ export function ProjectBuilder() {
             <aside className="h-fit border border-hairline bg-ink/40 p-6 lg:sticky lg:top-28">
               <p className="eyebrow">Your details</p>
               <p className="mt-2 text-xs text-ivory/40">
-                So the atelier knows who you are and how to reply.
+                So our team knows who you are and how to reply.
               </p>
               <div className="mt-6 space-y-4">
                 <Field
@@ -327,7 +327,7 @@ export function ProjectBuilder() {
                 </p>
               )}
               <p className="mt-4 text-xs text-ivory/40">
-                Opens your mail app with the project pre-composed for the atelier.
+                Opens your mail app with the project pre-composed for our team.
                 Your saved objects remain untouched.
               </p>
             </aside>

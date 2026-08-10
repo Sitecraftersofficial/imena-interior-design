@@ -4,7 +4,6 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import livingForest from "@/assets/interiors/living-forest.jpg";
 import bedroomSuite from "@/assets/interiors/bedroom-suite.jpg";
 import heroDoor from "@/assets/hero-door.jpg";
-import floorMarble from "@/assets/products/floor-marble-ivory.jpg";
 
 const projects = [
   {
@@ -37,7 +36,7 @@ const projects = [
     year: "2023",
     scope: "Kitchen & wardrobe systems",
     location: "Kandy, Sri Lanka",
-    image: floorMarble,
+    image: heroDoor,
   },
 ];
 
@@ -48,12 +47,12 @@ export function Projects() {
         <title>Projects — Imena</title>
         <meta
           name="description"
-          content="Selected residential and commercial projects designed and installed by the Imena atelier."
+          content="Selected residential and commercial projects designed and installed by Imena."
         />
         <meta property="og:title" content="Projects — Imena" />
         <meta
           property="og:description"
-          content="Selected residential and commercial projects designed and installed by the Imena atelier."
+          content="Selected residential and commercial projects designed and installed by Imena."
         />
         <meta property="og:image" content={livingForest} />
         <meta name="twitter:image" content={livingForest} />
@@ -64,7 +63,7 @@ export function Projects() {
         <p className="eyebrow mt-6">Projects</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
           Selected work,
-          <span className="italic text-gold"> quietly delivered</span>.
+          <span className="italic text-gold"> well done</span>.
         </h1>
       </section>
 

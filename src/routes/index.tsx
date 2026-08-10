@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { categories } from "@/data/categories";
 import { featuredProducts, products } from "@/data/products";
 import { CategoryCard } from "@/components/category/CategoryCard";
@@ -14,6 +14,7 @@ export function Home() {
   const featured = featuredProducts().slice(0, 8);
   const total = products.length;
   const location = useLocation();
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Scroll to a named home section when arriving with a hash (e.g. from a nav link).
   useEffect(() => {
@@ -36,7 +37,7 @@ export function Home() {
         <title>Imena — The Architecture of Interiors</title>
         <meta
           name="description"
-          content="Cinematic architectural doors, hardware, kitchens, lighting and interior systems from the Imena atelier."
+          content="Cinematic architectural doors, hardware, kitchens, lighting and interior systems from Imena."
         />
         <meta property="og:title" content="Imena — The Architecture of Interiors" />
         <meta
@@ -60,7 +61,7 @@ export function Home() {
 
         <div className="container-x relative z-10 flex h-full items-end pb-20 lg:items-center lg:pb-0">
           <div className="max-w-2xl reveal">
-            <p className="eyebrow">Est. Kigali · An architectural atelier</p>
+            <p className="eyebrow">Est. Kigali · Architectural design studio</p>
             <h1 className="mt-8 font-display text-5xl leading-[0.95] text-ivory sm:text-6xl lg:text-8xl">
               The silent{" "}
               <span className="italic text-gold">language</span> of&nbsp;form.
@@ -95,13 +96,13 @@ export function Home() {
         </div>
       </section>
 
-      {/* ─── DISCIPLINES / CATEGORIES ─── */}
+      {/* ─── CATEGORIES ─── */}
       <section id="departments" className="container-x py-24 lg:py-32">
         <div className="grid gap-8 border-b border-hairline pb-10 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p className="eyebrow">Disciplines</p>
+            <p className="eyebrow">Categories</p>
             <h2 className="mt-6 max-w-2xl font-display text-4xl leading-tight text-ivory sm:text-5xl">
-              {categories.length} departments, one architectural language.
+              {categories.length} product categories.
             </h2>
           </div>
           <Link
@@ -113,10 +114,58 @@ export function Home() {
           </Link>
         </div>
 
-        <div className="mt-12 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:snap-none lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
-          {categories.map((c) => (
-            <CategoryCard key={c.slug} category={c} />
-          ))}
+        <div className="relative mt-12">
+          {/* Mobile Carousel */}
+          <div className="md:hidden">
+            <div className="relative overflow-hidden">
+              <div
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {categories.map((c) => (
+                  <div key={c.slug} className="w-full flex-shrink-0 px-4">
+                    <CategoryCard category={c} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            {categories.length > 1 && (
+              <div className="mt-6 flex items-center justify-center gap-4">
+                <button
+                  onClick={() => setCurrentSlide((prev) => (prev > 0 ? prev - 1 : categories.length - 1))}
+                  className="flex h-10 w-10 items-center justify-center border border-hairline bg-void text-ivory transition-colors hover:border-gold hover:text-gold"
+                  aria-label="Previous category"
+                >
+                  <ChevronLeft className="h-5 w-5" strokeWidth={1.5} />
+                </button>
+                <div className="flex gap-2">
+                  {categories.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`h-2 w-2 rounded-full transition-all ${idx === currentSlide ? "bg-gold w-6" : "bg-ivory/40 hover:bg-ivory/60"
+                        }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={() => setCurrentSlide((prev) => (prev < categories.length - 1 ? prev + 1 : 0))}
+                  className="flex h-10 w-10 items-center justify-center border border-hairline bg-void text-ivory transition-colors hover:border-gold hover:text-gold"
+                  aria-label="Next category"
+                >
+                  <ChevronRight className="h-5 w-5" strokeWidth={1.5} />
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Desktop Grid - 3 columns */}
+          <div className="hidden md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-6">
+            {categories.map((c) => (
+              <CategoryCard key={c.slug} category={c} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -125,13 +174,12 @@ export function Home() {
         <div className="container-x">
           <div className="mb-14 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
             <div>
-              <p className="eyebrow">The Selection</p>
+              <p className="eyebrow">Featured</p>
               <h2 className="mt-6 font-display text-4xl leading-tight text-ivory sm:text-5xl">
-                Objects, currently featured.
+                Featured products.
               </h2>
               <p className="mt-4 max-w-xl text-sm text-ivory/50">
-                A selection chosen by our design team. Every item in the Imena
-                catalog is available to order, sample or request a quote.
+                A selection chosen by our design team. Every product is available to order, sample or request a quote.
               </p>
             </div>
             <Link
@@ -169,10 +217,10 @@ export function Home() {
             />
           </div>
           <div className="order-1 lg:order-2">
-            <p className="eyebrow">Inspiration N°01</p>
+            <p className="eyebrow">Ideas N°01</p>
             <h2 className="mt-6 font-display text-4xl leading-[1.05] text-ivory sm:text-6xl">
-              Curating <br />
-              <span className="italic text-gold">atmosphere</span>.
+              Creating <br />
+              <span className="italic text-gold">mood</span>.
             </h2>
             <p className="mt-8 max-w-lg text-base leading-relaxed text-ivory/60">
               Design is about how a room feels and works every day. We supply
@@ -182,7 +230,7 @@ export function Home() {
             <div className="mt-12 grid gap-8 border-t border-hairline pt-10 sm:grid-cols-2">
               <div>
                 <p className="font-display text-xl italic text-ivory">
-                  Bespoke Finishes
+                  Custom Finishes
                 </p>
                 <p className="mt-2 text-xs leading-relaxed text-ivory/50">
                   Custom colour and material matching for hardware and paneling.
@@ -190,10 +238,10 @@ export function Home() {
               </div>
               <div>
                 <p className="font-display text-xl italic text-ivory">
-                  Project Concierge
+                  Project Help
                 </p>
                 <p className="mt-2 text-xs leading-relaxed text-ivory/50">
-                  Dedicated architectural consultants for large-scale developments.
+                  Extra support for big projects.
                 </p>
               </div>
             </div>
@@ -201,7 +249,7 @@ export function Home() {
               to="/inspiration"
               className="mt-12 inline-flex items-center gap-3 border-b border-gold pb-2 font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
             >
-              Enter the inspiration room
+              Browse ideas
               <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
             </Link>
           </div>
@@ -218,7 +266,7 @@ export function Home() {
             <h2 className="mt-6 font-display text-4xl leading-tight text-void sm:text-6xl">
               Bring architectural
               <br />
-              <span className="italic">precision</span> to your next project.
+              <span className="italic">quality</span> to your next project.
             </h2>
           </div>
           <div>

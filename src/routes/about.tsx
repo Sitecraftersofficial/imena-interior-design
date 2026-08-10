@@ -7,21 +7,21 @@ export function About() {
   return (
     <>
       <Helmet>
-        <title>The Atelier — Imena</title>
+        <title>About Imena</title>
         <meta
           name="description"
-          content="Founded in Kigali, Imena is a design, supply and installation atelier for architectural interiors."
+          content="Founded in Kigali, Imena is a design, supply and installation company for architectural interiors."
         />
-        <meta property="og:title" content="The Atelier — Imena" />
+        <meta property="og:title" content="About Imena" />
         <meta
           property="og:description"
-          content="Founded in Kigali, Imena is a design, supply and installation atelier for architectural interiors."
+          content="Founded in Kigali, Imena is a design, supply and installation company for architectural interiors."
         />
       </Helmet>
 
       <section className="container-x pb-16 pt-16 lg:pt-24">
-        <Breadcrumbs items={[{ label: "Atelier" }]} />
-        <p className="eyebrow mt-6">The Atelier</p>
+        <Breadcrumbs items={[{ label: "About" }]} />
+        <p className="eyebrow mt-6">About Us</p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-[1.02] text-ivory sm:text-7xl">
           Drawing the
           <span className="italic text-gold"> line</span> between architecture and object.
@@ -59,7 +59,7 @@ export function About() {
             to="/contact"
             className="mt-8 inline-block border border-gold px-8 py-3 font-mono text-[10px] uppercase tracking-[0.3em] text-gold hover:bg-gold hover:text-void"
           >
-            Visit the atelier
+            Visit our showroom
           </Link>
         </div>
       </section>

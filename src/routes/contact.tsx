@@ -32,12 +32,12 @@ export function Contact() {
         <title>Consultation — Imena</title>
         <meta
           name="description"
-          content="Book a private consultation with the Imena atelier — Kigali, Rwanda."
+          content="Book a private consultation with Imena — Kigali, Rwanda."
         />
         <meta property="og:title" content="Consultation — Imena" />
         <meta
           property="og:description"
-          content="Private design consultations with the Imena atelier — Kigali, Rwanda."
+          content="Private design consultations with Imena — Kigali, Rwanda."
         />
       </Helmet>
 
@@ -47,7 +47,7 @@ export function Contact() {
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight text-ivory sm:text-7xl">
           Bring your project
           <br />
-          <span className="italic text-gold">to the atelier</span>.
+          <span className="italic text-gold">to our studio</span>.
         </h1>
         <p className="mt-6 max-w-xl text-base text-ivory/60">
           Every project starts with a conversation. Share a few details and a
@@ -63,7 +63,7 @@ export function Contact() {
               Thank you, {form.name.split(" ")[0] || "friend"}.
             </h2>
             <p className="mt-4 text-sm text-ivory/60">
-              Your request has arrived at the atelier. A senior consultant will
+              Your request has arrived. A senior consultant will
               reach you within one business day.
             </p>
             <Link
@@ -125,7 +125,7 @@ export function Contact() {
         )}
 
         <aside className="space-y-10">
-          <ContactBlock icon={<MapPin className="h-4 w-4" strokeWidth={1.5} />} title="Kigali Atelier">
+          <ContactBlock icon={<MapPin className="h-4 w-4" strokeWidth={1.5} />} title="Kigali Showroom">
             KG 7 Ave, Kacyiru<br />
             Kigali, Rwanda
           </ContactBlock>
