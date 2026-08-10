@@ -42,17 +42,14 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${scrolled || open
-          ? "border-hairline bg-void/85 backdrop-blur-md"
-          : "border-transparent bg-transparent"
-          }`}
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${
+          scrolled || open
+            ? "border-hairline bg-void/85 backdrop-blur-md"
+            : "border-transparent bg-transparent"
+        }`}
       >
         <div className="container-x grid h-20 grid-cols-[auto_1fr_auto] items-center gap-4 lg:h-24">
-          <Link
-            to="/"
-            className="flex items-center"
-            aria-label="Imena — home"
-          >
+          <Link to="/" className="flex items-center" aria-label="Imena — home">
             <img
               src={imenaLogo}
               alt="Imena Interior Design"
@@ -65,10 +62,9 @@ export function Header() {
               <Link
                 key={l.to}
                 to={l.to}
-                className={`gold-underline font-mono text-[10px] uppercase tracking-[0.28em] transition-colors ${location.pathname === l.to
-                  ? "text-gold"
-                  : "text-ivory/70 hover:text-ivory"
-                  }`}
+                className={`gold-underline font-mono text-[10px] uppercase tracking-[0.28em] transition-colors ${
+                  location.pathname === l.to ? "text-gold" : "text-ivory/70 hover:text-ivory"
+                }`}
               >
                 {l.label}
               </Link>
@@ -101,9 +97,7 @@ export function Header() {
             >
               <Layers className="h-3.5 w-3.5" strokeWidth={1.5} />
               Project
-              {projCount > 0 && (
-                <span className="ml-1 font-mono">({projCount})</span>
-              )}
+              {projCount > 0 && <span className="ml-1 font-mono">({projCount})</span>}
             </Link>
             <button
               type="button"
@@ -124,8 +118,9 @@ export function Header() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-40 bg-void transition-opacity duration-500 lg:hidden ${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-          }`}
+        className={`fixed inset-0 z-40 bg-void transition-opacity duration-500 lg:hidden ${
+          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
       >
         <div className="container-x flex h-full flex-col overflow-y-auto pb-16 pt-24">
           <nav className="flex flex-col divide-y divide-hairline" aria-label="Mobile">
@@ -138,17 +133,11 @@ export function Header() {
                 {l.label}
               </Link>
             ))}
-            <Link
-              to="/project-builder"
-              className="py-5 font-display text-3xl text-gold"
-            >
+            <Link to="/project-builder" className="py-5 font-display text-3xl text-gold">
               Project Builder
               {projCount > 0 ? ` (${projCount})` : ""}
             </Link>
-            <Link
-              to="/wishlist"
-              className="py-5 font-display text-3xl text-ivory"
-            >
+            <Link to="/wishlist" className="py-5 font-display text-3xl text-ivory">
               Wishlist{wishCount > 0 ? ` (${wishCount})` : ""}
             </Link>
           </nav>
@@ -172,4 +161,3 @@ export function Header() {
     </>
   );
 }
-

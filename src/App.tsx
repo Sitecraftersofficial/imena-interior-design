@@ -24,32 +24,31 @@ import { NotFound } from "@/routes/not-found";
 const queryClient = new QueryClient();
 
 export function App() {
-    return (
-        <HelmetProvider>
-            <QueryClientProvider client={queryClient}>
-                <StoreProvider>
-                    <BrowserRouter>
-                        <ScrollToTop />
-                        <Routes>
-                            <Route element={<RootLayout />}>
-                                <Route index element={<Home />} />
-                                <Route path="products" element={<Catalog />} />
-                                <Route path="products/:slug" element={<ProductDetail />} />
-                                <Route path="categories/:slug" element={<CategoryPage />} />
-                                <Route path="inspiration" element={<Inspiration />} />
-                                <Route path="projects" element={<Projects />} />
-                                <Route path="project-builder" element={<ProjectBuilder />} />
-                                <Route path="services" element={<Services />} />
-                                <Route path="about" element={<About />} />
-                                <Route path="contact" element={<Contact />} />
-                                <Route path="wishlist" element={<WishlistPage />} />
-                                <Route path="*" element={<NotFound />} />
-                            </Route>
-                        </Routes>
-                    </BrowserRouter>
-                </StoreProvider>
-            </QueryClientProvider>
-        </HelmetProvider>
-    );
+  return (
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <StoreProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <Routes>
+              <Route element={<RootLayout />}>
+                <Route index element={<Home />} />
+                <Route path="products" element={<Catalog />} />
+                <Route path="products/:slug" element={<ProductDetail />} />
+                <Route path="categories/:slug" element={<CategoryPage />} />
+                <Route path="inspiration" element={<Inspiration />} />
+                <Route path="projects" element={<Projects />} />
+                <Route path="project-builder" element={<ProjectBuilder />} />
+                <Route path="services" element={<Services />} />
+                <Route path="about" element={<About />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="wishlist" element={<WishlistPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </StoreProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
+  );
 }
-

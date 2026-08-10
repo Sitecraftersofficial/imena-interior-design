@@ -75,8 +75,8 @@ export function Inspiration() {
           Room ideas.
         </h1>
         <p className="mt-6 max-w-xl text-base text-ivory/60">
-          A collection of interiors designed and installed by our team.
-          You can shop the pieces in each room.
+          A collection of interiors designed and installed by our team. You can shop the pieces in
+          each room.
         </p>
       </section>
 
@@ -85,8 +85,9 @@ export function Inspiration() {
           <Link
             key={r.slug}
             to="/products"
-            className={`group relative block overflow-hidden bg-ink outline -outline-offset-1 outline-hairline ${i === 0 ? "sm:col-span-2 sm:row-span-2 aspect-4/5" : "aspect-4/5"
-              }`}
+            className={`group relative block overflow-hidden bg-ink outline -outline-offset-1 outline-hairline ${
+              i === 0 ? "sm:col-span-2 sm:row-span-2 aspect-4/5" : "aspect-4/5"
+            }`}
           >
             <img
               src={r.image}
@@ -112,4 +113,3 @@ export function Inspiration() {
     </>
   );
 }
-

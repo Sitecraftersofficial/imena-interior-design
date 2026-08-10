@@ -5,11 +5,7 @@ import { Layers, Minus, Plus, Trash2, Send } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { productById } from "@/data/products";
 import { formatPrice } from "@/lib/format";
-import {
-  buildProjectMailto,
-  validateClientInfo,
-  type ClientInfo,
-} from "@/lib/send-to-manager";
+import { buildProjectMailto, validateClientInfo, type ClientInfo } from "@/lib/send-to-manager";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
 const CLIENT_KEY = "imena.client.v1";
@@ -53,9 +49,9 @@ export function ProjectBuilder() {
   const rows = project
     .map((p) => ({ item: p, product: productById(p.productId) }))
     .filter((r) => r.product) as {
-      item: (typeof project)[number];
-      product: NonNullable<ReturnType<typeof productById>>;
-    }[];
+    item: (typeof project)[number];
+    product: NonNullable<ReturnType<typeof productById>>;
+  }[];
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -153,9 +149,8 @@ export function ProjectBuilder() {
           </p>
         </div>
         <p className="mt-4 max-w-2xl text-sm text-ivory/50">
-          Choose items from different categories, add notes about rooms,
-          quantities and finish preferences, then submit for one combined
-          quote from our team.
+          Choose items from different categories, add notes about rooms, quantities and finish
+          preferences, then submit for one combined quote from our team.
         </p>
       </section>
 
@@ -163,9 +158,7 @@ export function ProjectBuilder() {
         <section className="container-x py-16">
           <div className="border border-hairline bg-ink/40 px-6 py-20 text-center">
             <Layers className="mx-auto h-6 w-6 text-gold" strokeWidth={1.5} />
-            <p className="mt-6 font-display text-2xl text-ivory">
-              Your project is empty.
-            </p>
+            <p className="mt-6 font-display text-2xl text-ivory">Your project is empty.</p>
             <p className="mt-2 text-sm text-ivory/50">
               Add objects from the catalog to begin composing your project.
             </p>
@@ -229,9 +222,7 @@ export function ProjectBuilder() {
                     <div className="inline-flex items-center border border-hairline">
                       <button
                         type="button"
-                        onClick={() =>
-                          updateProjectQty(product.id, item.quantity - 1)
-                        }
+                        onClick={() => updateProjectQty(product.id, item.quantity - 1)}
                         className="grid h-9 w-9 place-items-center text-ivory/70 hover:text-gold"
                         aria-label="Decrease quantity"
                       >
@@ -242,9 +233,7 @@ export function ProjectBuilder() {
                       </span>
                       <button
                         type="button"
-                        onClick={() =>
-                          updateProjectQty(product.id, item.quantity + 1)
-                        }
+                        onClick={() => updateProjectQty(product.id, item.quantity + 1)}
                         className="grid h-9 w-9 place-items-center text-ivory/70 hover:text-gold"
                         aria-label="Increase quantity"
                       >
@@ -327,8 +316,8 @@ export function ProjectBuilder() {
                 </p>
               )}
               <p className="mt-4 text-xs text-ivory/40">
-                Opens your mail app with the project pre-composed for our team.
-                Your saved objects remain untouched.
+                Opens your mail app with the project pre-composed for our team. Your saved objects
+                remain untouched.
               </p>
             </aside>
           </div>
@@ -364,10 +353,10 @@ function Field({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`mt-2 h-11 w-full border bg-void px-3 text-sm text-ivory focus:border-gold focus:outline-none ${invalid ? "border-red-400/70" : "border-hairline"
-          }`}
+        className={`mt-2 h-11 w-full border bg-void px-3 text-sm text-ivory focus:border-gold focus:outline-none ${
+          invalid ? "border-red-400/70" : "border-hairline"
+        }`}
       />
     </label>
   );
 }
-

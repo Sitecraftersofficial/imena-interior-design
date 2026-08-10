@@ -50,8 +50,8 @@ export function Contact() {
           <span className="italic text-gold">to our studio</span>.
         </h1>
         <p className="mt-6 max-w-xl text-base text-ivory/60">
-          Every project starts with a conversation. Share a few details and a
-          senior consultant will reply within one working day.
+          Every project starts with a conversation. Share a few details and a senior consultant will
+          reply within one working day.
         </p>
       </section>
 
@@ -63,8 +63,7 @@ export function Contact() {
               Thank you, {form.name.split(" ")[0] || "friend"}.
             </h2>
             <p className="mt-4 text-sm text-ivory/60">
-              Your request has arrived. A senior consultant will
-              reach you within one business day.
+              Your request has arrived. A senior consultant will reach you within one business day.
             </p>
             <Link
               to="/products"
@@ -125,8 +124,12 @@ export function Contact() {
         )}
 
         <aside className="space-y-10">
-          <ContactBlock icon={<MapPin className="h-4 w-4" strokeWidth={1.5} />} title="Kigali Showroom">
-            KG 7 Ave, Kacyiru<br />
+          <ContactBlock
+            icon={<MapPin className="h-4 w-4" strokeWidth={1.5} />}
+            title="Kigali Showroom"
+          >
+            KG 7 Ave, Kacyiru
+            <br />
             Kigali, Rwanda
           </ContactBlock>
           <ContactBlock icon={<Phone className="h-4 w-4" strokeWidth={1.5} />} title="Direct">
@@ -134,7 +137,10 @@ export function Contact() {
               +250 780 700 640
             </a>
           </ContactBlock>
-          <ContactBlock icon={<Mail className="h-4 w-4" strokeWidth={1.5} />} title="Correspondence">
+          <ContactBlock
+            icon={<Mail className="h-4 w-4" strokeWidth={1.5} />}
+            title="Correspondence"
+          >
             <a href={`mailto:${BUSINESS_CONFIG.managerEmail}`} className="hover:underline">
               {BUSINESS_CONFIG.managerEmail}
             </a>
@@ -204,4 +210,3 @@ function ContactBlock({
     </div>
   );
 }
-

@@ -69,10 +69,7 @@ export function Projects() {
 
       <section className="container-x space-y-24 pb-24">
         {projects.map((p, i) => (
-          <article
-            key={p.slug}
-            className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
-          >
+          <article key={p.slug} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div
               className={`relative aspect-4/5 overflow-hidden bg-ink outline-1 -outline-offset-1 outline-hairline ${i % 2 ? "lg:order-2" : ""}`}
             >
@@ -91,9 +88,7 @@ export function Projects() {
                 {p.title}
               </h2>
               <p className="mt-4 text-sm italic text-ivory/60">{p.location}</p>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-ivory/60">
-                {p.scope}
-              </p>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-ivory/60">{p.scope}</p>
               <Link
                 to="/contact"
                 className="mt-8 inline-block border border-hairline px-6 py-3 font-mono text-[10px] uppercase tracking-[0.3em] text-ivory hover:border-gold hover:text-gold"
@@ -107,4 +102,3 @@ export function Projects() {
     </>
   );
 }
-

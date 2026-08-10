@@ -63,12 +63,10 @@ export function Home() {
           <div className="max-w-2xl reveal">
             <p className="eyebrow">Est. Kigali · Architectural design studio</p>
             <h1 className="mt-8 font-display text-5xl leading-[0.95] text-ivory sm:text-6xl lg:text-8xl">
-              The silent{" "}
-              <span className="italic text-gold">language</span> of&nbsp;form.
+              The silent <span className="italic text-gold">language</span> of&nbsp;form.
             </h1>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-ivory/60 sm:text-lg">
-              Quality doors, hardware and complete interiors for modern
-              homes and businesses.
+              Quality doors, hardware and complete interiors for modern homes and businesses.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
@@ -123,7 +121,7 @@ export function Home() {
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
                 {categories.map((c) => (
-                  <div key={c.slug} className="w-full flex-shrink-0 px-4">
+                  <div key={c.slug} className="w-full shrink-0 px-4">
                     <CategoryCard category={c} />
                   </div>
                 ))}
@@ -132,7 +130,9 @@ export function Home() {
             {categories.length > 1 && (
               <div className="mt-6 flex items-center justify-center gap-4">
                 <button
-                  onClick={() => setCurrentSlide((prev) => (prev > 0 ? prev - 1 : categories.length - 1))}
+                  onClick={() =>
+                    setCurrentSlide((prev) => (prev > 0 ? prev - 1 : categories.length - 1))
+                  }
                   className="flex h-10 w-10 items-center justify-center border border-hairline bg-void text-ivory transition-colors hover:border-gold hover:text-gold"
                   aria-label="Previous category"
                 >
@@ -143,14 +143,17 @@ export function Home() {
                     <button
                       key={idx}
                       onClick={() => setCurrentSlide(idx)}
-                      className={`h-2 w-2 rounded-full transition-all ${idx === currentSlide ? "bg-gold w-6" : "bg-ivory/40 hover:bg-ivory/60"
-                        }`}
+                      className={`h-2 w-2 rounded-full transition-all ${
+                        idx === currentSlide ? "bg-gold w-6" : "bg-ivory/40 hover:bg-ivory/60"
+                      }`}
                       aria-label={`Go to slide ${idx + 1}`}
                     />
                   ))}
                 </div>
                 <button
-                  onClick={() => setCurrentSlide((prev) => (prev < categories.length - 1 ? prev + 1 : 0))}
+                  onClick={() =>
+                    setCurrentSlide((prev) => (prev < categories.length - 1 ? prev + 1 : 0))
+                  }
                   className="flex h-10 w-10 items-center justify-center border border-hairline bg-void text-ivory transition-colors hover:border-gold hover:text-gold"
                   aria-label="Next category"
                 >
@@ -179,7 +182,8 @@ export function Home() {
                 Featured products.
               </h2>
               <p className="mt-4 max-w-xl text-sm text-ivory/50">
-                A selection chosen by our design team. Every product is available to order, sample or request a quote.
+                A selection chosen by our design team. Every product is available to order, sample
+                or request a quote.
               </p>
             </div>
             <Link
@@ -223,23 +227,18 @@ export function Home() {
               <span className="italic text-gold">mood</span>.
             </h2>
             <p className="mt-8 max-w-lg text-base leading-relaxed text-ivory/60">
-              Design is about how a room feels and works every day. We supply
-              the doors, handles, cabinets and lighting that make an interior
-              beautiful, comfortable and long-lasting.
+              Design is about how a room feels and works every day. We supply the doors, handles,
+              cabinets and lighting that make an interior beautiful, comfortable and long-lasting.
             </p>
             <div className="mt-12 grid gap-8 border-t border-hairline pt-10 sm:grid-cols-2">
               <div>
-                <p className="font-display text-xl italic text-ivory">
-                  Custom Finishes
-                </p>
+                <p className="font-display text-xl italic text-ivory">Custom Finishes</p>
                 <p className="mt-2 text-xs leading-relaxed text-ivory/50">
                   Custom colour and material matching for hardware and paneling.
                 </p>
               </div>
               <div>
-                <p className="font-display text-xl italic text-ivory">
-                  Project Help
-                </p>
+                <p className="font-display text-xl italic text-ivory">Project Help</p>
                 <p className="mt-2 text-xs leading-relaxed text-ivory/50">
                   Extra support for big projects.
                 </p>
@@ -271,8 +270,8 @@ export function Home() {
           </div>
           <div>
             <p className="text-sm leading-relaxed text-void/70">
-              Book a consultation with our design team, or visit us in Kigali
-              to see the quality of Imena for yourself.
+              Book a consultation with our design team, or visit us in Kigali to see the quality of
+              Imena for yourself.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -294,4 +293,3 @@ export function Home() {
     </>
   );
 }
-

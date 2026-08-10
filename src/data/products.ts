@@ -16,19 +16,16 @@ export const products: Product[] = [];
 
 // ── Selectors ─────────────────────────────────────────────────────────
 
-export const productBySlug = (slug: string) =>
-  products.find((p) => p.slug === slug);
+export const productBySlug = (slug: string) => products.find((p) => p.slug === slug);
 
-export const productById = (id: string) =>
-  products.find((p) => p.id === id);
+export const productById = (id: string) => products.find((p) => p.id === id);
 
 export const productsByCategory = (categorySlug: string) =>
   products.filter((p) => p.category === categorySlug);
 
 export const featuredProducts = () => products.filter((p) => p.featured);
 
-export const categoryCount = (categorySlug: string) =>
-  productsByCategory(categorySlug).length;
+export const categoryCount = (categorySlug: string) => productsByCategory(categorySlug).length;
 
 export const searchProducts = (query: string) => {
   const q = query.trim().toLowerCase();
@@ -47,5 +44,4 @@ export const searchProducts = (query: string) => {
 export const allMaterials = () =>
   Array.from(new Set(products.flatMap((p) => (p.material ? [p.material] : []))));
 
-export const allFinishes = () =>
-  Array.from(new Set(products.flatMap((p) => p.finishes ?? [])));
+export const allFinishes = () => Array.from(new Set(products.flatMap((p) => p.finishes ?? [])));

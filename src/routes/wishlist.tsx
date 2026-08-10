@@ -8,32 +8,24 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
 export function WishlistPage() {
   const { wishlist, hydrated, toggleWish } = useStore();
-  const items = wishlist
-    .map((w) => productById(w.productId))
-    .filter(Boolean) as NonNullable<ReturnType<typeof productById>>[];
+  const items = wishlist.map((w) => productById(w.productId)).filter(Boolean) as NonNullable<
+    ReturnType<typeof productById>
+  >[];
 
   return (
     <>
       <Helmet>
         <title>Your Wishlist — Imena</title>
-        <meta
-          name="description"
-          content="Saved objects from the Imena catalog."
-        />
+        <meta name="description" content="Saved objects from the Imena catalog." />
         <meta property="og:title" content="Your Wishlist — Imena" />
-        <meta
-          property="og:description"
-          content="Saved objects from the Imena catalog."
-        />
+        <meta property="og:description" content="Saved objects from the Imena catalog." />
       </Helmet>
 
       <section className="container-x border-b border-hairline pb-10 pt-16 lg:pt-24">
         <Breadcrumbs items={[{ label: "Wishlist" }]} />
         <p className="eyebrow mt-6">Your archive</p>
         <div className="mt-6 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
-          <h1 className="font-display text-4xl leading-tight text-ivory sm:text-6xl">
-            Wishlist
-          </h1>
+          <h1 className="font-display text-4xl leading-tight text-ivory sm:text-6xl">Wishlist</h1>
           <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-ivory/50">
             {hydrated ? items.length : "—"} objects
           </p>
@@ -44,9 +36,7 @@ export function WishlistPage() {
         {!hydrated ? null : items.length === 0 ? (
           <div className="border border-hairline bg-ink/40 px-6 py-20 text-center">
             <Heart className="mx-auto h-6 w-6 text-gold" strokeWidth={1.5} />
-            <p className="mt-6 font-display text-2xl text-ivory">
-              Your wishlist is empty.
-            </p>
+            <p className="mt-6 font-display text-2xl text-ivory">Your wishlist is empty.</p>
             <p className="mt-2 text-sm text-ivory/50">
               Save objects from the catalog by tapping the heart icon.
             </p>
@@ -75,4 +65,3 @@ export function WishlistPage() {
     </>
   );
 }
-

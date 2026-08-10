@@ -12,9 +12,7 @@ export function ProductGrid({
     return (
       <div className="border border-hairline bg-ink/40 p-16 text-center">
         <p className="font-display text-2xl text-ivory">No products match.</p>
-        <p className="mt-2 text-sm text-ivory/50">
-          Try adjusting your filters or search.
-        </p>
+        <p className="mt-2 text-sm text-ivory/50">Try adjusting your filters or search.</p>
       </div>
     );
   }

@@ -59,8 +59,8 @@ export function Services() {
           <span className="italic text-gold"> sketch to installation</span>.
         </h1>
         <p className="mt-6 max-w-xl text-base text-ivory/60">
-          We guide your project from the first idea, through production and
-          delivery, to installation on site.
+          We guide your project from the first idea, through production and delivery, to
+          installation on site.
         </p>
       </section>
 
@@ -80,9 +80,7 @@ export function Services() {
                 <h3 className="font-display text-2xl leading-tight text-ivory transition-colors group-hover:text-gold">
                   {s.title}
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-ivory/55">
-                  {s.body}
-                </p>
+                <p className="mt-4 text-sm leading-relaxed text-ivory/55">{s.body}</p>
               </div>
             </article>
           ))}
@@ -108,4 +106,3 @@ export function Services() {
     </>
   );
 }
-

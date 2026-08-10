@@ -24,9 +24,7 @@ export function CategoryCard({ category }: { category: Category }) {
           <h3 className="mt-1 font-display text-lg sm:text-xl text-ivory transition-colors group-hover:text-gold">
             {category.name}
           </h3>
-          <p className="mt-0.5 line-clamp-2 text-[11px] text-ivory/55 italic">
-            {category.tagline}
-          </p>
+          <p className="mt-0.5 line-clamp-2 text-[11px] text-ivory/55 italic">{category.tagline}</p>
           <span className="mt-2 inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] text-gold opacity-0 transition-all duration-300 group-hover:opacity-100">
             View collection
           </span>
@@ -35,4 +33,3 @@ export function CategoryCard({ category }: { category: Category }) {
     </Link>
   );
 }
-

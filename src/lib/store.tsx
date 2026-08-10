@@ -80,9 +80,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setProject((prev) => {
       const existing = prev.find((p) => p.productId === id);
       if (existing) {
-        return prev.map((p) =>
-          p.productId === id ? { ...p, quantity: p.quantity + qty } : p,
-        );
+        return prev.map((p) => (p.productId === id ? { ...p, quantity: p.quantity + qty } : p));
       }
       return [...prev, { productId: id, quantity: qty, addedAt: Date.now() }];
     });
@@ -94,16 +92,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const updateProjectQty = useCallback((id: string, qty: number) => {
     setProject((prev) =>
-      prev.map((p) =>
-        p.productId === id ? { ...p, quantity: Math.max(1, qty) } : p,
-      ),
+      prev.map((p) => (p.productId === id ? { ...p, quantity: Math.max(1, qty) } : p)),
     );
   }, []);
 
   const updateProjectNote = useCallback((id: string, note: string) => {
-    setProject((prev) =>
-      prev.map((p) => (p.productId === id ? { ...p, note } : p)),
-    );
+    setProject((prev) => prev.map((p) => (p.productId === id ? { ...p, note } : p)));
   }, []);
 
   const clearProject = useCallback(() => setProject([]), []);

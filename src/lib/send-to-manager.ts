@@ -36,7 +36,8 @@ export function validateClientInfo(info: ClientInfo): ValidationError | null {
   const email = info.email.trim();
   if (!name) return { field: "name", message: "Please add your full name before submitting." };
   if (name.length > 100) return { field: "name", message: "Name must be under 100 characters." };
-  if (!email) return { field: "email", message: "Please add your email address before submitting." };
+  if (!email)
+    return { field: "email", message: "Please add your email address before submitting." };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return { field: "email", message: "That email address doesn't look valid." };
   if (email.length > 255) return { field: "email", message: "Email must be under 255 characters." };

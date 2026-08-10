@@ -9,14 +9,10 @@ export function Footer() {
       <div className="container-x py-20">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <img
-              src={imenaLogo}
-              alt="Imena Interior Design"
-              className="h-16 w-auto"
-            />
+            <img src={imenaLogo} alt="Imena Interior Design" className="h-16 w-auto" />
             <p className="mt-6 text-sm leading-relaxed text-ivory/50">
-              We design, supply and install doors, hardware, kitchens and
-              complete interiors. Based in Kigali, Rwanda.
+              We design, supply and install doors, hardware, kitchens and complete interiors. Based
+              in Kigali, Rwanda.
             </p>
             <p className="eyebrow mt-8">Correspondence</p>
             <a
@@ -65,11 +61,17 @@ export function Footer() {
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
             &copy; {new Date().getFullYear()} Imena Architectural. All rights reserved.
           </p>
-          <div className="flex gap-8 font-mono text-[10px] uppercase tracking-[0.3em] text-ivory/30">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Legal</a>
-          </div>
+          <p className="text-sm text-ivory/30">
+            Made in Rwanda by the{" "}
+            <a
+              href="https://www.sitecraftersltd.com/"
+              className="underline hover:text-ivory/60 transition-colors duration-500"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Sitecrafters Team
+            </a>
+          </p>
         </div>
       </div>
     </footer>
@@ -89,10 +91,7 @@ function FooterColumn({
       <ul className="space-y-3">
         {links.map((l) => (
           <li key={`${l.to}-${l.label}`}>
-            <Link
-              to={l.to}
-              className="text-sm text-ivory/60 transition-colors hover:text-gold"
-            >
+            <Link to={l.to} className="text-sm text-ivory/60 transition-colors hover:text-gold">
               {l.label}
             </Link>
           </li>

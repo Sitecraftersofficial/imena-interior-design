@@ -40,10 +40,7 @@ export function CategoryPage() {
         <div className="absolute inset-0 bg-linear-to-t from-void via-void/60 to-void/20" />
         <div className="container-x relative z-10 flex h-full flex-col justify-end pb-12">
           <Breadcrumbs
-            items={[
-              { label: "Collections", to: "/products" },
-              { label: category.name },
-            ]}
+            items={[{ label: "Collections", to: "/products" }, { label: category.name }]}
           />
           <p className="eyebrow mt-4">
             Department · {String(items.length).padStart(2, "0")} objects
@@ -51,16 +48,12 @@ export function CategoryPage() {
           <h1 className="mt-4 font-display text-5xl leading-[0.95] text-ivory sm:text-7xl">
             {category.name}
           </h1>
-          <p className="mt-3 max-w-xl text-lg italic text-ivory/60">
-            {category.tagline}
-          </p>
+          <p className="mt-3 max-w-xl text-lg italic text-ivory/60">{category.tagline}</p>
         </div>
       </section>
 
       <section className="container-x py-16">
-        <p className="max-w-2xl text-base leading-relaxed text-ivory/60">
-          {category.description}
-        </p>
+        <p className="max-w-2xl text-base leading-relaxed text-ivory/60">{category.description}</p>
       </section>
 
       <section className="container-x pb-24">
@@ -73,9 +66,7 @@ export function CategoryPage() {
           <div className="mb-12 flex items-end justify-between">
             <div>
               <p className="eyebrow">Continue exploring</p>
-              <h2 className="mt-4 font-display text-3xl text-ivory">
-                Other departments.
-              </h2>
+              <h2 className="mt-4 font-display text-3xl text-ivory">Other departments.</h2>
             </div>
             <Link
               to="/products"
@@ -87,11 +78,7 @@ export function CategoryPage() {
           </div>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {otherCats.map((c) => (
-              <Link
-                key={c.slug}
-                to={`/categories/${c.slug}`}
-                className="group block"
-              >
+              <Link key={c.slug} to={`/categories/${c.slug}`} className="group block">
                 <div className="aspect-4/5 overflow-hidden bg-ink outline-1 -outline-offset-1 outline-hairline">
                   <img
                     src={c.image}
@@ -111,4 +98,3 @@ export function CategoryPage() {
     </>
   );
 }
-

@@ -45,10 +45,7 @@ export function ProductCard({ product, eager = false }: Props) {
           aria-pressed={wished}
           className="absolute right-3 top-3 grid h-9 w-9 place-items-center border border-hairline bg-void/50 text-ivory backdrop-blur-sm transition-colors hover:border-gold hover:text-gold"
         >
-          <Heart
-            className={`h-4 w-4 ${wished ? "fill-gold text-gold" : ""}`}
-            strokeWidth={1.5}
-          />
+          <Heart className={`h-4 w-4 ${wished ? "fill-gold text-gold" : ""}`} strokeWidth={1.5} />
         </button>
       </Link>
 
@@ -57,10 +54,7 @@ export function ProductCard({ product, eager = false }: Props) {
           {product.category.replace(/-/g, " ")}
         </p>
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
-          <Link
-            to={`/products/${product.slug}`}
-            className="min-w-0"
-          >
+          <Link to={`/products/${product.slug}`} className="min-w-0">
             <h3 className="truncate font-display text-lg leading-tight text-ivory transition-colors group-hover:text-gold">
               {product.name}
             </h3>
@@ -84,4 +78,3 @@ export function ProductCard({ product, eager = false }: Props) {
     </article>
   );
 }
-

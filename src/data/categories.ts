@@ -18,43 +18,37 @@ export const categories: Category[] = [
     slug: "outdoor",
     name: "Outdoor",
     tagline: "Outdoor spaces and features.",
-    description:
-      "Garden features, outdoor structures and landscape elements for your property.",
+    description: "Garden features, outdoor structures and landscape elements for your property.",
     image: heroDoor,
   },
   {
     slug: "wall-panels",
     name: "Wall Panels/Partition",
     tagline: "Wall design.",
-    description:
-      "Fluted walnut, oak and acoustic panels for entrance halls, bedrooms and lounges.",
+    description: "Fluted walnut, oak and acoustic panels for entrance halls, bedrooms and lounges.",
     image: heroDoor,
   },
   {
     slug: "furniture",
     name: "Furniture",
     tagline: "Quality furniture.",
-    description:
-      "Sofas, tables and lounge chairs from independent European workshops.",
+    description: "Sofas, tables and lounge chairs from independent European workshops.",
     image: heroDoor,
   },
   {
     slug: "kitchens",
     name: "Kitchens",
     tagline: "Custom kitchens.",
-    description:
-      "Bespoke kitchen systems in lacquered stone, brushed metal and warm timber.",
+    description: "Bespoke kitchen systems in lacquered stone, brushed metal and warm timber.",
     image: heroDoor,
   },
   {
     slug: "wardrobes",
     name: "Wardrobes",
     tagline: "Smart storage.",
-    description:
-      "Full-height wardrobes and dressing rooms in walnut, smoked glass and brass.",
+    description: "Full-height wardrobes and dressing rooms in walnut, smoked glass and brass.",
     image: heroDoor,
   },
 ];
 
-export const categoryBySlug = (slug: string) =>
-  categories.find((c) => c.slug === slug);
+export const categoryBySlug = (slug: string) => categories.find((c) => c.slug === slug);

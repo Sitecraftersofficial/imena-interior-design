@@ -1,11 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight, Heart, Plus } from "lucide-react";
-import {
-  productBySlug,
-  productsByCategory,
-  productById,
-} from "@/data/products";
+import { productBySlug, productsByCategory, productById } from "@/data/products";
 import { categoryBySlug } from "@/data/categories";
 import { formatPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
@@ -63,9 +59,7 @@ export function ProductDetail() {
         <Breadcrumbs
           items={[
             { label: "Collections", to: "/products" },
-            ...(category
-              ? [{ label: category.name, to: `/categories/${category.slug}` }]
-              : []),
+            ...(category ? [{ label: category.name, to: `/categories/${category.slug}` }] : []),
             { label: product.name },
           ]}
         />
@@ -83,10 +77,7 @@ export function ProductDetail() {
 
         <div className="flex flex-col">
           {category && (
-            <Link
-              to={`/categories/${category.slug}`}
-              className="eyebrow"
-            >
+            <Link to={`/categories/${category.slug}`} className="eyebrow">
               {category.name}
             </Link>
           )}
@@ -111,8 +102,11 @@ export function ProductDetail() {
               type="button"
               onClick={() => toggleWish(product.id)}
               aria-pressed={wished}
-              className={`grid h-12 w-12 place-items-center border transition-colors ${wished ? "border-gold text-gold" : "border-hairline text-ivory hover:border-gold hover:text-gold"
-                }`}
+              className={`grid h-12 w-12 place-items-center border transition-colors ${
+                wished
+                  ? "border-gold text-gold"
+                  : "border-hairline text-ivory hover:border-gold hover:text-gold"
+              }`}
               aria-label={wished ? "Remove from wishlist" : "Save to wishlist"}
             >
               <Heart className={`h-4 w-4 ${wished ? "fill-gold" : ""}`} strokeWidth={1.5} />
@@ -127,9 +121,7 @@ export function ProductDetail() {
 
           <div className="mt-12 border-t border-hairline pt-8">
             <p className="eyebrow mb-4">Description</p>
-            <p className="text-sm leading-relaxed text-ivory/70">
-              {product.description}
-            </p>
+            <p className="text-sm leading-relaxed text-ivory/70">{product.description}</p>
           </div>
 
           {specs.length > 0 && (
@@ -156,9 +148,7 @@ export function ProductDetail() {
             <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="eyebrow">Related</p>
-                <h2 className="mt-4 font-display text-3xl text-ivory">
-                  From the same shelf.
-                </h2>
+                <h2 className="mt-4 font-display text-3xl text-ivory">From the same shelf.</h2>
               </div>
               {category && (
                 <Link
@@ -177,4 +167,3 @@ export function ProductDetail() {
     </>
   );
 }
-

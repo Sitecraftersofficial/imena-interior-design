@@ -61,9 +61,7 @@ export function Catalog() {
         list = [...list].sort((a, b) => (b.price ?? -1) - (a.price ?? -1));
         break;
       default:
-        list = [...list].sort(
-          (a, b) => Number(b.featured) - Number(a.featured),
-        );
+        list = [...list].sort((a, b) => Number(b.featured) - Number(a.featured));
     }
     return list;
   }, [search]);
@@ -73,23 +71,29 @@ export function Catalog() {
 
   const setSearch = (patch: Record<string, string | undefined>) => {
     setVisible(PAGE);
-    setSearchParams((prev) => {
-      const next = new URLSearchParams(prev);
-      for (const [key, value] of Object.entries(patch)) {
-        if (value === undefined || value === "") {
-          next.delete(key);
-        } else {
-          next.set(key, value);
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        for (const [key, value] of Object.entries(patch)) {
+          if (value === undefined || value === "") {
+            next.delete(key);
+          } else {
+            next.set(key, value);
+          }
         }
-      }
-      return next;
-    }, { replace: true });
+        return next;
+      },
+      { replace: true },
+    );
   };
 
   const materials = allMaterials();
   const finishes = allFinishes();
   const activeFilters = [
-    search.category && { key: "category", label: categoryBySlug(search.category)?.name ?? search.category },
+    search.category && {
+      key: "category",
+      label: categoryBySlug(search.category)?.name ?? search.category,
+    },
     search.material && { key: "material", label: search.material },
     search.finish && { key: "finish", label: search.finish },
     search.q && { key: "q", label: `"${search.q}"` },
@@ -123,9 +127,7 @@ export function Catalog() {
           </p>
         </div>
         {activeCategory && (
-          <p className="mt-4 max-w-xl text-sm text-ivory/50">
-            {activeCategory.description}
-          </p>
+          <p className="mt-4 max-w-xl text-sm text-ivory/50">{activeCategory.description}</p>
         )}
       </section>
 
@@ -228,11 +230,7 @@ export function Catalog() {
 
       {/* Mobile filter drawer */}
       {drawerOpen && (
-        <div
-          className="fixed inset-0 z-50 lg:hidden"
-          role="dialog"
-          aria-modal="true"
-        >
+        <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true">
           <button
             aria-label="Close filters"
             onClick={() => setDrawerOpen(false)}
@@ -262,9 +260,7 @@ export function Catalog() {
                 <label className="mb-2 block eyebrow">Sort</label>
                 <select
                   value={search.sort}
-                  onChange={(e) =>
-                    setSearch({ sort: e.target.value })
-                  }
+                  onChange={(e) => setSearch({ sort: e.target.value })}
                   className="h-10 w-full border border-hairline bg-void px-3 font-mono text-[10px] uppercase tracking-[0.25em] text-ivory"
                 >
                   <option value="featured">Featured</option>
@@ -309,8 +305,9 @@ function FiltersPanel({
           <li>
             <button
               onClick={() => setSearch({ category: undefined })}
-              className={`text-left text-sm transition-colors ${!search.category ? "text-gold" : "text-ivory/60 hover:text-ivory"
-                }`}
+              className={`text-left text-sm transition-colors ${
+                !search.category ? "text-gold" : "text-ivory/60 hover:text-ivory"
+              }`}
             >
               All departments
             </button>
@@ -323,10 +320,9 @@ function FiltersPanel({
                     category: search.category === c.slug ? undefined : c.slug,
                   })
                 }
-                className={`text-sm transition-colors ${search.category === c.slug
-                  ? "text-gold"
-                  : "text-ivory/60 hover:text-ivory"
-                  }`}
+                className={`text-sm transition-colors ${
+                  search.category === c.slug ? "text-gold" : "text-ivory/60 hover:text-ivory"
+                }`}
               >
                 {c.name}
               </button>
@@ -342,8 +338,9 @@ function FiltersPanel({
             <li>
               <button
                 onClick={() => setSearch({ material: undefined })}
-                className={`text-left text-sm ${!search.material ? "text-gold" : "text-ivory/60 hover:text-ivory"
-                  }`}
+                className={`text-left text-sm ${
+                  !search.material ? "text-gold" : "text-ivory/60 hover:text-ivory"
+                }`}
               >
                 Any
               </button>
@@ -351,13 +348,10 @@ function FiltersPanel({
             {materials.map((m) => (
               <li key={m}>
                 <button
-                  onClick={() =>
-                    setSearch({ material: search.material === m ? undefined : m })
-                  }
-                  className={`text-left text-sm ${search.material === m
-                    ? "text-gold"
-                    : "text-ivory/60 hover:text-ivory"
-                    }`}
+                  onClick={() => setSearch({ material: search.material === m ? undefined : m })}
+                  className={`text-left text-sm ${
+                    search.material === m ? "text-gold" : "text-ivory/60 hover:text-ivory"
+                  }`}
                 >
                   {m}
                 </button>
@@ -374,13 +368,12 @@ function FiltersPanel({
             {finishes.map((f) => (
               <li key={f}>
                 <button
-                  onClick={() =>
-                    setSearch({ finish: search.finish === f ? undefined : f })
-                  }
-                  className={`border px-2.5 py-1 text-xs transition-colors ${search.finish === f
-                    ? "border-gold text-gold"
-                    : "border-hairline text-ivory/60 hover:border-ivory hover:text-ivory"
-                    }`}
+                  onClick={() => setSearch({ finish: search.finish === f ? undefined : f })}
+                  className={`border px-2.5 py-1 text-xs transition-colors ${
+                    search.finish === f
+                      ? "border-gold text-gold"
+                      : "border-hairline text-ivory/60 hover:border-ivory hover:text-ivory"
+                  }`}
                 >
                   {f}
                 </button>
@@ -392,4 +385,3 @@ function FiltersPanel({
     </div>
   );
 }
-

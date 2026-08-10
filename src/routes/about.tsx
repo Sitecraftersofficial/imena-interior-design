@@ -37,19 +37,15 @@ export function About() {
         />
         <div className="space-y-6 text-base leading-relaxed text-ivory/70">
           <p>
-            Imena was founded in Kigali by a small team of architects and
-            furniture makers who believed doors, handles and panels should be
-            made with the same care as the buildings around them.
+            Imena was founded in Kigali by a small team of architects and furniture makers who
+            believed doors, handles and panels should be made with the same care as the buildings
+            around them.
           </p>
           <p>
-            We design, supply and install doors, hardware, kitchens, wardrobes
-            and complete interiors for homes, hotels and public spaces across
-            Rwanda and East Africa.
+            We design, supply and install doors, hardware, kitchens, wardrobes and complete
+            interiors for homes, hotels and public spaces across Rwanda and East Africa.
           </p>
-          <p>
-            Every item in our catalog is built to be used and enjoyed for a
-            very long time.
-          </p>
+          <p>Every item in our catalog is built to be used and enjoyed for a very long time.</p>
           <div className="grid grid-cols-3 gap-6 border-t border-hairline pt-10">
             <Stat n="2016" l="Founded, Kigali" />
             <Stat n="8" l="Countries served" />
@@ -71,10 +67,7 @@ function Stat({ n, l }: { n: string; l: string }) {
   return (
     <div>
       <p className="font-display text-3xl text-ivory">{n}</p>
-      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.25em] text-ivory/40">
-        {l}
-      </p>
+      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.25em] text-ivory/40">{l}</p>
     </div>
   );
 }
-
