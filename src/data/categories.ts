@@ -1,10 +1,12 @@
 import type { Category } from "@/lib/types";
 
 // Generated + uploaded imagery
+import dinerImg from "@/assets/category/diner.jpeg";
 import doorsImg from "@/assets/category/doors.jpeg";
 import furnitureImg from "@/assets/category/furniture.jpeg";
 import kitchenImg from "@/assets/category/kitchen.jpeg";
 import outdoorImg from "@/assets/category/outdoor.jpeg";
+import staircaseImg from "@/assets/category/staircase.jpeg";
 import wallPanelsImg from "@/assets/category/wall-panelspartitions.jpeg";
 import wardrobeImg from "@/assets/category/wardrobe.jpeg";
 
@@ -32,6 +34,20 @@ export const categories: Category[] = [
     tagline: "Wall design.",
     description: "Fluted walnut, oak and acoustic panels for entrance halls, bedrooms and lounges.",
     image: wallPanelsImg,
+  },
+  {
+    slug: "diner",
+    name: "Diner",
+    tagline: "Dining spaces.",
+    description: "Elegant dining tables and furniture for sophisticated dining experiences.",
+    image: dinerImg,
+  },
+  {
+    slug: "staircase",
+    name: "Staircase",
+    tagline: "Custom staircases.",
+    description: "Bespoke staircase designs combining functionality with architectural beauty.",
+    image: staircaseImg,
   },
   {
     slug: "furniture",
